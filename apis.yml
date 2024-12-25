@@ -25,7 +25,7 @@ apis:
       - type: Documentation
         url: https://developer.hashicorp.com/vault/api-docs/secret/key-management
       - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-search/hashicorp/refs/heads/main/properties/hashicorp-vault-openapi.yml
+        url: https://raw.githubusercontent.com/api-search/hashicorp/refs/heads/main/openapihashicorp-vault-openapi.yml
     aid: hashicorp:hashicorp-key-management-secrets-engine-api
 common:
   - type: Portal
