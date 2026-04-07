@@ -10,10 +10,10 @@ url: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Infrastructure
-  - Platform
   - Cloud
   - DevOps
+  - Infrastructure
+  - Platform
 created: '2024-02-01'
 modified: '2026-03-16'
 specificationVersion: '0.19'
@@ -62,8 +62,8 @@ apis:
   - aid: hashicorp:hashicorp-consul
     name: HashiCorp Consul
     tags:
-      - Service Mesh
       - Service Discovery
+      - Service Mesh
     humanURL: https://developer.hashicorp.com/consul
     properties:
       - type: Documentation

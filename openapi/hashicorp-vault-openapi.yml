@@ -20,7 +20,7 @@ paths:
         'list'.
       operationId: getAuthTokenAccessors
       tags:
-        - auth
+        - Auth
       parameters:
         - name: list
           description: Return a list if `true`
@@ -36,7 +36,7 @@ paths:
       summary: HashiCorp The token create path is used to create new tokens.
       operationId: postAuthTokenCreate
       tags:
-        - auth
+        - Auth
       responses:
         '200':
           description: OK
@@ -46,7 +46,7 @@ paths:
       summary: HashiCorp The token create path is used to create new orphan tokens.
       operationId: postAuthTokenCreateOrphan
       tags:
-        - auth
+        - Auth
       responses:
         '200':
           description: OK
@@ -63,7 +63,7 @@ paths:
       summary: HashiCorp This token create path is used to create new tokens adhering to the given role.
       operationId: postAuthTokenCreateRole_name
       tags:
-        - auth
+        - Auth
       responses:
         '200':
           description: OK
@@ -73,7 +73,7 @@ paths:
       summary: HashiCorp This endpoint will lookup a token and its properties.
       operationId: getAuthTokenLookup
       tags:
-        - auth
+        - Auth
       responses:
         '200':
           description: OK
@@ -81,7 +81,7 @@ paths:
       summary: HashiCorp This endpoint will lookup a token and its properties.
       operationId: postAuthTokenLookup
       tags:
-        - auth
+        - Auth
       requestBody:
         content:
           application/json:
@@ -100,7 +100,7 @@ paths:
       summary: HashiCorp This endpoint will lookup a token associated with the given accessor and its properties. Response will not contain the token ID.
       operationId: postAuthTokenLookupAccessor
       tags:
-        - auth
+        - Auth
       requestBody:
         content:
           application/json:
@@ -119,7 +119,7 @@ paths:
       summary: HashiCorp This endpoint will lookup a token and its properties.
       operationId: getAuthTokenLookupSelf
       tags:
-        - auth
+        - Auth
       responses:
         '200':
           description: OK
@@ -127,7 +127,7 @@ paths:
       summary: HashiCorp This endpoint will lookup a token and its properties.
       operationId: postAuthTokenLookupSelf
       tags:
-        - auth
+        - Auth
       requestBody:
         content:
           application/json:
@@ -146,7 +146,7 @@ paths:
       summary: HashiCorp This endpoint will renew the given token and prevent expiration.
       operationId: postAuthTokenRenew
       tags:
-        - auth
+        - Auth
       requestBody:
         content:
           application/json:
@@ -170,7 +170,7 @@ paths:
       summary: HashiCorp This endpoint will renew a token associated with the given accessor and its properties. Response will not contain the token ID.
       operationId: postAuthTokenRenewAccessor
       tags:
-        - auth
+        - Auth
       requestBody:
         content:
           application/json:
@@ -194,7 +194,7 @@ paths:
       summary: HashiCorp This endpoint will renew the token used to call it and prevent expiration.
       operationId: postAuthTokenRenewSelf
       tags:
-        - auth
+        - Auth
       requestBody:
         content:
           application/json:
@@ -218,7 +218,7 @@ paths:
       summary: HashiCorp This endpoint will delete the given token and all of its child tokens.
       operationId: postAuthTokenRevoke
       tags:
-        - auth
+        - Auth
       requestBody:
         content:
           application/json:
@@ -237,7 +237,7 @@ paths:
       summary: HashiCorp This endpoint will delete the token associated with the accessor and all of its child tokens.
       operationId: postAuthTokenRevokeAccessor
       tags:
-        - auth
+        - Auth
       requestBody:
         content:
           application/json:
@@ -256,7 +256,7 @@ paths:
       summary: HashiCorp This endpoint will delete the token and orphan its child tokens.
       operationId: postAuthTokenRevokeOrphan
       tags:
-        - auth
+        - Auth
       requestBody:
         content:
           application/json:
@@ -275,7 +275,7 @@ paths:
       summary: HashiCorp This endpoint will delete the token used to call it and all of its child tokens.
       operationId: postAuthTokenRevokeSelf
       tags:
-        - auth
+        - Auth
       responses:
         '200':
           description: OK
@@ -285,7 +285,7 @@ paths:
       summary: HashiCorp This endpoint lists configured roles.
       operationId: getAuthTokenRoles
       tags:
-        - auth
+        - Auth
       parameters:
         - name: list
           description: Return a list if `true`
@@ -307,14 +307,14 @@ paths:
     get:
       operationId: getAuthTokenRolesRole_name
       tags:
-        - auth
+        - Auth
       responses:
         '200':
           description: OK
     post:
       operationId: postAuthTokenRolesRole_name
       tags:
-        - auth
+        - Auth
       requestBody:
         content:
           application/json:
@@ -419,7 +419,7 @@ paths:
     delete:
       operationId: deleteAuthTokenRolesRole_name
       tags:
-        - auth
+        - Auth
       responses:
         '204':
           description: empty body
@@ -431,7 +431,7 @@ paths:
         conditions have occurred.
       operationId: postAuthTokenTidy
       tags:
-        - auth
+        - Auth
       responses:
         '200':
           description: OK
@@ -449,7 +449,7 @@ paths:
       summary: HashiCorp Retrieve the secret at the specified location.
       operationId: getCubbyholePath
       tags:
-        - secrets
+        - Secrets
       parameters:
         - name: list
           description: Return a list if `true`
@@ -463,7 +463,7 @@ paths:
       summary: HashiCorp Store a secret at the specified location.
       operationId: postCubbyholePath
       tags:
-        - secrets
+        - Secrets
       responses:
         '200':
           description: OK
@@ -471,7 +471,7 @@ paths:
       summary: HashiCorp Deletes the secret at the specified location.
       operationId: deleteCubbyholePath
       tags:
-        - secrets
+        - Secrets
       responses:
         '204':
           description: empty body
@@ -481,7 +481,7 @@ paths:
       summary: HashiCorp Create a new alias.
       operationId: postIdentityAlias
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -512,7 +512,7 @@ paths:
       summary: HashiCorp List all the alias IDs.
       operationId: getIdentityAliasId
       tags:
-        - identity
+        - Identity
       parameters:
         - name: list
           description: Return a list if `true`
@@ -535,7 +535,7 @@ paths:
       summary: HashiCorp Update, read or delete an alias ID.
       operationId: getIdentityAliasIdId
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
@@ -543,7 +543,7 @@ paths:
       summary: HashiCorp Update, read or delete an alias ID.
       operationId: postIdentityAliasIdId
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -569,7 +569,7 @@ paths:
       summary: HashiCorp Update, read or delete an alias ID.
       operationId: deleteIdentityAliasIdId
       tags:
-        - identity
+        - Identity
       responses:
         '204':
           description: empty body
@@ -579,7 +579,7 @@ paths:
       summary: HashiCorp Create a new entity
       operationId: postIdentityEntity
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -613,7 +613,7 @@ paths:
       summary: HashiCorp Create a new alias.
       operationId: postIdentityEntityAlias
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -648,7 +648,7 @@ paths:
       summary: HashiCorp List all the alias IDs.
       operationId: getIdentityEntityAliasId
       tags:
-        - identity
+        - Identity
       parameters:
         - name: list
           description: Return a list if `true`
@@ -671,7 +671,7 @@ paths:
       summary: HashiCorp Update, read or delete an alias ID.
       operationId: getIdentityEntityAliasIdId
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
@@ -679,7 +679,7 @@ paths:
       summary: HashiCorp Update, read or delete an alias ID.
       operationId: postIdentityEntityAliasIdId
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -709,7 +709,7 @@ paths:
       summary: HashiCorp Update, read or delete an alias ID.
       operationId: deleteIdentityEntityAliasIdId
       tags:
-        - identity
+        - Identity
       responses:
         '204':
           description: empty body
@@ -719,7 +719,7 @@ paths:
       summary: HashiCorp Delete all of the entities provided
       operationId: postIdentityEntityBatchDelete
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -740,7 +740,7 @@ paths:
       summary: HashiCorp List all the entity IDs
       operationId: getIdentityEntityId
       tags:
-        - identity
+        - Identity
       parameters:
         - name: list
           description: Return a list if `true`
@@ -763,7 +763,7 @@ paths:
       summary: HashiCorp Update, read or delete an entity using entity ID
       operationId: getIdentityEntityIdId
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
@@ -771,7 +771,7 @@ paths:
       summary: HashiCorp Update, read or delete an entity using entity ID
       operationId: postIdentityEntityIdId
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -800,7 +800,7 @@ paths:
       summary: HashiCorp Update, read or delete an entity using entity ID
       operationId: deleteIdentityEntityIdId
       tags:
-        - identity
+        - Identity
       responses:
         '204':
           description: empty body
@@ -810,7 +810,7 @@ paths:
       summary: HashiCorp Merge two or more entities together
       operationId: postIdentityEntityMerge
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -837,7 +837,7 @@ paths:
       summary: HashiCorp List all the entity names
       operationId: getIdentityEntityName
       tags:
-        - identity
+        - Identity
       parameters:
         - name: list
           description: Return a list if `true`
@@ -860,7 +860,7 @@ paths:
       summary: HashiCorp Update, read or delete an entity using entity name
       operationId: getIdentityEntityNameName
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
@@ -868,7 +868,7 @@ paths:
       summary: HashiCorp Update, read or delete an entity using entity name
       operationId: postIdentityEntityNameName
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -897,7 +897,7 @@ paths:
       summary: HashiCorp Update, read or delete an entity using entity name
       operationId: deleteIdentityEntityNameName
       tags:
-        - identity
+        - Identity
       responses:
         '204':
           description: empty body
@@ -907,7 +907,7 @@ paths:
       summary: HashiCorp Create a new group.
       operationId: postIdentityGroup
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -951,7 +951,7 @@ paths:
       summary: HashiCorp Creates a new group alias, or updates an existing one.
       operationId: postIdentityGroupAlias
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -979,7 +979,7 @@ paths:
       summary: HashiCorp List all the group alias IDs.
       operationId: getIdentityGroupAliasId
       tags:
-        - identity
+        - Identity
       parameters:
         - name: list
           description: Return a list if `true`
@@ -1000,14 +1000,14 @@ paths:
     get:
       operationId: getIdentityGroupAliasIdId
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
     post:
       operationId: postIdentityGroupAliasIdId
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1029,7 +1029,7 @@ paths:
     delete:
       operationId: deleteIdentityGroupAliasIdId
       tags:
-        - identity
+        - Identity
       responses:
         '204':
           description: empty body
@@ -1039,7 +1039,7 @@ paths:
       summary: HashiCorp List all the group IDs.
       operationId: getIdentityGroupId
       tags:
-        - identity
+        - Identity
       parameters:
         - name: list
           description: Return a list if `true`
@@ -1062,7 +1062,7 @@ paths:
       summary: HashiCorp Update or delete an existing group using its ID.
       operationId: getIdentityGroupIdId
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
@@ -1070,7 +1070,7 @@ paths:
       summary: HashiCorp Update or delete an existing group using its ID.
       operationId: postIdentityGroupIdId
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1109,7 +1109,7 @@ paths:
       summary: HashiCorp Update or delete an existing group using its ID.
       operationId: deleteIdentityGroupIdId
       tags:
-        - identity
+        - Identity
       responses:
         '204':
           description: empty body
@@ -1117,7 +1117,7 @@ paths:
     get:
       operationId: getIdentityGroupName
       tags:
-        - identity
+        - Identity
       parameters:
         - name: list
           description: Return a list if `true`
@@ -1138,14 +1138,14 @@ paths:
     get:
       operationId: getIdentityGroupNameName
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
     post:
       operationId: postIdentityGroupNameName
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1183,7 +1183,7 @@ paths:
     delete:
       operationId: deleteIdentityGroupNameName
       tags:
-        - identity
+        - Identity
       responses:
         '204':
           description: empty body
@@ -1193,7 +1193,7 @@ paths:
       summary: HashiCorp Query entities based on various properties.
       operationId: postIdentityLookupEntity
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1224,7 +1224,7 @@ paths:
       summary: HashiCorp Query groups based on various properties.
       operationId: postIdentityLookupGroup
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1256,7 +1256,7 @@ paths:
       summary: HashiCorp Retrieve public keys
       operationId: getIdentityOidcWellKnownKeys
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
@@ -1267,7 +1267,7 @@ paths:
       summary: HashiCorp Query OIDC configurations
       operationId: getIdentityOidcWellKnownOpenidConfiguration
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
@@ -1276,7 +1276,7 @@ paths:
     get:
       operationId: getIdentityOidcAssignment
       tags:
-        - identity
+        - Identity
       parameters:
         - name: list
           description: Return a list if `true`
@@ -1299,14 +1299,14 @@ paths:
     get:
       operationId: getIdentityOidcAssignmentName
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
     post:
       operationId: postIdentityOidcAssignmentName
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1329,7 +1329,7 @@ paths:
     delete:
       operationId: deleteIdentityOidcAssignmentName
       tags:
-        - identity
+        - Identity
       responses:
         '204':
           description: empty body
@@ -1338,7 +1338,7 @@ paths:
     get:
       operationId: getIdentityOidcClient
       tags:
-        - identity
+        - Identity
       parameters:
         - name: list
           description: Return a list if `true`
@@ -1361,14 +1361,14 @@ paths:
     get:
       operationId: getIdentityOidcClientName
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
     post:
       operationId: postIdentityOidcClientName
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1406,7 +1406,7 @@ paths:
     delete:
       operationId: deleteIdentityOidcClientName
       tags:
-        - identity
+        - Identity
       responses:
         '204':
           description: empty body
@@ -1416,7 +1416,7 @@ paths:
       summary: HashiCorp OIDC configuration
       operationId: getIdentityOidcConfig
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
@@ -1424,7 +1424,7 @@ paths:
       summary: HashiCorp OIDC configuration
       operationId: postIdentityOidcConfig
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1443,7 +1443,7 @@ paths:
       summary: HashiCorp Verify the authenticity of an OIDC token
       operationId: postIdentityOidcIntrospect
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1465,7 +1465,7 @@ paths:
       summary: HashiCorp List OIDC keys
       operationId: getIdentityOidcKey
       tags:
-        - identity
+        - Identity
       parameters:
         - name: list
           description: Return a list if `true`
@@ -1489,7 +1489,7 @@ paths:
       summary: HashiCorp CRUD operations for OIDC keys.
       operationId: getIdentityOidcKeyName
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
@@ -1497,7 +1497,7 @@ paths:
       summary: HashiCorp CRUD operations for OIDC keys.
       operationId: postIdentityOidcKeyName
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1530,7 +1530,7 @@ paths:
       summary: HashiCorp CRUD operations for OIDC keys.
       operationId: deleteIdentityOidcKeyName
       tags:
-        - identity
+        - Identity
       responses:
         '204':
           description: empty body
@@ -1547,7 +1547,7 @@ paths:
       summary: HashiCorp Rotate a named OIDC key.
       operationId: postIdentityOidcKeyNameRotate
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1566,7 +1566,7 @@ paths:
     get:
       operationId: getIdentityOidcProvider
       tags:
-        - identity
+        - Identity
       parameters:
         - name: list
           description: Return a list if `true`
@@ -1589,14 +1589,14 @@ paths:
     get:
       operationId: getIdentityOidcProviderName
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
     post:
       operationId: postIdentityOidcProviderName
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1622,7 +1622,7 @@ paths:
     delete:
       operationId: deleteIdentityOidcProviderName
       tags:
-        - identity
+        - Identity
       responses:
         '204':
           description: empty body
@@ -1638,7 +1638,7 @@ paths:
     get:
       operationId: getIdentityOidcProviderNameWellKnownKeys
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
@@ -1654,7 +1654,7 @@ paths:
     get:
       operationId: getIdentityOidcProviderNameWellKnownOpenidConfiguration
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
@@ -1670,14 +1670,14 @@ paths:
     get:
       operationId: getIdentityOidcProviderNameAuthorize
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
     post:
       operationId: postIdentityOidcProviderNameAuthorize
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1726,7 +1726,7 @@ paths:
     post:
       operationId: postIdentityOidcProviderNameToken
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1761,14 +1761,14 @@ paths:
     get:
       operationId: getIdentityOidcProviderNameUserinfo
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
     post:
       operationId: postIdentityOidcProviderNameUserinfo
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
@@ -1778,7 +1778,7 @@ paths:
       summary: HashiCorp List configured OIDC roles
       operationId: getIdentityOidcRole
       tags:
-        - identity
+        - Identity
       parameters:
         - name: list
           description: Return a list if `true`
@@ -1802,7 +1802,7 @@ paths:
       summary: HashiCorp CRUD operations on OIDC Roles
       operationId: getIdentityOidcRoleName
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
@@ -1810,7 +1810,7 @@ paths:
       summary: HashiCorp CRUD operations on OIDC Roles
       operationId: postIdentityOidcRoleName
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1840,7 +1840,7 @@ paths:
       summary: HashiCorp CRUD operations on OIDC Roles
       operationId: deleteIdentityOidcRoleName
       tags:
-        - identity
+        - Identity
       responses:
         '204':
           description: empty body
@@ -1849,7 +1849,7 @@ paths:
     get:
       operationId: getIdentityOidcScope
       tags:
-        - identity
+        - Identity
       parameters:
         - name: list
           description: Return a list if `true`
@@ -1872,14 +1872,14 @@ paths:
     get:
       operationId: getIdentityOidcScopeName
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
     post:
       operationId: postIdentityOidcScopeName
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1898,7 +1898,7 @@ paths:
     delete:
       operationId: deleteIdentityOidcScopeName
       tags:
-        - identity
+        - Identity
       responses:
         '204':
           description: empty body
@@ -1915,7 +1915,7 @@ paths:
       summary: HashiCorp Generate an OIDC token
       operationId: getIdentityOidcTokenName
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
@@ -1925,7 +1925,7 @@ paths:
       summary: HashiCorp Create a new alias.
       operationId: postIdentityPersona
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -1957,7 +1957,7 @@ paths:
       summary: HashiCorp List all the alias IDs.
       operationId: getIdentityPersonaId
       tags:
-        - identity
+        - Identity
       parameters:
         - name: list
           description: Return a list if `true`
@@ -1980,7 +1980,7 @@ paths:
       summary: HashiCorp Update, read or delete an alias ID.
       operationId: getIdentityPersonaIdId
       tags:
-        - identity
+        - Identity
       responses:
         '200':
           description: OK
@@ -1988,7 +1988,7 @@ paths:
       summary: HashiCorp Update, read or delete an alias ID.
       operationId: postIdentityPersonaIdId
       tags:
-        - identity
+        - Identity
       requestBody:
         content:
           application/json:
@@ -2015,7 +2015,7 @@ paths:
       summary: HashiCorp Update, read or delete an alias ID.
       operationId: deleteIdentityPersonaIdId
       tags:
-        - identity
+        - Identity
       responses:
         '204':
           description: empty body
@@ -2027,7 +2027,7 @@ paths:
       summary: HashiCorp Read the backend level settings.
       operationId: getSecretConfig
       tags:
-        - secrets
+        - Secrets
       responses:
         '200':
           description: OK
@@ -2035,7 +2035,7 @@ paths:
       summary: HashiCorp Configure backend level settings that are applied to every key in the key-value store.
       operationId: postSecretConfig
       tags:
-        - secrets
+        - Secrets
       requestBody:
         content:
           application/json:
@@ -2069,7 +2069,7 @@ paths:
       summary: HashiCorp Write, Patch, Read, and Delete data in the Key-Value Store.
       operationId: getSecretDataPath
       tags:
-        - secrets
+        - Secrets
       responses:
         '200':
           description: OK
@@ -2077,7 +2077,7 @@ paths:
       summary: HashiCorp Write, Patch, Read, and Delete data in the Key-Value Store.
       operationId: postSecretDataPath
       tags:
-        - secrets
+        - Secrets
       requestBody:
         content:
           application/json:
@@ -2102,7 +2102,7 @@ paths:
       summary: HashiCorp Write, Patch, Read, and Delete data in the Key-Value Store.
       operationId: deleteSecretDataPath
       tags:
-        - secrets
+        - Secrets
       responses:
         '204':
           description: empty body
@@ -2120,7 +2120,7 @@ paths:
       summary: HashiCorp Marks one or more versions as deleted in the KV store.
       operationId: postSecretDeletePath
       tags:
-        - secrets
+        - Secrets
       requestBody:
         content:
           application/json:
@@ -2149,7 +2149,7 @@ paths:
       summary: HashiCorp Permanently removes one or more versions in the KV store
       operationId: postSecretDestroyPath
       tags:
-        - secrets
+        - Secrets
       requestBody:
         content:
           application/json:
@@ -2178,7 +2178,7 @@ paths:
       summary: HashiCorp Configures settings for the KV store
       operationId: getSecretMetadataPath
       tags:
-        - secrets
+        - Secrets
       parameters:
         - name: list
           description: Return a list if `true`
@@ -2192,7 +2192,7 @@ paths:
       summary: HashiCorp Configures settings for the KV store
       operationId: postSecretMetadataPath
       tags:
-        - secrets
+        - Secrets
       requestBody:
         content:
           application/json:
@@ -2220,7 +2220,7 @@ paths:
       summary: HashiCorp Configures settings for the KV store
       operationId: deleteSecretMetadataPath
       tags:
-        - secrets
+        - Secrets
       responses:
         '204':
           description: empty body
@@ -2238,7 +2238,7 @@ paths:
       summary: HashiCorp Undeletes one or more versions from the KV store.
       operationId: postSecretUndeletePath
       tags:
-        - secrets
+        - Secrets
       requestBody:
         content:
           application/json:
@@ -2260,7 +2260,7 @@ paths:
       summary: HashiCorp List the enabled audit devices.
       operationId: getSysAudit
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2277,7 +2277,7 @@ paths:
       summary: HashiCorp The hash of the given string via the given audit backend
       operationId: postSysAuditHashPath
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -2303,7 +2303,7 @@ paths:
       summary: HashiCorp Enable a new audit device at the supplied path.
       operationId: postSysAuditPath
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -2331,7 +2331,7 @@ paths:
       summary: HashiCorp Disable the audit device at the given path.
       operationId: deleteSysAuditPath
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -2341,7 +2341,7 @@ paths:
       summary: HashiCorp List the currently enabled credential backends.
       operationId: getSysAuth
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2363,7 +2363,7 @@ paths:
         For example, enable the "foo" auth method will make it accessible at /auth/foo.
       operationId: postSysAuthPath
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -2406,7 +2406,7 @@ paths:
       summary: HashiCorp Disable the auth method at the given auth path
       operationId: deleteSysAuthPath
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -2425,7 +2425,7 @@ paths:
       description: This endpoint requires sudo capability on the final path, but the same functionality can be achieved without sudo via `sys/mounts/auth/[auth-path]/tune`.
       operationId: getSysAuthPathTune
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2434,7 +2434,7 @@ paths:
       description: This endpoint requires sudo capability on the final path, but the same functionality can be achieved without sudo via `sys/mounts/auth/[auth-path]/tune`.
       operationId: postSysAuthPathTune
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -2489,7 +2489,7 @@ paths:
       summary: HashiCorp Fetches the capabilities of the given token on the given path.
       operationId: postSysCapabilities
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -2519,7 +2519,7 @@ paths:
       summary: HashiCorp Fetches the capabilities of the token associated with the given token, on the given path.
       operationId: postSysCapabilitiesAccessor
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -2549,7 +2549,7 @@ paths:
       summary: HashiCorp Fetches the capabilities of the given token on the given path.
       operationId: postSysCapabilitiesSelf
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -2580,7 +2580,7 @@ paths:
       summary: HashiCorp List the request headers that are configured to be audited.
       operationId: getSysConfigAuditingRequestHeaders
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2597,7 +2597,7 @@ paths:
       summary: HashiCorp List the information for the given request header.
       operationId: getSysConfigAuditingRequestHeadersHeader
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2605,7 +2605,7 @@ paths:
       summary: HashiCorp Enable auditing of a header.
       operationId: postSysConfigAuditingRequestHeadersHeader
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -2621,7 +2621,7 @@ paths:
       summary: HashiCorp Disable auditing of the given request header.
       operationId: deleteSysConfigAuditingRequestHeadersHeader
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -2632,7 +2632,7 @@ paths:
       summary: HashiCorp Return the current CORS settings.
       operationId: getSysConfigCors
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2640,7 +2640,7 @@ paths:
       summary: HashiCorp Configure the CORS settings.
       operationId: postSysConfigCors
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -2667,7 +2667,7 @@ paths:
       summary: HashiCorp Remove any CORS settings.
       operationId: deleteSysConfigCors
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -2682,7 +2682,7 @@ paths:
       summary: HashiCorp Reload the given subsystem
       operationId: postSysConfigReloadSubsystem
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2692,7 +2692,7 @@ paths:
       description: The sanitized output strips configuration values in the storage, HA storage, and seals stanzas, which may contain sensitive values such as API tokens. It also removes any token or secret fields in other stanzas, such as the circonus_api_token from telemetry.
       operationId: getSysConfigStateSanitized
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2703,7 +2703,7 @@ paths:
       summary: HashiCorp Return a list of configured UI headers.
       operationId: getSysConfigUiHeaders
       tags:
-        - system
+        - System
       parameters:
         - name: list
           description: Return a list if `true`
@@ -2727,7 +2727,7 @@ paths:
       summary: HashiCorp Return the given UI header's configuration
       operationId: getSysConfigUiHeadersHeader
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2735,7 +2735,7 @@ paths:
       summary: HashiCorp Configure the values to be returned for the UI header.
       operationId: postSysConfigUiHeadersHeader
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -2757,7 +2757,7 @@ paths:
       summary: HashiCorp Remove a UI header.
       operationId: deleteSysConfigUiHeadersHeader
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -2767,7 +2767,7 @@ paths:
       summary: HashiCorp Read the configuration and progress of the current root generation attempt.
       operationId: getSysGenerateRoot
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2776,7 +2776,7 @@ paths:
       description: Only a single root generation attempt can take place at a time. One (and only one) of otp or pgp_key are required.
       operationId: postSysGenerateRoot
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -2793,7 +2793,7 @@ paths:
       summary: HashiCorp Cancels any in-progress root generation attempt.
       operationId: deleteSysGenerateRoot
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -2804,7 +2804,7 @@ paths:
       summary: HashiCorp Read the configuration and progress of the current root generation attempt.
       operationId: getSysGenerateRootAttempt
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2813,7 +2813,7 @@ paths:
       description: Only a single root generation attempt can take place at a time. One (and only one) of otp or pgp_key are required.
       operationId: postSysGenerateRootAttempt
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -2830,7 +2830,7 @@ paths:
       summary: HashiCorp Cancels any in-progress root generation attempt.
       operationId: deleteSysGenerateRootAttempt
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -2842,7 +2842,7 @@ paths:
       description: If the threshold number of master key shares is reached, Vault will complete the root generation and issue the new token. Otherwise, this API must be called multiple times until that threshold is met. The attempt nonce must be provided with each call.
       operationId: postSysGenerateRootUpdate
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -2865,7 +2865,7 @@ paths:
       summary: HashiCorp Returns the health status of Vault.
       operationId: getSysHealth
       tags:
-        - system
+        - System
       responses:
         '200':
           description: initialized, unsealed, and active
@@ -2884,7 +2884,7 @@ paths:
       description: "Information about the host instance that this Vault server is running on.\n\t\tThe information that gets collected includes host hardware information, and CPU,\n\t\tdisk, and memory utilization"
       operationId: getSysHostInfo
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2895,7 +2895,7 @@ paths:
       summary: HashiCorp Returns the initialization status of Vault.
       operationId: getSysInit
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2904,7 +2904,7 @@ paths:
       description: The Vault must not have been previously initialized. The recovery options, as well as the stored shares option, are only available when using Vault HSM.
       operationId: postSysInit
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -2948,7 +2948,7 @@ paths:
       summary: HashiCorp Report the client count metrics, for this namespace and all child namespaces.
       operationId: getSysInternalCountersActivity
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2958,7 +2958,7 @@ paths:
       summary: HashiCorp Report the number of clients for this month, for this namespace and all child namespaces.
       operationId: getSysInternalCountersActivityMonthly
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2968,7 +2968,7 @@ paths:
       summary: HashiCorp Read the client count tracking configuration.
       operationId: getSysInternalCountersConfig
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -2976,7 +2976,7 @@ paths:
       summary: HashiCorp Enable or disable collection of client count, set retention period, or set default reporting period.
       operationId: postSysInternalCountersConfig
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -3004,7 +3004,7 @@ paths:
       summary: HashiCorp Backwards compatibility is not guaranteed for this API
       operationId: getSysInternalCountersEntities
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3014,7 +3014,7 @@ paths:
       summary: HashiCorp Backwards compatibility is not guaranteed for this API
       operationId: getSysInternalCountersRequests
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3024,7 +3024,7 @@ paths:
       summary: HashiCorp Backwards compatibility is not guaranteed for this API
       operationId: getSysInternalCountersTokens
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3034,7 +3034,7 @@ paths:
       summary: HashiCorp Generate an OpenAPI 3 document of all mounted paths.
       operationId: getSysInternalSpecsOpenapi
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3044,7 +3044,7 @@ paths:
       summary: HashiCorp Lists enabled feature flags.
       operationId: getSysInternalUiFeatureFlags
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3055,7 +3055,7 @@ paths:
       summary: HashiCorp Lists all enabled and visible auth and secrets mounts.
       operationId: getSysInternalUiMounts
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3073,7 +3073,7 @@ paths:
       summary: HashiCorp Return information about the given mount.
       operationId: getSysInternalUiMountsPath
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3084,7 +3084,7 @@ paths:
       summary: HashiCorp Backwards compatibility is not guaranteed for this API
       operationId: getSysInternalUiNamespaces
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3094,7 +3094,7 @@ paths:
       summary: HashiCorp Backwards compatibility is not guaranteed for this API
       operationId: getSysInternalUiResultantAcl
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3104,7 +3104,7 @@ paths:
       summary: HashiCorp Provides information about the backend encryption key.
       operationId: getSysKeyStatus
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3115,7 +3115,7 @@ paths:
       summary: HashiCorp Returns the high availability status and current leader instance of Vault.
       operationId: getSysLeader
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3126,7 +3126,7 @@ paths:
       summary: HashiCorp List leases associated with this Vault cluster
       operationId: getSysLeases
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3136,7 +3136,7 @@ paths:
       summary: HashiCorp Count of leases associated with this Vault cluster
       operationId: getSysLeasesCount
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3146,7 +3146,7 @@ paths:
       summary: HashiCorp Retrieve lease metadata.
       operationId: postSysLeasesLookup
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -3166,7 +3166,7 @@ paths:
       summary: HashiCorp Returns a list of lease ids.
       operationId: getSysLeasesLookup
       tags:
-        - system
+        - System
       parameters:
         - name: list
           description: Return a list if `true`
@@ -3190,7 +3190,7 @@ paths:
       summary: HashiCorp Returns a list of lease ids.
       operationId: getSysLeasesLookupPrefix
       tags:
-        - system
+        - System
       parameters:
         - name: list
           description: Return a list if `true`
@@ -3206,7 +3206,7 @@ paths:
       summary: HashiCorp Renews a lease, requesting to extend the lease.
       operationId: postSysLeasesRenew
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -3239,7 +3239,7 @@ paths:
       summary: HashiCorp Renews a lease, requesting to extend the lease.
       operationId: postSysLeasesRenewUrl_lease_id
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -3262,7 +3262,7 @@ paths:
       summary: HashiCorp Revokes a lease immediately.
       operationId: postSysLeasesRevoke
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -3300,7 +3300,7 @@ paths:
         By ignoring these errors, Vault abdicates responsibility for ensuring that the issued credentials or secrets are properly revoked and/or cleaned up. Access to this endpoint should be tightly controlled.
       operationId: postSysLeasesRevokeForcePrefix
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3318,7 +3318,7 @@ paths:
       summary: HashiCorp Revokes all secrets (via a lease ID prefix) or tokens (via the tokens' path property) generated under a given prefix immediately.
       operationId: postSysLeasesRevokePrefixPrefix
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -3345,7 +3345,7 @@ paths:
       summary: HashiCorp Revokes a lease immediately.
       operationId: postSysLeasesRevokeUrl_lease_id
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -3370,7 +3370,7 @@ paths:
         conditions have occurred.
       operationId: postSysLeasesTidy
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3386,7 +3386,7 @@ paths:
       summary: HashiCorp Export the metrics aggregated for telemetry purpose.
       operationId: getSysMetrics
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3400,7 +3400,7 @@ paths:
     get:
       operationId: getSysMonitor
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3410,7 +3410,7 @@ paths:
       summary: HashiCorp List the currently mounted backends.
       operationId: getSysMounts
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3427,7 +3427,7 @@ paths:
       summary: HashiCorp Enable a new secrets engine at the given path.
       operationId: postSysMountsPath
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -3470,7 +3470,7 @@ paths:
       summary: HashiCorp Disable the mount point specified at the given path.
       operationId: deleteSysMountsPath
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -3487,7 +3487,7 @@ paths:
       summary: HashiCorp Tune backend configuration parameters for this mount.
       operationId: getSysMountsPathTune
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3495,7 +3495,7 @@ paths:
       summary: HashiCorp Tune backend configuration parameters for this mount.
       operationId: postSysMountsPathTune
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -3550,7 +3550,7 @@ paths:
       summary: HashiCorp Lists all the plugins known to Vault
       operationId: getSysPluginsCatalog
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3568,7 +3568,7 @@ paths:
       summary: HashiCorp Return the configuration data for the plugin with the given name.
       operationId: getSysPluginsCatalogName
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3576,7 +3576,7 @@ paths:
       summary: HashiCorp Register a new plugin, or updates an existing one with the supplied name.
       operationId: postSysPluginsCatalogName
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -3612,7 +3612,7 @@ paths:
       summary: HashiCorp Remove the plugin with the given name.
       operationId: deleteSysPluginsCatalogName
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -3630,7 +3630,7 @@ paths:
       summary: HashiCorp List the plugins in the catalog.
       operationId: getSysPluginsCatalogType
       tags:
-        - system
+        - System
       parameters:
         - name: list
           description: Return a list if `true`
@@ -3660,7 +3660,7 @@ paths:
       summary: HashiCorp Return the configuration data for the plugin with the given name.
       operationId: getSysPluginsCatalogTypeName
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3668,7 +3668,7 @@ paths:
       summary: HashiCorp Register a new plugin, or updates an existing one with the supplied name.
       operationId: postSysPluginsCatalogTypeName
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -3701,7 +3701,7 @@ paths:
       summary: HashiCorp Remove the plugin with the given name.
       operationId: deleteSysPluginsCatalogTypeName
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -3712,7 +3712,7 @@ paths:
       description: Either the plugin name (`plugin`) or the desired plugin backend mounts (`mounts`) must be provided, but not both. In the case that the plugin name is provided, all mounted paths that use that plugin backend will be reloaded.  If (`scope`) is provided and is (`global`), the plugin(s) are reloaded globally.
       operationId: postSysPluginsReloadBackend
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -3738,7 +3738,7 @@ paths:
       summary: HashiCorp List the configured access control policies.
       operationId: getSysPoliciesAcl
       tags:
-        - system
+        - System
       parameters:
         - name: list
           description: Return a list if `true`
@@ -3761,7 +3761,7 @@ paths:
       summary: HashiCorp Retrieve information about the named ACL policy.
       operationId: getSysPoliciesAclName
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3769,7 +3769,7 @@ paths:
       summary: HashiCorp Add a new or update an existing ACL policy.
       operationId: postSysPoliciesAclName
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -3786,7 +3786,7 @@ paths:
       summary: HashiCorp Delete the ACL policy with the given name.
       operationId: deleteSysPoliciesAclName
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -3803,7 +3803,7 @@ paths:
       summary: HashiCorp Retrieve an existing password policy.
       operationId: getSysPoliciesPasswordName
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3811,7 +3811,7 @@ paths:
       summary: HashiCorp Add a new or update an existing password policy.
       operationId: postSysPoliciesPasswordName
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -3828,7 +3828,7 @@ paths:
       summary: HashiCorp Delete a password policy.
       operationId: deleteSysPoliciesPasswordName
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -3845,7 +3845,7 @@ paths:
       summary: HashiCorp Generate a password from an existing password policy.
       operationId: getSysPoliciesPasswordNameGenerate
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3855,7 +3855,7 @@ paths:
       summary: HashiCorp List the configured access control policies.
       operationId: getSysPolicy
       tags:
-        - system
+        - System
       parameters:
         - name: list
           description: Return a list if `true`
@@ -3878,7 +3878,7 @@ paths:
       summary: HashiCorp Retrieve the policy body for the named policy.
       operationId: getSysPolicyName
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3886,7 +3886,7 @@ paths:
       summary: HashiCorp Add a new or update an existing policy.
       operationId: postSysPolicyName
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -3907,7 +3907,7 @@ paths:
       summary: HashiCorp Delete the policy with the given name.
       operationId: deleteSysPolicyName
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -3917,7 +3917,7 @@ paths:
       description: "Returns an HTML page listing the available \nprofiles. This should be mainly accessed via browsers or applications that can \nrender pages."
       operationId: getSysPprof
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3927,7 +3927,7 @@ paths:
       description: Returns a sampling of all past memory allocations.
       operationId: getSysPprofAllocs
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3937,7 +3937,7 @@ paths:
       description: Returns stack traces that led to blocking on synchronization primitives
       operationId: getSysPprofBlock
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3947,7 +3947,7 @@ paths:
       description: Returns the running program's command line, with arguments separated by NUL bytes.
       operationId: getSysPprofCmdline
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3957,7 +3957,7 @@ paths:
       description: Returns stack traces of all current goroutines.
       operationId: getSysPprofGoroutine
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3967,7 +3967,7 @@ paths:
       description: Returns a sampling of memory allocations of live object.
       operationId: getSysPprofHeap
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3977,7 +3977,7 @@ paths:
       description: Returns stack traces of holders of contended mutexes
       operationId: getSysPprofMutex
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3987,7 +3987,7 @@ paths:
       description: Returns a pprof-formatted cpu profile payload. Profiling lasts for duration specified in seconds GET parameter, or for 30 seconds if not specified.
       operationId: getSysPprofProfile
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -3997,7 +3997,7 @@ paths:
       description: Returns the program counters listed in the request.
       operationId: getSysPprofSymbol
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -4007,7 +4007,7 @@ paths:
       description: Returns stack traces that led to the creation of new OS threads
       operationId: getSysPprofThreadcreate
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -4017,7 +4017,7 @@ paths:
       description: Returns  the execution trace in binary form. Tracing lasts for duration specified in seconds GET parameter, or for 1 second if not specified.
       operationId: getSysPprofTrace
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -4026,14 +4026,14 @@ paths:
     get:
       operationId: getSysQuotasConfig
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
     post:
       operationId: postSysQuotasConfig
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4059,7 +4059,7 @@ paths:
     get:
       operationId: getSysQuotasRateLimit
       tags:
-        - system
+        - System
       parameters:
         - name: list
           description: Return a list if `true`
@@ -4081,14 +4081,14 @@ paths:
     get:
       operationId: getSysQuotasRateLimitName
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
     post:
       operationId: postSysQuotasRateLimitName
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4119,7 +4119,7 @@ paths:
     delete:
       operationId: deleteSysQuotasRateLimitName
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -4130,7 +4130,7 @@ paths:
       summary: HashiCorp Read the value of the key at the given path.
       operationId: getSysRaw
       tags:
-        - system
+        - System
       parameters:
         - name: list
           description: Return a list if `true`
@@ -4144,7 +4144,7 @@ paths:
       summary: HashiCorp Update the value of the key at the given path.
       operationId: postSysRaw
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4162,7 +4162,7 @@ paths:
       summary: HashiCorp Delete the key with given path.
       operationId: deleteSysRaw
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -4179,7 +4179,7 @@ paths:
       summary: HashiCorp Read the value of the key at the given path.
       operationId: getSysRawPath
       tags:
-        - system
+        - System
       parameters:
         - name: list
           description: Return a list if `true`
@@ -4193,7 +4193,7 @@ paths:
       summary: HashiCorp Update the value of the key at the given path.
       operationId: postSysRawPath
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4209,7 +4209,7 @@ paths:
       summary: HashiCorp Delete the key with given path.
       operationId: deleteSysRawPath
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -4219,7 +4219,7 @@ paths:
       summary: HashiCorp Return the backup copy of PGP-encrypted unseal keys.
       operationId: getSysRekeyBackup
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -4227,7 +4227,7 @@ paths:
       summary: HashiCorp Delete the backup copy of PGP-encrypted unseal keys.
       operationId: deleteSysRekeyBackup
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -4237,7 +4237,7 @@ paths:
       summary: HashiCorp Reads the configuration and progress of the current rekey attempt.
       operationId: getSysRekeyInit
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -4246,7 +4246,7 @@ paths:
       description: Only a single rekey attempt can take place at a time, and changing the parameters of a rekey requires canceling and starting a new rekey, which will also provide a new nonce.
       operationId: postSysRekeyInit
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4278,7 +4278,7 @@ paths:
       description: 'This clears the rekey settings as well as any progress made. This must be called to change the parameters of the rekey. Note: verification is still a part of a rekey. If rekeying is canceled during the verification flow, the current unseal keys remain valid.'
       operationId: deleteSysRekeyInit
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -4288,7 +4288,7 @@ paths:
       summary: HashiCorp Allows fetching or deleting the backup of the rotated unseal keys.
       operationId: getSysRekeyRecoveryKeyBackup
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -4296,7 +4296,7 @@ paths:
       summary: HashiCorp Allows fetching or deleting the backup of the rotated unseal keys.
       operationId: deleteSysRekeyRecoveryKeyBackup
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -4306,7 +4306,7 @@ paths:
       summary: HashiCorp Enter a single master key share to progress the rekey of the Vault.
       operationId: postSysRekeyUpdate
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4328,7 +4328,7 @@ paths:
       summary: HashiCorp Read the configuration and progress of the current rekey verification attempt.
       operationId: getSysRekeyVerify
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -4336,7 +4336,7 @@ paths:
       summary: HashiCorp Enter a single new key share to progress the rekey verification operation.
       operationId: postSysRekeyVerify
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4357,7 +4357,7 @@ paths:
       description: This clears any progress made and resets the nonce. Unlike a `DELETE` against `sys/rekey/init`, this only resets the current verification operation, not the entire rekey atttempt.
       operationId: deleteSysRekeyVerify
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -4368,7 +4368,7 @@ paths:
       summary: HashiCorp Move the mount point of an already-mounted backend.
       operationId: postSysRemount
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4390,7 +4390,7 @@ paths:
       summary: HashiCorp Renews a lease, requesting to extend the lease.
       operationId: postSysRenew
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4423,7 +4423,7 @@ paths:
       summary: HashiCorp Renews a lease, requesting to extend the lease.
       operationId: postSysRenewUrl_lease_id
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4445,7 +4445,7 @@ paths:
     get:
       operationId: getSysReplicationStatus
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -4455,7 +4455,7 @@ paths:
       summary: HashiCorp Revokes a lease immediately.
       operationId: postSysRevoke
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4493,7 +4493,7 @@ paths:
         By ignoring these errors, Vault abdicates responsibility for ensuring that the issued credentials or secrets are properly revoked and/or cleaned up. Access to this endpoint should be tightly controlled.
       operationId: postSysRevokeForcePrefix
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -4511,7 +4511,7 @@ paths:
       summary: HashiCorp Revokes all secrets (via a lease ID prefix) or tokens (via the tokens' path property) generated under a given prefix immediately.
       operationId: postSysRevokePrefixPrefix
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4538,7 +4538,7 @@ paths:
       summary: HashiCorp Revokes a lease immediately.
       operationId: postSysRevokeUrl_lease_id
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4562,7 +4562,7 @@ paths:
       summary: HashiCorp Rotates the backend encryption key used to persist data.
       operationId: postSysRotate
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -4571,14 +4571,14 @@ paths:
     get:
       operationId: getSysRotateConfig
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
     post:
       operationId: postSysRotateConfig
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4604,7 +4604,7 @@ paths:
       summary: HashiCorp Seal the Vault.
       operationId: postSysSeal
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -4615,7 +4615,7 @@ paths:
       summary: HashiCorp Check the seal status of a Vault.
       operationId: getSysSealStatus
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -4625,7 +4625,7 @@ paths:
       description: This endpoint forces the node to give up active status. If the node does not have active status, this endpoint does nothing. Note that the node will sleep for ten seconds before attempting to grab the active lock again, but if no standby nodes grab the active lock in the interim, the same node may become the active node again.
       operationId: postSysStepDown
       tags:
-        - system
+        - System
       responses:
         '204':
           description: empty body
@@ -4635,7 +4635,7 @@ paths:
       summary: HashiCorp Generate a hash sum for input data
       operationId: postSysToolsHash
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4672,7 +4672,7 @@ paths:
       summary: HashiCorp Generate a hash sum for input data
       operationId: postSysToolsHashUrlalgorithm
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4699,7 +4699,7 @@ paths:
       summary: HashiCorp Generate random bytes
       operationId: postSysToolsRandom
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4733,7 +4733,7 @@ paths:
       summary: HashiCorp Generate random bytes
       operationId: postSysToolsRandomUrlbytes
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4758,7 +4758,7 @@ paths:
       summary: HashiCorp Unseal the Vault.
       operationId: postSysUnseal
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4781,7 +4781,7 @@ paths:
       summary: HashiCorp Look up wrapping properties for the requester's token.
       operationId: getSysWrappingLookup
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
@@ -4789,7 +4789,7 @@ paths:
       summary: HashiCorp Look up wrapping properties for the given token.
       operationId: postSysWrappingLookup
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4807,7 +4807,7 @@ paths:
       summary: HashiCorp Rotates a response-wrapped token.
       operationId: postSysWrappingRewrap
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4825,7 +4825,7 @@ paths:
       summary: HashiCorp Unwraps a response-wrapped token.
       operationId: postSysWrappingUnwrap
       tags:
-        - system
+        - System
       requestBody:
         content:
           application/json:
@@ -4843,7 +4843,12 @@ paths:
       summary: HashiCorp Response-wraps an arbitrary JSON object.
       operationId: postSysWrappingWrap
       tags:
-        - system
+        - System
       responses:
         '200':
           description: OK
+tags:
+  - name: Auth
+  - name: Identity
+  - name: Secrets
+  - name: System
