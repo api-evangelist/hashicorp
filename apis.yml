@@ -15,7 +15,7 @@ tags:
   - Infrastructure
   - Platform
 created: '2024-02-01'
-modified: '2026-03-16'
+modified: '2026-04-28'
 specificationVersion: '0.19'
 apis:
   - aid: hashicorp:hashicorp-vault
@@ -29,6 +29,8 @@ apis:
         url: https://developer.hashicorp.com/vault/api-docs
       - type: Getting Started
         url: https://developer.hashicorp.com/vault/tutorials
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/hashicorp/refs/heads/main/openapi/hashicorp-vault-openapi.yml
     description: >-
       Secure, store, and tightly control access to tokens, passwords,
       certificates, encryption keys for protecting secrets, and other sensitive
