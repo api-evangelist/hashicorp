@@ -1,5 +1,6 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -8,10 +9,11 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: HashiCorp
 providerId: hashicorp
-publisherName: HashiCorp
-serviceCategory: API
+publisherName: HashiCorp, Inc. (an IBM company)
+serviceCategory: Infrastructure / DevOps Platform
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - Cloud
   - DevOps
@@ -20,20 +22,27 @@ tags:
   - FinOps
   - Cost Management
   - FOCUS
-description: FinOps framework definition for the HashiCorp API surface. Provides a FOCUS-aligned mapping
-  for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
+description: 'FOCUS-aligned FinOps for HashiCorp: pay-as-you-go per-managed-resource billing on
+  HCP Terraform (Essentials $0.10, Standard $0.47, Premium $0.99 per resource per month) plus
+  custom-priced Enterprise (self-managed) and EU residency editions. Other product lines (Vault,
+  Consul, Nomad, Boundary, Packer, Waypoint) bill per HCP product or via Enterprise license.'
+sources:
+  - https://www.hashicorp.com/en/products/terraform/pricing
+  - https://developer.hashicorp.com/terraform/cloud-docs/api-docs
 principles:
   - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
+    description: Use HCP Terraform's billing dashboard and the workspaces/managed-resources counts;
+      tag workspaces by team / environment so consumption maps onto invoice lines.
   - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
+    description: Allocate HCP Terraform spend by Workspace and Project; map managed-resource counts
+      back to consuming application teams via workspace tags.
   - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
+    description: Reduce managed-resource counts via state pruning, module consolidation, and
+      ephemeral workspaces; choose the lowest tier (Essentials / Standard / Premium) that meets
+      governance needs; redeem the $500 new-customer credit.
   - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
+    description: Assign a HashiCorp account owner; review Terraform managed-resource growth monthly
+      against the Enterprise commitment or PAYG run-rate.
 domains:
   - name: Understand Usage and Cost
     capabilities:
@@ -63,7 +72,7 @@ domains:
       - Onboarding Workloads
       - Intersecting Disciplines
 billingModel:
-  pricingCategory: Usage-Based
+  pricingCategory: Pay-As-You-Go + Committed Use
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
@@ -75,41 +84,54 @@ billingModel:
   chargeFrequency: Recurring
 focusColumns:
   ServiceName: HashiCorp
-  ServiceCategory: Developer Tools / API
+  ServiceCategory: Infrastructure / DevOps Platform
   ProviderName: HashiCorp
-  PublisherName: HashiCorp
-  InvoiceIssuerName: HashiCorp
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  PublisherName: HashiCorp, Inc. (an IBM company)
+  InvoiceIssuerName: HashiCorp, Inc.
+  PricingCategory: Pay-As-You-Go
+  PricingUnit: managed-resource
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
+  - name: terraform_managed_resources
+    description: Count of Terraform-managed resources, billed monthly per the active HCP Terraform
+      tier
+    unit: resource-month
+    aggregation: max
+    dimensions:
+      - tier
+      - workspace
+      - project
+      - organization
+  - name: terraform_managed_resource_hours
+    description: Hourly metering of managed resources (alternative to monthly billing)
+    unit: resource-hour
+    aggregation: sum
+    dimensions:
+      - tier
+      - workspace
+      - organization
   - name: api_requests
-    description: Count of billable API requests
+    description: HCP Terraform API requests for cost allocation and abuse monitoring
     unit: request
     aggregation: sum
     dimensions:
-      - api
       - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
+      - user
+      - workspace
+  - name: hcp_credit_consumption
+    description: Consumption of the $500 new-customer HCP credit
+    unit: USD
     aggregation: sum
     dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
+      - product
+  - name: enterprise_subscription
+    description: Custom Enterprise (self-managed Terraform Enterprise / EU) subscription line
+    unit: month
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
+      - edition
+      - region
 apis:
   - name: HashiCorp Vault
     baseURL: ''
@@ -154,11 +176,11 @@ apis:
     serviceName: HashiCorp Vagrant
     serviceCategory: API
 unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
+  - name: Cost per Managed Resource
+    metric: billed_cost / terraform_managed_resources
     target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
+  - name: Cost per Workspace
+    metric: billed_cost / active_workspaces
     target: TBD
 maintainers:
   - FN: Kin Lane

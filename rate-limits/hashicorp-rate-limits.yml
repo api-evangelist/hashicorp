@@ -4,7 +4,8 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: HashiCorp
 providerId: hashicorp
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - Cloud
   - DevOps
@@ -13,101 +14,81 @@ tags:
   - Rate Limiting
   - Quotas
   - Throttling
-description: Machine-readable rate limit definitions for the HashiCorp API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
+description: HashiCorp publishes rate limits primarily for HCP Terraform. The platform enforces
+  ~30 requests/second per authenticated user (or per IP for unauthenticated requests) across most
+  endpoints, with stricter ceilings on sensitive endpoints (SMS/2FA at 5/min, email-sending at
+  10–100/min, certain account operations at 40/hour). Limits are scoped per user — multiple tokens
+  cannot bypass the limit. Other HashiCorp products (Vault, Consul, Nomad, Boundary) enforce limits
+  configured by the operator at deploy time.
+sources:
+  - https://developer.hashicorp.com/terraform/cloud-docs/api-docs
+  - https://www.hashicorp.com/en/products/terraform/pricing
 headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
+  limit: x-ratelimit-limit
   retryAfter: Retry-After
-  policy: RateLimit-Policy
 responseCodes:
   throttled: 429
   quotaExceeded: 429
   serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
+  - tier: all
+    name: HCP Terraform — Default API rate
+    scope: user-or-ip
+    metric: requests_per_second
+    limit: 30
+    timeFrame: second
+    applies:
+      - HashiCorp Terraform
+    notes: Applies to most HCP Terraform API endpoints, authenticated by user or by source IP for
+      unauthenticated requests.
+  - tier: all
+    name: HCP Terraform — SMS / 2FA endpoints
+    scope: user
     metric: requests_per_minute
-    limit: 10
-    burst: 20
+    limit: 5
     timeFrame: minute
     applies:
-      - HashiCorp Vault
       - HashiCorp Terraform
-      - HashiCorp Nomad
-      - HashiCorp Consul
-      - HashiCorp Boundary
-      - HashiCorp Vagrant
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - HashiCorp Vault
-      - HashiCorp Terraform
-      - HashiCorp Nomad
-      - HashiCorp Consul
-      - HashiCorp Boundary
-      - HashiCorp Vagrant
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
+  - tier: all
+    name: HCP Terraform — Email-sending endpoints
+    scope: user
     metric: requests_per_minute
-    limit: 100
-    burst: 200
+    limit: '10–100'
     timeFrame: minute
     applies:
-      - HashiCorp Vault
       - HashiCorp Terraform
-      - HashiCorp Nomad
-      - HashiCorp Consul
-      - HashiCorp Boundary
-      - HashiCorp Vagrant
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
+    notes: Per-endpoint variation; verify against the specific endpoint reference.
+  - tier: all
+    name: HCP Terraform — Account operations
+    scope: user
+    metric: requests_per_hour
+    limit: 40
+    timeFrame: hour
+    applies:
+      - HashiCorp Terraform
+  - tier: self-managed
+    name: Vault / Consul / Nomad / Boundary — Operator-configured
+    scope: cluster
+    metric: varies
+    limit: configured by operator (see product docs)
     applies:
       - HashiCorp Vault
-      - HashiCorp Terraform
-      - HashiCorp Nomad
       - HashiCorp Consul
-      - HashiCorp Boundary
-      - HashiCorp Vagrant
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - HashiCorp Vault
-      - HashiCorp Terraform
       - HashiCorp Nomad
-      - HashiCorp Consul
       - HashiCorp Boundary
-      - HashiCorp Vagrant
 policies:
+  - name: Per-User Scoping
+    description: HCP Terraform rate limits are bound to the authenticated user — multiple API tokens
+      issued to the same user share the limit.
   - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+    description: On 429, clients should back off and retry with jitter. Retry-After is not
+      universally documented; default to exponential backoff.
+  - name: Sensitive Endpoint Throttling
+    description: SMS/2FA, email, and account-mutation endpoints have stricter per-minute / per-hour
+      ceilings than the default 30 rps.
+  - name: Self-Managed Configurability
+    description: For Vault, Consul, Nomad, and Boundary, request quotas and rate limits are
+      configured by the cluster operator (e.g. Vault sys/quotas/rate-limit).
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
