@@ -27,7 +27,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developer.hashicorp.com/vault/api-docs
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developer.hashicorp.com/vault/tutorials
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/hashicorp/refs/heads/main/openapi/hashicorp-vault-openapi.yml
@@ -44,7 +44,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developer.hashicorp.com/terraform/docs
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developer.hashicorp.com/terraform/tutorials
     description: >-
       Terraform is an infrastructure as code tool that lets you build, change,
@@ -99,21 +99,21 @@ apis:
 common:
   - type: Portal
     url: https://developer.hashicorp.com/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://developer.hashicorp.com/tutorials
   - type: Support
     url: https://support.hashicorp.com/hc/en-us
   - type: Community
     url: https://discuss.hashicorp.com/
-  - type: Status
+  - type: StatusPage
     url: https://status.hashicorp.com/
   - type: Blog
     url: https://www.hashicorp.com/blog
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.hashicorp.com/terms-of-service
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.hashicorp.com/privacy
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/hashicorp
 maintainers:
   - FN: Kin Lane
