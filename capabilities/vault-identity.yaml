@@ -1,0 +1,2794 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: HashiCorp Vault API — Identity
+  description: 'HashiCorp Vault API — Identity. 80 operations. Lead operation: HashiCorp Create a new alias.. Self-contained
+    Naftiko capability covering one Hashicorp business surface.'
+  tags:
+  - Hashicorp
+  - Identity
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    HASHICORP_API_KEY: HASHICORP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: vault-identity
+    baseUri: ''
+    description: HashiCorp Vault API — Identity business capability. Self-contained, no shared references.
+    resources:
+    - name: identity-alias
+      path: /identity/alias
+      operations:
+      - name: postidentityalias
+        method: POST
+        description: HashiCorp Create a new alias.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: identity-alias-id
+      path: /identity/alias/id
+      operations:
+      - name: getidentityaliasid
+        method: GET
+        description: HashiCorp List all the alias IDs.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list
+          in: query
+          type: string
+          description: Return a list if `true`
+    - name: identity-alias-id-id
+      path: /identity/alias/id/{id}
+      operations:
+      - name: getidentityaliasidid
+        method: GET
+        description: HashiCorp Update, read or delete an alias ID.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentityaliasidid
+        method: POST
+        description: HashiCorp Update, read or delete an alias ID.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteidentityaliasidid
+        method: DELETE
+        description: HashiCorp Update, read or delete an alias ID.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-entity
+      path: /identity/entity
+      operations:
+      - name: postidentityentity
+        method: POST
+        description: HashiCorp Create a new entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: identity-entity-alias
+      path: /identity/entity-alias
+      operations:
+      - name: postidentityentityalias
+        method: POST
+        description: HashiCorp Create a new alias.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: identity-entity-alias-id
+      path: /identity/entity-alias/id
+      operations:
+      - name: getidentityentityaliasid
+        method: GET
+        description: HashiCorp List all the alias IDs.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list
+          in: query
+          type: string
+          description: Return a list if `true`
+    - name: identity-entity-alias-id-id
+      path: /identity/entity-alias/id/{id}
+      operations:
+      - name: getidentityentityaliasidid
+        method: GET
+        description: HashiCorp Update, read or delete an alias ID.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentityentityaliasidid
+        method: POST
+        description: HashiCorp Update, read or delete an alias ID.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteidentityentityaliasidid
+        method: DELETE
+        description: HashiCorp Update, read or delete an alias ID.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-entity-batch-delete
+      path: /identity/entity/batch-delete
+      operations:
+      - name: postidentityentitybatchdelete
+        method: POST
+        description: HashiCorp Delete all of the entities provided
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: identity-entity-id
+      path: /identity/entity/id
+      operations:
+      - name: getidentityentityid
+        method: GET
+        description: HashiCorp List all the entity IDs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list
+          in: query
+          type: string
+          description: Return a list if `true`
+    - name: identity-entity-id-id
+      path: /identity/entity/id/{id}
+      operations:
+      - name: getidentityentityidid
+        method: GET
+        description: HashiCorp Update, read or delete an entity using entity ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentityentityidid
+        method: POST
+        description: HashiCorp Update, read or delete an entity using entity ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteidentityentityidid
+        method: DELETE
+        description: HashiCorp Update, read or delete an entity using entity ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-entity-merge
+      path: /identity/entity/merge
+      operations:
+      - name: postidentityentitymerge
+        method: POST
+        description: HashiCorp Merge two or more entities together
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: identity-entity-name
+      path: /identity/entity/name
+      operations:
+      - name: getidentityentityname
+        method: GET
+        description: HashiCorp List all the entity names
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list
+          in: query
+          type: string
+          description: Return a list if `true`
+    - name: identity-entity-name-name
+      path: /identity/entity/name/{name}
+      operations:
+      - name: getidentityentitynamename
+        method: GET
+        description: HashiCorp Update, read or delete an entity using entity name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentityentitynamename
+        method: POST
+        description: HashiCorp Update, read or delete an entity using entity name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteidentityentitynamename
+        method: DELETE
+        description: HashiCorp Update, read or delete an entity using entity name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-group
+      path: /identity/group
+      operations:
+      - name: postidentitygroup
+        method: POST
+        description: HashiCorp Create a new group.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: identity-group-alias
+      path: /identity/group-alias
+      operations:
+      - name: postidentitygroupalias
+        method: POST
+        description: HashiCorp Creates a new group alias, or updates an existing one.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: identity-group-alias-id
+      path: /identity/group-alias/id
+      operations:
+      - name: getidentitygroupaliasid
+        method: GET
+        description: HashiCorp List all the group alias IDs.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list
+          in: query
+          type: string
+          description: Return a list if `true`
+    - name: identity-group-alias-id-id
+      path: /identity/group-alias/id/{id}
+      operations:
+      - name: getidentitygroupaliasidid
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentitygroupaliasidid
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteidentitygroupaliasidid
+        method: DELETE
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-group-id
+      path: /identity/group/id
+      operations:
+      - name: getidentitygroupid
+        method: GET
+        description: HashiCorp List all the group IDs.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list
+          in: query
+          type: string
+          description: Return a list if `true`
+    - name: identity-group-id-id
+      path: /identity/group/id/{id}
+      operations:
+      - name: getidentitygroupidid
+        method: GET
+        description: HashiCorp Update or delete an existing group using its ID.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentitygroupidid
+        method: POST
+        description: HashiCorp Update or delete an existing group using its ID.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteidentitygroupidid
+        method: DELETE
+        description: HashiCorp Update or delete an existing group using its ID.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-group-name
+      path: /identity/group/name
+      operations:
+      - name: getidentitygroupname
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list
+          in: query
+          type: string
+          description: Return a list if `true`
+    - name: identity-group-name-name
+      path: /identity/group/name/{name}
+      operations:
+      - name: getidentitygroupnamename
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentitygroupnamename
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteidentitygroupnamename
+        method: DELETE
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-lookup-entity
+      path: /identity/lookup/entity
+      operations:
+      - name: postidentitylookupentity
+        method: POST
+        description: HashiCorp Query entities based on various properties.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: identity-lookup-group
+      path: /identity/lookup/group
+      operations:
+      - name: postidentitylookupgroup
+        method: POST
+        description: HashiCorp Query groups based on various properties.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: identity-oidc-.well-known-keys
+      path: /identity/oidc/.well-known/keys
+      operations:
+      - name: getidentityoidcwellknownkeys
+        method: GET
+        description: HashiCorp Retrieve public keys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-oidc-.well-known-openid-configuration
+      path: /identity/oidc/.well-known/openid-configuration
+      operations:
+      - name: getidentityoidcwellknownopenidconfiguration
+        method: GET
+        description: HashiCorp Query OIDC configurations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-oidc-assignment
+      path: /identity/oidc/assignment
+      operations:
+      - name: getidentityoidcassignment
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list
+          in: query
+          type: string
+          description: Return a list if `true`
+    - name: identity-oidc-assignment-name
+      path: /identity/oidc/assignment/{name}
+      operations:
+      - name: getidentityoidcassignmentname
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentityoidcassignmentname
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteidentityoidcassignmentname
+        method: DELETE
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-oidc-client
+      path: /identity/oidc/client
+      operations:
+      - name: getidentityoidcclient
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list
+          in: query
+          type: string
+          description: Return a list if `true`
+    - name: identity-oidc-client-name
+      path: /identity/oidc/client/{name}
+      operations:
+      - name: getidentityoidcclientname
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentityoidcclientname
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteidentityoidcclientname
+        method: DELETE
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-oidc-config
+      path: /identity/oidc/config
+      operations:
+      - name: getidentityoidcconfig
+        method: GET
+        description: HashiCorp OIDC configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentityoidcconfig
+        method: POST
+        description: HashiCorp OIDC configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: identity-oidc-introspect
+      path: /identity/oidc/introspect
+      operations:
+      - name: postidentityoidcintrospect
+        method: POST
+        description: HashiCorp Verify the authenticity of an OIDC token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: identity-oidc-key
+      path: /identity/oidc/key
+      operations:
+      - name: getidentityoidckey
+        method: GET
+        description: HashiCorp List OIDC keys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list
+          in: query
+          type: string
+          description: Return a list if `true`
+    - name: identity-oidc-key-name
+      path: /identity/oidc/key/{name}
+      operations:
+      - name: getidentityoidckeyname
+        method: GET
+        description: HashiCorp CRUD operations for OIDC keys.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentityoidckeyname
+        method: POST
+        description: HashiCorp CRUD operations for OIDC keys.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteidentityoidckeyname
+        method: DELETE
+        description: HashiCorp CRUD operations for OIDC keys.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-oidc-key-name-rotate
+      path: /identity/oidc/key/{name}/rotate
+      operations:
+      - name: postidentityoidckeynamerotate
+        method: POST
+        description: HashiCorp Rotate a named OIDC key.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: identity-oidc-provider
+      path: /identity/oidc/provider
+      operations:
+      - name: getidentityoidcprovider
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list
+          in: query
+          type: string
+          description: Return a list if `true`
+    - name: identity-oidc-provider-name
+      path: /identity/oidc/provider/{name}
+      operations:
+      - name: getidentityoidcprovidername
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentityoidcprovidername
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteidentityoidcprovidername
+        method: DELETE
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-oidc-provider-name-.well-known-keys
+      path: /identity/oidc/provider/{name}/.well-known/keys
+      operations:
+      - name: getidentityoidcprovidernamewellknownkeys
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-oidc-provider-name-.well-known-openid-configuration
+      path: /identity/oidc/provider/{name}/.well-known/openid-configuration
+      operations:
+      - name: getidentityoidcprovidernamewellknownopenidconfiguration
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-oidc-provider-name-authorize
+      path: /identity/oidc/provider/{name}/authorize
+      operations:
+      - name: getidentityoidcprovidernameauthorize
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentityoidcprovidernameauthorize
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: identity-oidc-provider-name-token
+      path: /identity/oidc/provider/{name}/token
+      operations:
+      - name: postidentityoidcprovidernametoken
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: identity-oidc-provider-name-userinfo
+      path: /identity/oidc/provider/{name}/userinfo
+      operations:
+      - name: getidentityoidcprovidernameuserinfo
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentityoidcprovidernameuserinfo
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-oidc-role
+      path: /identity/oidc/role
+      operations:
+      - name: getidentityoidcrole
+        method: GET
+        description: HashiCorp List configured OIDC roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list
+          in: query
+          type: string
+          description: Return a list if `true`
+    - name: identity-oidc-role-name
+      path: /identity/oidc/role/{name}
+      operations:
+      - name: getidentityoidcrolename
+        method: GET
+        description: HashiCorp CRUD operations on OIDC Roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentityoidcrolename
+        method: POST
+        description: HashiCorp CRUD operations on OIDC Roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteidentityoidcrolename
+        method: DELETE
+        description: HashiCorp CRUD operations on OIDC Roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-oidc-scope
+      path: /identity/oidc/scope
+      operations:
+      - name: getidentityoidcscope
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list
+          in: query
+          type: string
+          description: Return a list if `true`
+    - name: identity-oidc-scope-name
+      path: /identity/oidc/scope/{name}
+      operations:
+      - name: getidentityoidcscopename
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentityoidcscopename
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteidentityoidcscopename
+        method: DELETE
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-oidc-token-name
+      path: /identity/oidc/token/{name}
+      operations:
+      - name: getidentityoidctokenname
+        method: GET
+        description: HashiCorp Generate an OIDC token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-persona
+      path: /identity/persona
+      operations:
+      - name: postidentitypersona
+        method: POST
+        description: HashiCorp Create a new alias.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: identity-persona-id
+      path: /identity/persona/id
+      operations:
+      - name: getidentitypersonaid
+        method: GET
+        description: HashiCorp List all the alias IDs.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: list
+          in: query
+          type: string
+          description: Return a list if `true`
+    - name: identity-persona-id-id
+      path: /identity/persona/id/{id}
+      operations:
+      - name: getidentitypersonaidid
+        method: GET
+        description: HashiCorp Update, read or delete an alias ID.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postidentitypersonaidid
+        method: POST
+        description: HashiCorp Update, read or delete an alias ID.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteidentitypersonaidid
+        method: DELETE
+        description: HashiCorp Update, read or delete an alias ID.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: vault-identity-rest
+    port: 8080
+    description: REST adapter for HashiCorp Vault API — Identity. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/identity/alias
+      name: identity-alias
+      description: REST surface for identity-alias.
+      operations:
+      - method: POST
+        name: postidentityalias
+        description: HashiCorp Create a new alias.
+        call: vault-identity.postidentityalias
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/alias/id
+      name: identity-alias-id
+      description: REST surface for identity-alias-id.
+      operations:
+      - method: GET
+        name: getidentityaliasid
+        description: HashiCorp List all the alias IDs.
+        call: vault-identity.getidentityaliasid
+        with:
+          list: rest.list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/alias/id/{id}
+      name: identity-alias-id-id
+      description: REST surface for identity-alias-id-id.
+      operations:
+      - method: GET
+        name: getidentityaliasidid
+        description: HashiCorp Update, read or delete an alias ID.
+        call: vault-identity.getidentityaliasidid
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentityaliasidid
+        description: HashiCorp Update, read or delete an alias ID.
+        call: vault-identity.postidentityaliasidid
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteidentityaliasidid
+        description: HashiCorp Update, read or delete an alias ID.
+        call: vault-identity.deleteidentityaliasidid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/entity
+      name: identity-entity
+      description: REST surface for identity-entity.
+      operations:
+      - method: POST
+        name: postidentityentity
+        description: HashiCorp Create a new entity
+        call: vault-identity.postidentityentity
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/entity-alias
+      name: identity-entity-alias
+      description: REST surface for identity-entity-alias.
+      operations:
+      - method: POST
+        name: postidentityentityalias
+        description: HashiCorp Create a new alias.
+        call: vault-identity.postidentityentityalias
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/entity-alias/id
+      name: identity-entity-alias-id
+      description: REST surface for identity-entity-alias-id.
+      operations:
+      - method: GET
+        name: getidentityentityaliasid
+        description: HashiCorp List all the alias IDs.
+        call: vault-identity.getidentityentityaliasid
+        with:
+          list: rest.list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/entity-alias/id/{id}
+      name: identity-entity-alias-id-id
+      description: REST surface for identity-entity-alias-id-id.
+      operations:
+      - method: GET
+        name: getidentityentityaliasidid
+        description: HashiCorp Update, read or delete an alias ID.
+        call: vault-identity.getidentityentityaliasidid
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentityentityaliasidid
+        description: HashiCorp Update, read or delete an alias ID.
+        call: vault-identity.postidentityentityaliasidid
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteidentityentityaliasidid
+        description: HashiCorp Update, read or delete an alias ID.
+        call: vault-identity.deleteidentityentityaliasidid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/entity/batch-delete
+      name: identity-entity-batch-delete
+      description: REST surface for identity-entity-batch-delete.
+      operations:
+      - method: POST
+        name: postidentityentitybatchdelete
+        description: HashiCorp Delete all of the entities provided
+        call: vault-identity.postidentityentitybatchdelete
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/entity/id
+      name: identity-entity-id
+      description: REST surface for identity-entity-id.
+      operations:
+      - method: GET
+        name: getidentityentityid
+        description: HashiCorp List all the entity IDs
+        call: vault-identity.getidentityentityid
+        with:
+          list: rest.list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/entity/id/{id}
+      name: identity-entity-id-id
+      description: REST surface for identity-entity-id-id.
+      operations:
+      - method: GET
+        name: getidentityentityidid
+        description: HashiCorp Update, read or delete an entity using entity ID
+        call: vault-identity.getidentityentityidid
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentityentityidid
+        description: HashiCorp Update, read or delete an entity using entity ID
+        call: vault-identity.postidentityentityidid
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteidentityentityidid
+        description: HashiCorp Update, read or delete an entity using entity ID
+        call: vault-identity.deleteidentityentityidid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/entity/merge
+      name: identity-entity-merge
+      description: REST surface for identity-entity-merge.
+      operations:
+      - method: POST
+        name: postidentityentitymerge
+        description: HashiCorp Merge two or more entities together
+        call: vault-identity.postidentityentitymerge
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/entity/name
+      name: identity-entity-name
+      description: REST surface for identity-entity-name.
+      operations:
+      - method: GET
+        name: getidentityentityname
+        description: HashiCorp List all the entity names
+        call: vault-identity.getidentityentityname
+        with:
+          list: rest.list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/entity/name/{name}
+      name: identity-entity-name-name
+      description: REST surface for identity-entity-name-name.
+      operations:
+      - method: GET
+        name: getidentityentitynamename
+        description: HashiCorp Update, read or delete an entity using entity name
+        call: vault-identity.getidentityentitynamename
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentityentitynamename
+        description: HashiCorp Update, read or delete an entity using entity name
+        call: vault-identity.postidentityentitynamename
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteidentityentitynamename
+        description: HashiCorp Update, read or delete an entity using entity name
+        call: vault-identity.deleteidentityentitynamename
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/group
+      name: identity-group
+      description: REST surface for identity-group.
+      operations:
+      - method: POST
+        name: postidentitygroup
+        description: HashiCorp Create a new group.
+        call: vault-identity.postidentitygroup
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/group-alias
+      name: identity-group-alias
+      description: REST surface for identity-group-alias.
+      operations:
+      - method: POST
+        name: postidentitygroupalias
+        description: HashiCorp Creates a new group alias, or updates an existing one.
+        call: vault-identity.postidentitygroupalias
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/group-alias/id
+      name: identity-group-alias-id
+      description: REST surface for identity-group-alias-id.
+      operations:
+      - method: GET
+        name: getidentitygroupaliasid
+        description: HashiCorp List all the group alias IDs.
+        call: vault-identity.getidentitygroupaliasid
+        with:
+          list: rest.list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/group-alias/id/{id}
+      name: identity-group-alias-id-id
+      description: REST surface for identity-group-alias-id-id.
+      operations:
+      - method: GET
+        name: getidentitygroupaliasidid
+        description: getidentitygroupaliasidid
+        call: vault-identity.getidentitygroupaliasidid
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentitygroupaliasidid
+        description: postidentitygroupaliasidid
+        call: vault-identity.postidentitygroupaliasidid
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteidentitygroupaliasidid
+        description: deleteidentitygroupaliasidid
+        call: vault-identity.deleteidentitygroupaliasidid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/group/id
+      name: identity-group-id
+      description: REST surface for identity-group-id.
+      operations:
+      - method: GET
+        name: getidentitygroupid
+        description: HashiCorp List all the group IDs.
+        call: vault-identity.getidentitygroupid
+        with:
+          list: rest.list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/group/id/{id}
+      name: identity-group-id-id
+      description: REST surface for identity-group-id-id.
+      operations:
+      - method: GET
+        name: getidentitygroupidid
+        description: HashiCorp Update or delete an existing group using its ID.
+        call: vault-identity.getidentitygroupidid
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentitygroupidid
+        description: HashiCorp Update or delete an existing group using its ID.
+        call: vault-identity.postidentitygroupidid
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteidentitygroupidid
+        description: HashiCorp Update or delete an existing group using its ID.
+        call: vault-identity.deleteidentitygroupidid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/group/name
+      name: identity-group-name
+      description: REST surface for identity-group-name.
+      operations:
+      - method: GET
+        name: getidentitygroupname
+        description: getidentitygroupname
+        call: vault-identity.getidentitygroupname
+        with:
+          list: rest.list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/group/name/{name}
+      name: identity-group-name-name
+      description: REST surface for identity-group-name-name.
+      operations:
+      - method: GET
+        name: getidentitygroupnamename
+        description: getidentitygroupnamename
+        call: vault-identity.getidentitygroupnamename
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentitygroupnamename
+        description: postidentitygroupnamename
+        call: vault-identity.postidentitygroupnamename
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteidentitygroupnamename
+        description: deleteidentitygroupnamename
+        call: vault-identity.deleteidentitygroupnamename
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/lookup/entity
+      name: identity-lookup-entity
+      description: REST surface for identity-lookup-entity.
+      operations:
+      - method: POST
+        name: postidentitylookupentity
+        description: HashiCorp Query entities based on various properties.
+        call: vault-identity.postidentitylookupentity
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/lookup/group
+      name: identity-lookup-group
+      description: REST surface for identity-lookup-group.
+      operations:
+      - method: POST
+        name: postidentitylookupgroup
+        description: HashiCorp Query groups based on various properties.
+        call: vault-identity.postidentitylookupgroup
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/well-known/keys
+      name: identity-oidc-well-known-keys
+      description: REST surface for identity-oidc-.well-known-keys.
+      operations:
+      - method: GET
+        name: getidentityoidcwellknownkeys
+        description: HashiCorp Retrieve public keys
+        call: vault-identity.getidentityoidcwellknownkeys
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/well-known/openid-configuration
+      name: identity-oidc-well-known-openid-configuration
+      description: REST surface for identity-oidc-.well-known-openid-configuration.
+      operations:
+      - method: GET
+        name: getidentityoidcwellknownopenidconfiguration
+        description: HashiCorp Query OIDC configurations
+        call: vault-identity.getidentityoidcwellknownopenidconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/assignment
+      name: identity-oidc-assignment
+      description: REST surface for identity-oidc-assignment.
+      operations:
+      - method: GET
+        name: getidentityoidcassignment
+        description: getidentityoidcassignment
+        call: vault-identity.getidentityoidcassignment
+        with:
+          list: rest.list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/assignment/{name}
+      name: identity-oidc-assignment-name
+      description: REST surface for identity-oidc-assignment-name.
+      operations:
+      - method: GET
+        name: getidentityoidcassignmentname
+        description: getidentityoidcassignmentname
+        call: vault-identity.getidentityoidcassignmentname
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentityoidcassignmentname
+        description: postidentityoidcassignmentname
+        call: vault-identity.postidentityoidcassignmentname
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteidentityoidcassignmentname
+        description: deleteidentityoidcassignmentname
+        call: vault-identity.deleteidentityoidcassignmentname
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/client
+      name: identity-oidc-client
+      description: REST surface for identity-oidc-client.
+      operations:
+      - method: GET
+        name: getidentityoidcclient
+        description: getidentityoidcclient
+        call: vault-identity.getidentityoidcclient
+        with:
+          list: rest.list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/client/{name}
+      name: identity-oidc-client-name
+      description: REST surface for identity-oidc-client-name.
+      operations:
+      - method: GET
+        name: getidentityoidcclientname
+        description: getidentityoidcclientname
+        call: vault-identity.getidentityoidcclientname
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentityoidcclientname
+        description: postidentityoidcclientname
+        call: vault-identity.postidentityoidcclientname
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteidentityoidcclientname
+        description: deleteidentityoidcclientname
+        call: vault-identity.deleteidentityoidcclientname
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/config
+      name: identity-oidc-config
+      description: REST surface for identity-oidc-config.
+      operations:
+      - method: GET
+        name: getidentityoidcconfig
+        description: HashiCorp OIDC configuration
+        call: vault-identity.getidentityoidcconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentityoidcconfig
+        description: HashiCorp OIDC configuration
+        call: vault-identity.postidentityoidcconfig
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/introspect
+      name: identity-oidc-introspect
+      description: REST surface for identity-oidc-introspect.
+      operations:
+      - method: POST
+        name: postidentityoidcintrospect
+        description: HashiCorp Verify the authenticity of an OIDC token
+        call: vault-identity.postidentityoidcintrospect
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/key
+      name: identity-oidc-key
+      description: REST surface for identity-oidc-key.
+      operations:
+      - method: GET
+        name: getidentityoidckey
+        description: HashiCorp List OIDC keys
+        call: vault-identity.getidentityoidckey
+        with:
+          list: rest.list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/key/{name}
+      name: identity-oidc-key-name
+      description: REST surface for identity-oidc-key-name.
+      operations:
+      - method: GET
+        name: getidentityoidckeyname
+        description: HashiCorp CRUD operations for OIDC keys.
+        call: vault-identity.getidentityoidckeyname
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentityoidckeyname
+        description: HashiCorp CRUD operations for OIDC keys.
+        call: vault-identity.postidentityoidckeyname
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteidentityoidckeyname
+        description: HashiCorp CRUD operations for OIDC keys.
+        call: vault-identity.deleteidentityoidckeyname
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/key/{name}/rotate
+      name: identity-oidc-key-name-rotate
+      description: REST surface for identity-oidc-key-name-rotate.
+      operations:
+      - method: POST
+        name: postidentityoidckeynamerotate
+        description: HashiCorp Rotate a named OIDC key.
+        call: vault-identity.postidentityoidckeynamerotate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/provider
+      name: identity-oidc-provider
+      description: REST surface for identity-oidc-provider.
+      operations:
+      - method: GET
+        name: getidentityoidcprovider
+        description: getidentityoidcprovider
+        call: vault-identity.getidentityoidcprovider
+        with:
+          list: rest.list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/provider/{name}
+      name: identity-oidc-provider-name
+      description: REST surface for identity-oidc-provider-name.
+      operations:
+      - method: GET
+        name: getidentityoidcprovidername
+        description: getidentityoidcprovidername
+        call: vault-identity.getidentityoidcprovidername
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentityoidcprovidername
+        description: postidentityoidcprovidername
+        call: vault-identity.postidentityoidcprovidername
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteidentityoidcprovidername
+        description: deleteidentityoidcprovidername
+        call: vault-identity.deleteidentityoidcprovidername
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/provider/{name}/well-known/keys
+      name: identity-oidc-provider-name-well-known-keys
+      description: REST surface for identity-oidc-provider-name-.well-known-keys.
+      operations:
+      - method: GET
+        name: getidentityoidcprovidernamewellknownkeys
+        description: getidentityoidcprovidernamewellknownkeys
+        call: vault-identity.getidentityoidcprovidernamewellknownkeys
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/provider/{name}/well-known/openid-configuration
+      name: identity-oidc-provider-name-well-known-openid-configuration
+      description: REST surface for identity-oidc-provider-name-.well-known-openid-configuration.
+      operations:
+      - method: GET
+        name: getidentityoidcprovidernamewellknownopenidconfiguration
+        description: getidentityoidcprovidernamewellknownopenidconfiguration
+        call: vault-identity.getidentityoidcprovidernamewellknownopenidconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/provider/{name}/authorize
+      name: identity-oidc-provider-name-authorize
+      description: REST surface for identity-oidc-provider-name-authorize.
+      operations:
+      - method: GET
+        name: getidentityoidcprovidernameauthorize
+        description: getidentityoidcprovidernameauthorize
+        call: vault-identity.getidentityoidcprovidernameauthorize
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentityoidcprovidernameauthorize
+        description: postidentityoidcprovidernameauthorize
+        call: vault-identity.postidentityoidcprovidernameauthorize
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/provider/{name}/token
+      name: identity-oidc-provider-name-token
+      description: REST surface for identity-oidc-provider-name-token.
+      operations:
+      - method: POST
+        name: postidentityoidcprovidernametoken
+        description: postidentityoidcprovidernametoken
+        call: vault-identity.postidentityoidcprovidernametoken
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/provider/{name}/userinfo
+      name: identity-oidc-provider-name-userinfo
+      description: REST surface for identity-oidc-provider-name-userinfo.
+      operations:
+      - method: GET
+        name: getidentityoidcprovidernameuserinfo
+        description: getidentityoidcprovidernameuserinfo
+        call: vault-identity.getidentityoidcprovidernameuserinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentityoidcprovidernameuserinfo
+        description: postidentityoidcprovidernameuserinfo
+        call: vault-identity.postidentityoidcprovidernameuserinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/role
+      name: identity-oidc-role
+      description: REST surface for identity-oidc-role.
+      operations:
+      - method: GET
+        name: getidentityoidcrole
+        description: HashiCorp List configured OIDC roles
+        call: vault-identity.getidentityoidcrole
+        with:
+          list: rest.list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/role/{name}
+      name: identity-oidc-role-name
+      description: REST surface for identity-oidc-role-name.
+      operations:
+      - method: GET
+        name: getidentityoidcrolename
+        description: HashiCorp CRUD operations on OIDC Roles
+        call: vault-identity.getidentityoidcrolename
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentityoidcrolename
+        description: HashiCorp CRUD operations on OIDC Roles
+        call: vault-identity.postidentityoidcrolename
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteidentityoidcrolename
+        description: HashiCorp CRUD operations on OIDC Roles
+        call: vault-identity.deleteidentityoidcrolename
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/scope
+      name: identity-oidc-scope
+      description: REST surface for identity-oidc-scope.
+      operations:
+      - method: GET
+        name: getidentityoidcscope
+        description: getidentityoidcscope
+        call: vault-identity.getidentityoidcscope
+        with:
+          list: rest.list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/scope/{name}
+      name: identity-oidc-scope-name
+      description: REST surface for identity-oidc-scope-name.
+      operations:
+      - method: GET
+        name: getidentityoidcscopename
+        description: getidentityoidcscopename
+        call: vault-identity.getidentityoidcscopename
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentityoidcscopename
+        description: postidentityoidcscopename
+        call: vault-identity.postidentityoidcscopename
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteidentityoidcscopename
+        description: deleteidentityoidcscopename
+        call: vault-identity.deleteidentityoidcscopename
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/oidc/token/{name}
+      name: identity-oidc-token-name
+      description: REST surface for identity-oidc-token-name.
+      operations:
+      - method: GET
+        name: getidentityoidctokenname
+        description: HashiCorp Generate an OIDC token
+        call: vault-identity.getidentityoidctokenname
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/persona
+      name: identity-persona
+      description: REST surface for identity-persona.
+      operations:
+      - method: POST
+        name: postidentitypersona
+        description: HashiCorp Create a new alias.
+        call: vault-identity.postidentitypersona
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/persona/id
+      name: identity-persona-id
+      description: REST surface for identity-persona-id.
+      operations:
+      - method: GET
+        name: getidentitypersonaid
+        description: HashiCorp List all the alias IDs.
+        call: vault-identity.getidentitypersonaid
+        with:
+          list: rest.list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity/persona/id/{id}
+      name: identity-persona-id-id
+      description: REST surface for identity-persona-id-id.
+      operations:
+      - method: GET
+        name: getidentitypersonaidid
+        description: HashiCorp Update, read or delete an alias ID.
+        call: vault-identity.getidentitypersonaidid
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postidentitypersonaidid
+        description: HashiCorp Update, read or delete an alias ID.
+        call: vault-identity.postidentitypersonaidid
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteidentitypersonaidid
+        description: HashiCorp Update, read or delete an alias ID.
+        call: vault-identity.deleteidentitypersonaidid
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: vault-identity-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for HashiCorp Vault API — Identity. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: hashicorp-create-new-alias
+      description: HashiCorp Create a new alias.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityalias
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-list-all-alias-ids
+      description: HashiCorp List all the alias IDs.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityaliasid
+      with:
+        list: tools.list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-read-delete-alias
+      description: HashiCorp Update, read or delete an alias ID.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityaliasidid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-read-delete-alias-2
+      description: HashiCorp Update, read or delete an alias ID.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityaliasidid
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-read-delete-alias-3
+      description: HashiCorp Update, read or delete an alias ID.
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vault-identity.deleteidentityaliasidid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-create-new-entity
+      description: HashiCorp Create a new entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityentity
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-create-new-alias-2
+      description: HashiCorp Create a new alias.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityentityalias
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-list-all-alias-ids-2
+      description: HashiCorp List all the alias IDs.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityentityaliasid
+      with:
+        list: tools.list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-read-delete-alias-4
+      description: HashiCorp Update, read or delete an alias ID.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityentityaliasidid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-read-delete-alias-5
+      description: HashiCorp Update, read or delete an alias ID.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityentityaliasidid
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-read-delete-alias-6
+      description: HashiCorp Update, read or delete an alias ID.
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vault-identity.deleteidentityentityaliasidid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-delete-all-entities-provided
+      description: HashiCorp Delete all of the entities provided
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityentitybatchdelete
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-list-all-entity-ids
+      description: HashiCorp List all the entity IDs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityentityid
+      with:
+        list: tools.list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-read-delete-entity
+      description: HashiCorp Update, read or delete an entity using entity ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityentityidid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-read-delete-entity-2
+      description: HashiCorp Update, read or delete an entity using entity ID
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityentityidid
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-read-delete-entity-3
+      description: HashiCorp Update, read or delete an entity using entity ID
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vault-identity.deleteidentityentityidid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-merge-two-more-entities
+      description: HashiCorp Merge two or more entities together
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityentitymerge
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-list-all-entity-names
+      description: HashiCorp List all the entity names
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityentityname
+      with:
+        list: tools.list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-read-delete-entity-4
+      description: HashiCorp Update, read or delete an entity using entity name
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityentitynamename
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-read-delete-entity-5
+      description: HashiCorp Update, read or delete an entity using entity name
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityentitynamename
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-read-delete-entity-6
+      description: HashiCorp Update, read or delete an entity using entity name
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vault-identity.deleteidentityentitynamename
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-create-new-group
+      description: HashiCorp Create a new group.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentitygroup
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-creates-new-group-alias
+      description: HashiCorp Creates a new group alias, or updates an existing one.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentitygroupalias
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-list-all-group-alias
+      description: HashiCorp List all the group alias IDs.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentitygroupaliasid
+      with:
+        list: tools.list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getidentitygroupaliasidid
+      description: getidentitygroupaliasidid
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentitygroupaliasidid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: postidentitygroupaliasidid
+      description: postidentitygroupaliasidid
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentitygroupaliasidid
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteidentitygroupaliasidid
+      description: deleteidentitygroupaliasidid
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vault-identity.deleteidentitygroupaliasidid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-list-all-group-ids
+      description: HashiCorp List all the group IDs.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentitygroupid
+      with:
+        list: tools.list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-delete-existing-group
+      description: HashiCorp Update or delete an existing group using its ID.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentitygroupidid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-delete-existing-group-2
+      description: HashiCorp Update or delete an existing group using its ID.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentitygroupidid
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-delete-existing-group-3
+      description: HashiCorp Update or delete an existing group using its ID.
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vault-identity.deleteidentitygroupidid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getidentitygroupname
+      description: getidentitygroupname
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentitygroupname
+      with:
+        list: tools.list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getidentitygroupnamename
+      description: getidentitygroupnamename
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentitygroupnamename
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: postidentitygroupnamename
+      description: postidentitygroupnamename
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentitygroupnamename
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteidentitygroupnamename
+      description: deleteidentitygroupnamename
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vault-identity.deleteidentitygroupnamename
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-query-entities-based-various
+      description: HashiCorp Query entities based on various properties.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentitylookupentity
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-query-groups-based-various
+      description: HashiCorp Query groups based on various properties.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentitylookupgroup
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-retrieve-public-keys
+      description: HashiCorp Retrieve public keys
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcwellknownkeys
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-query-oidc-configurations
+      description: HashiCorp Query OIDC configurations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcwellknownopenidconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getidentityoidcassignment
+      description: getidentityoidcassignment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcassignment
+      with:
+        list: tools.list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getidentityoidcassignmentname
+      description: getidentityoidcassignmentname
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcassignmentname
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: postidentityoidcassignmentname
+      description: postidentityoidcassignmentname
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityoidcassignmentname
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteidentityoidcassignmentname
+      description: deleteidentityoidcassignmentname
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vault-identity.deleteidentityoidcassignmentname
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getidentityoidcclient
+      description: getidentityoidcclient
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcclient
+      with:
+        list: tools.list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getidentityoidcclientname
+      description: getidentityoidcclientname
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcclientname
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: postidentityoidcclientname
+      description: postidentityoidcclientname
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityoidcclientname
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteidentityoidcclientname
+      description: deleteidentityoidcclientname
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vault-identity.deleteidentityoidcclientname
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-oidc-configuration
+      description: HashiCorp OIDC configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-oidc-configuration-2
+      description: HashiCorp OIDC configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityoidcconfig
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-verify-authenticity-oidc-token
+      description: HashiCorp Verify the authenticity of an OIDC token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityoidcintrospect
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-list-oidc-keys
+      description: HashiCorp List OIDC keys
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidckey
+      with:
+        list: tools.list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-crud-operations-oidc-keys
+      description: HashiCorp CRUD operations for OIDC keys.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidckeyname
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-crud-operations-oidc-keys-2
+      description: HashiCorp CRUD operations for OIDC keys.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityoidckeyname
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-crud-operations-oidc-keys-3
+      description: HashiCorp CRUD operations for OIDC keys.
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vault-identity.deleteidentityoidckeyname
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-rotate-named-oidc-key
+      description: HashiCorp Rotate a named OIDC key.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityoidckeynamerotate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getidentityoidcprovider
+      description: getidentityoidcprovider
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcprovider
+      with:
+        list: tools.list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getidentityoidcprovidername
+      description: getidentityoidcprovidername
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcprovidername
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: postidentityoidcprovidername
+      description: postidentityoidcprovidername
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityoidcprovidername
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteidentityoidcprovidername
+      description: deleteidentityoidcprovidername
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vault-identity.deleteidentityoidcprovidername
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getidentityoidcprovidernamewellknownkeys
+      description: getidentityoidcprovidernamewellknownkeys
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcprovidernamewellknownkeys
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getidentityoidcprovidernamewellknownopenidconfiguration
+      description: getidentityoidcprovidernamewellknownopenidconfiguration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcprovidernamewellknownopenidconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getidentityoidcprovidernameauthorize
+      description: getidentityoidcprovidernameauthorize
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcprovidernameauthorize
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: postidentityoidcprovidernameauthorize
+      description: postidentityoidcprovidernameauthorize
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityoidcprovidernameauthorize
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: postidentityoidcprovidernametoken
+      description: postidentityoidcprovidernametoken
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityoidcprovidernametoken
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getidentityoidcprovidernameuserinfo
+      description: getidentityoidcprovidernameuserinfo
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcprovidernameuserinfo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: postidentityoidcprovidernameuserinfo
+      description: postidentityoidcprovidernameuserinfo
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityoidcprovidernameuserinfo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-list-configured-oidc-roles
+      description: HashiCorp List configured OIDC roles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcrole
+      with:
+        list: tools.list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-crud-operations-oidc-roles
+      description: HashiCorp CRUD operations on OIDC Roles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcrolename
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-crud-operations-oidc-roles-2
+      description: HashiCorp CRUD operations on OIDC Roles
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityoidcrolename
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-crud-operations-oidc-roles-3
+      description: HashiCorp CRUD operations on OIDC Roles
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vault-identity.deleteidentityoidcrolename
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getidentityoidcscope
+      description: getidentityoidcscope
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcscope
+      with:
+        list: tools.list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getidentityoidcscopename
+      description: getidentityoidcscopename
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidcscopename
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: postidentityoidcscopename
+      description: postidentityoidcscopename
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentityoidcscopename
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteidentityoidcscopename
+      description: deleteidentityoidcscopename
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vault-identity.deleteidentityoidcscopename
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-generate-oidc-token
+      description: HashiCorp Generate an OIDC token
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentityoidctokenname
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-create-new-alias-3
+      description: HashiCorp Create a new alias.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentitypersona
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-list-all-alias-ids-3
+      description: HashiCorp List all the alias IDs.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentitypersonaid
+      with:
+        list: tools.list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-read-delete-alias-7
+      description: HashiCorp Update, read or delete an alias ID.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vault-identity.getidentitypersonaidid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-read-delete-alias-8
+      description: HashiCorp Update, read or delete an alias ID.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vault-identity.postidentitypersonaidid
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hashicorp-update-read-delete-alias-9
+      description: HashiCorp Update, read or delete an alias ID.
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vault-identity.deleteidentitypersonaidid
+      outputParameters:
+      - type: object
+        mapping: $.
