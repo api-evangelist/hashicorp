@@ -1,0 +1,9 @@
+name: HashiCorp Domain Vocabulary
+provider: HashiCorp
+providerId: hashicorp
+description: Tag-derived vocabulary for the HashiCorp API surface; sourced from openapi/ tags.
+terms:
+- term: Auth
+- term: Identity
+- term: Secrets
+- term: System

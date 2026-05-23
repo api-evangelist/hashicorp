@@ -1,0 +1,2387 @@
+{
+  "provider": "HashiCorp",
+  "providerId": "hashicorp",
+  "kind": "json-structure",
+  "description": "Structural overview of the HashiCorp API surface; extracted from openapi/.",
+  "schemaCount": 0,
+  "operationCount": 264,
+  "schemas": [],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/auth/token/accessors/",
+      "operationId": "getAuthTokenAccessors",
+      "summary": "HashiCorp List token accessors, which can then be\nbe used to iterate and discover their properties\nor revoke them. Because this can be used to\ncause a denial of service, this endpoint\nrequires 'sudo' capability in addition to\n'list'.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/create",
+      "operationId": "postAuthTokenCreate",
+      "summary": "HashiCorp The token create path is used to create new tokens.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/create-orphan",
+      "operationId": "postAuthTokenCreateOrphan",
+      "summary": "HashiCorp The token create path is used to create new orphan tokens.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/create/{role_name}",
+      "operationId": "postAuthTokenCreateRole_name",
+      "summary": "HashiCorp This token create path is used to create new tokens adhering to the given role.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/auth/token/lookup",
+      "operationId": "getAuthTokenLookup",
+      "summary": "HashiCorp This endpoint will lookup a token and its properties.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/lookup",
+      "operationId": "postAuthTokenLookup",
+      "summary": "HashiCorp This endpoint will lookup a token and its properties.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/lookup-accessor",
+      "operationId": "postAuthTokenLookupAccessor",
+      "summary": "HashiCorp This endpoint will lookup a token associated with the given accessor and its properties. Response will not contain the token ID.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/auth/token/lookup-self",
+      "operationId": "getAuthTokenLookupSelf",
+      "summary": "HashiCorp This endpoint will lookup a token and its properties.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/lookup-self",
+      "operationId": "postAuthTokenLookupSelf",
+      "summary": "HashiCorp This endpoint will lookup a token and its properties.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/renew",
+      "operationId": "postAuthTokenRenew",
+      "summary": "HashiCorp This endpoint will renew the given token and prevent expiration.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/renew-accessor",
+      "operationId": "postAuthTokenRenewAccessor",
+      "summary": "HashiCorp This endpoint will renew a token associated with the given accessor and its properties. Response will not contain the token ID.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/renew-self",
+      "operationId": "postAuthTokenRenewSelf",
+      "summary": "HashiCorp This endpoint will renew the token used to call it and prevent expiration.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/revoke",
+      "operationId": "postAuthTokenRevoke",
+      "summary": "HashiCorp This endpoint will delete the given token and all of its child tokens.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/revoke-accessor",
+      "operationId": "postAuthTokenRevokeAccessor",
+      "summary": "HashiCorp This endpoint will delete the token associated with the accessor and all of its child tokens.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/revoke-orphan",
+      "operationId": "postAuthTokenRevokeOrphan",
+      "summary": "HashiCorp This endpoint will delete the token and orphan its child tokens.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/revoke-self",
+      "operationId": "postAuthTokenRevokeSelf",
+      "summary": "HashiCorp This endpoint will delete the token used to call it and all of its child tokens.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/auth/token/roles",
+      "operationId": "getAuthTokenRoles",
+      "summary": "HashiCorp This endpoint lists configured roles.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/auth/token/roles/{role_name}",
+      "operationId": "getAuthTokenRolesRole_name",
+      "summary": null,
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/roles/{role_name}",
+      "operationId": "postAuthTokenRolesRole_name",
+      "summary": null,
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/auth/token/roles/{role_name}",
+      "operationId": "deleteAuthTokenRolesRole_name",
+      "summary": null,
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/token/tidy",
+      "operationId": "postAuthTokenTidy",
+      "summary": "HashiCorp This endpoint performs cleanup tasks that can be run if certain error\nconditions have occurred.",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/cubbyhole/{path}",
+      "operationId": "getCubbyholePath",
+      "summary": "HashiCorp Retrieve the secret at the specified location.",
+      "tags": [
+        "Secrets"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/cubbyhole/{path}",
+      "operationId": "postCubbyholePath",
+      "summary": "HashiCorp Store a secret at the specified location.",
+      "tags": [
+        "Secrets"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/cubbyhole/{path}",
+      "operationId": "deleteCubbyholePath",
+      "summary": "HashiCorp Deletes the secret at the specified location.",
+      "tags": [
+        "Secrets"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/alias",
+      "operationId": "postIdentityAlias",
+      "summary": "HashiCorp Create a new alias.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/alias/id",
+      "operationId": "getIdentityAliasId",
+      "summary": "HashiCorp List all the alias IDs.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/alias/id/{id}",
+      "operationId": "getIdentityAliasIdId",
+      "summary": "HashiCorp Update, read or delete an alias ID.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/alias/id/{id}",
+      "operationId": "postIdentityAliasIdId",
+      "summary": "HashiCorp Update, read or delete an alias ID.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/identity/alias/id/{id}",
+      "operationId": "deleteIdentityAliasIdId",
+      "summary": "HashiCorp Update, read or delete an alias ID.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/entity",
+      "operationId": "postIdentityEntity",
+      "summary": "HashiCorp Create a new entity",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/entity-alias",
+      "operationId": "postIdentityEntityAlias",
+      "summary": "HashiCorp Create a new alias.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/entity-alias/id",
+      "operationId": "getIdentityEntityAliasId",
+      "summary": "HashiCorp List all the alias IDs.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/entity-alias/id/{id}",
+      "operationId": "getIdentityEntityAliasIdId",
+      "summary": "HashiCorp Update, read or delete an alias ID.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/entity-alias/id/{id}",
+      "operationId": "postIdentityEntityAliasIdId",
+      "summary": "HashiCorp Update, read or delete an alias ID.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/identity/entity-alias/id/{id}",
+      "operationId": "deleteIdentityEntityAliasIdId",
+      "summary": "HashiCorp Update, read or delete an alias ID.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/entity/batch-delete",
+      "operationId": "postIdentityEntityBatchDelete",
+      "summary": "HashiCorp Delete all of the entities provided",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/entity/id",
+      "operationId": "getIdentityEntityId",
+      "summary": "HashiCorp List all the entity IDs",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/entity/id/{id}",
+      "operationId": "getIdentityEntityIdId",
+      "summary": "HashiCorp Update, read or delete an entity using entity ID",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/entity/id/{id}",
+      "operationId": "postIdentityEntityIdId",
+      "summary": "HashiCorp Update, read or delete an entity using entity ID",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/identity/entity/id/{id}",
+      "operationId": "deleteIdentityEntityIdId",
+      "summary": "HashiCorp Update, read or delete an entity using entity ID",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/entity/merge",
+      "operationId": "postIdentityEntityMerge",
+      "summary": "HashiCorp Merge two or more entities together",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/entity/name",
+      "operationId": "getIdentityEntityName",
+      "summary": "HashiCorp List all the entity names",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/entity/name/{name}",
+      "operationId": "getIdentityEntityNameName",
+      "summary": "HashiCorp Update, read or delete an entity using entity name",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/entity/name/{name}",
+      "operationId": "postIdentityEntityNameName",
+      "summary": "HashiCorp Update, read or delete an entity using entity name",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/identity/entity/name/{name}",
+      "operationId": "deleteIdentityEntityNameName",
+      "summary": "HashiCorp Update, read or delete an entity using entity name",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/group",
+      "operationId": "postIdentityGroup",
+      "summary": "HashiCorp Create a new group.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/group-alias",
+      "operationId": "postIdentityGroupAlias",
+      "summary": "HashiCorp Creates a new group alias, or updates an existing one.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/group-alias/id",
+      "operationId": "getIdentityGroupAliasId",
+      "summary": "HashiCorp List all the group alias IDs.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/group-alias/id/{id}",
+      "operationId": "getIdentityGroupAliasIdId",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/group-alias/id/{id}",
+      "operationId": "postIdentityGroupAliasIdId",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/identity/group-alias/id/{id}",
+      "operationId": "deleteIdentityGroupAliasIdId",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/group/id",
+      "operationId": "getIdentityGroupId",
+      "summary": "HashiCorp List all the group IDs.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/group/id/{id}",
+      "operationId": "getIdentityGroupIdId",
+      "summary": "HashiCorp Update or delete an existing group using its ID.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/group/id/{id}",
+      "operationId": "postIdentityGroupIdId",
+      "summary": "HashiCorp Update or delete an existing group using its ID.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/identity/group/id/{id}",
+      "operationId": "deleteIdentityGroupIdId",
+      "summary": "HashiCorp Update or delete an existing group using its ID.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/group/name",
+      "operationId": "getIdentityGroupName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/group/name/{name}",
+      "operationId": "getIdentityGroupNameName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/group/name/{name}",
+      "operationId": "postIdentityGroupNameName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/identity/group/name/{name}",
+      "operationId": "deleteIdentityGroupNameName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/lookup/entity",
+      "operationId": "postIdentityLookupEntity",
+      "summary": "HashiCorp Query entities based on various properties.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/lookup/group",
+      "operationId": "postIdentityLookupGroup",
+      "summary": "HashiCorp Query groups based on various properties.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/.well-known/keys",
+      "operationId": "getIdentityOidcWellKnownKeys",
+      "summary": "HashiCorp Retrieve public keys",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/.well-known/openid-configuration",
+      "operationId": "getIdentityOidcWellKnownOpenidConfiguration",
+      "summary": "HashiCorp Query OIDC configurations",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/assignment",
+      "operationId": "getIdentityOidcAssignment",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/assignment/{name}",
+      "operationId": "getIdentityOidcAssignmentName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/oidc/assignment/{name}",
+      "operationId": "postIdentityOidcAssignmentName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/identity/oidc/assignment/{name}",
+      "operationId": "deleteIdentityOidcAssignmentName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/client",
+      "operationId": "getIdentityOidcClient",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/client/{name}",
+      "operationId": "getIdentityOidcClientName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/oidc/client/{name}",
+      "operationId": "postIdentityOidcClientName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/identity/oidc/client/{name}",
+      "operationId": "deleteIdentityOidcClientName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/config",
+      "operationId": "getIdentityOidcConfig",
+      "summary": "HashiCorp OIDC configuration",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/oidc/config",
+      "operationId": "postIdentityOidcConfig",
+      "summary": "HashiCorp OIDC configuration",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/oidc/introspect",
+      "operationId": "postIdentityOidcIntrospect",
+      "summary": "HashiCorp Verify the authenticity of an OIDC token",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/key",
+      "operationId": "getIdentityOidcKey",
+      "summary": "HashiCorp List OIDC keys",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/key/{name}",
+      "operationId": "getIdentityOidcKeyName",
+      "summary": "HashiCorp CRUD operations for OIDC keys.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/oidc/key/{name}",
+      "operationId": "postIdentityOidcKeyName",
+      "summary": "HashiCorp CRUD operations for OIDC keys.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/identity/oidc/key/{name}",
+      "operationId": "deleteIdentityOidcKeyName",
+      "summary": "HashiCorp CRUD operations for OIDC keys.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/oidc/key/{name}/rotate",
+      "operationId": "postIdentityOidcKeyNameRotate",
+      "summary": "HashiCorp Rotate a named OIDC key.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/provider",
+      "operationId": "getIdentityOidcProvider",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/provider/{name}",
+      "operationId": "getIdentityOidcProviderName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/oidc/provider/{name}",
+      "operationId": "postIdentityOidcProviderName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/identity/oidc/provider/{name}",
+      "operationId": "deleteIdentityOidcProviderName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/provider/{name}/.well-known/keys",
+      "operationId": "getIdentityOidcProviderNameWellKnownKeys",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/provider/{name}/.well-known/openid-configuration",
+      "operationId": "getIdentityOidcProviderNameWellKnownOpenidConfiguration",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/provider/{name}/authorize",
+      "operationId": "getIdentityOidcProviderNameAuthorize",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/oidc/provider/{name}/authorize",
+      "operationId": "postIdentityOidcProviderNameAuthorize",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/oidc/provider/{name}/token",
+      "operationId": "postIdentityOidcProviderNameToken",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/provider/{name}/userinfo",
+      "operationId": "getIdentityOidcProviderNameUserinfo",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/oidc/provider/{name}/userinfo",
+      "operationId": "postIdentityOidcProviderNameUserinfo",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/role",
+      "operationId": "getIdentityOidcRole",
+      "summary": "HashiCorp List configured OIDC roles",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/role/{name}",
+      "operationId": "getIdentityOidcRoleName",
+      "summary": "HashiCorp CRUD operations on OIDC Roles",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/oidc/role/{name}",
+      "operationId": "postIdentityOidcRoleName",
+      "summary": "HashiCorp CRUD operations on OIDC Roles",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/identity/oidc/role/{name}",
+      "operationId": "deleteIdentityOidcRoleName",
+      "summary": "HashiCorp CRUD operations on OIDC Roles",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/scope",
+      "operationId": "getIdentityOidcScope",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/scope/{name}",
+      "operationId": "getIdentityOidcScopeName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/oidc/scope/{name}",
+      "operationId": "postIdentityOidcScopeName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/identity/oidc/scope/{name}",
+      "operationId": "deleteIdentityOidcScopeName",
+      "summary": null,
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/oidc/token/{name}",
+      "operationId": "getIdentityOidcTokenName",
+      "summary": "HashiCorp Generate an OIDC token",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/persona",
+      "operationId": "postIdentityPersona",
+      "summary": "HashiCorp Create a new alias.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/persona/id",
+      "operationId": "getIdentityPersonaId",
+      "summary": "HashiCorp List all the alias IDs.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/identity/persona/id/{id}",
+      "operationId": "getIdentityPersonaIdId",
+      "summary": "HashiCorp Update, read or delete an alias ID.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/identity/persona/id/{id}",
+      "operationId": "postIdentityPersonaIdId",
+      "summary": "HashiCorp Update, read or delete an alias ID.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/identity/persona/id/{id}",
+      "operationId": "deleteIdentityPersonaIdId",
+      "summary": "HashiCorp Update, read or delete an alias ID.",
+      "tags": [
+        "Identity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/secret/config",
+      "operationId": "getSecretConfig",
+      "summary": "HashiCorp Read the backend level settings.",
+      "tags": [
+        "Secrets"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/secret/config",
+      "operationId": "postSecretConfig",
+      "summary": "HashiCorp Configure backend level settings that are applied to every key in the key-value store.",
+      "tags": [
+        "Secrets"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/secret/data/{path}",
+      "operationId": "getSecretDataPath",
+      "summary": "HashiCorp Write, Patch, Read, and Delete data in the Key-Value Store.",
+      "tags": [
+        "Secrets"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/secret/data/{path}",
+      "operationId": "postSecretDataPath",
+      "summary": "HashiCorp Write, Patch, Read, and Delete data in the Key-Value Store.",
+      "tags": [
+        "Secrets"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/secret/data/{path}",
+      "operationId": "deleteSecretDataPath",
+      "summary": "HashiCorp Write, Patch, Read, and Delete data in the Key-Value Store.",
+      "tags": [
+        "Secrets"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/secret/delete/{path}",
+      "operationId": "postSecretDeletePath",
+      "summary": "HashiCorp Marks one or more versions as deleted in the KV store.",
+      "tags": [
+        "Secrets"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/secret/destroy/{path}",
+      "operationId": "postSecretDestroyPath",
+      "summary": "HashiCorp Permanently removes one or more versions in the KV store",
+      "tags": [
+        "Secrets"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/secret/metadata/{path}",
+      "operationId": "getSecretMetadataPath",
+      "summary": "HashiCorp Configures settings for the KV store",
+      "tags": [
+        "Secrets"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/secret/metadata/{path}",
+      "operationId": "postSecretMetadataPath",
+      "summary": "HashiCorp Configures settings for the KV store",
+      "tags": [
+        "Secrets"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/secret/metadata/{path}",
+      "operationId": "deleteSecretMetadataPath",
+      "summary": "HashiCorp Configures settings for the KV store",
+      "tags": [
+        "Secrets"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/secret/undelete/{path}",
+      "operationId": "postSecretUndeletePath",
+      "summary": "HashiCorp Undeletes one or more versions from the KV store.",
+      "tags": [
+        "Secrets"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/audit",
+      "operationId": "getSysAudit",
+      "summary": "HashiCorp List the enabled audit devices.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/audit-hash/{path}",
+      "operationId": "postSysAuditHashPath",
+      "summary": "HashiCorp The hash of the given string via the given audit backend",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/audit/{path}",
+      "operationId": "postSysAuditPath",
+      "summary": "HashiCorp Enable a new audit device at the supplied path.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/audit/{path}",
+      "operationId": "deleteSysAuditPath",
+      "summary": "HashiCorp Disable the audit device at the given path.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/auth",
+      "operationId": "getSysAuth",
+      "summary": "HashiCorp List the currently enabled credential backends.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/auth/{path}",
+      "operationId": "postSysAuthPath",
+      "summary": "HashiCorp Enables a new auth method.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/auth/{path}",
+      "operationId": "deleteSysAuthPath",
+      "summary": "HashiCorp Disable the auth method at the given auth path",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/auth/{path}/tune",
+      "operationId": "getSysAuthPathTune",
+      "summary": "HashiCorp Reads the given auth path's configuration.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/auth/{path}/tune",
+      "operationId": "postSysAuthPathTune",
+      "summary": "HashiCorp Tune configuration parameters for a given auth path.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/capabilities",
+      "operationId": "postSysCapabilities",
+      "summary": "HashiCorp Fetches the capabilities of the given token on the given path.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/capabilities-accessor",
+      "operationId": "postSysCapabilitiesAccessor",
+      "summary": "HashiCorp Fetches the capabilities of the token associated with the given token, on the given path.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/capabilities-self",
+      "operationId": "postSysCapabilitiesSelf",
+      "summary": "HashiCorp Fetches the capabilities of the given token on the given path.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/config/auditing/request-headers",
+      "operationId": "getSysConfigAuditingRequestHeaders",
+      "summary": "HashiCorp List the request headers that are configured to be audited.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/config/auditing/request-headers/{header}",
+      "operationId": "getSysConfigAuditingRequestHeadersHeader",
+      "summary": "HashiCorp List the information for the given request header.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/config/auditing/request-headers/{header}",
+      "operationId": "postSysConfigAuditingRequestHeadersHeader",
+      "summary": "HashiCorp Enable auditing of a header.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/config/auditing/request-headers/{header}",
+      "operationId": "deleteSysConfigAuditingRequestHeadersHeader",
+      "summary": "HashiCorp Disable auditing of the given request header.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/config/cors",
+      "operationId": "getSysConfigCors",
+      "summary": "HashiCorp Return the current CORS settings.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/config/cors",
+      "operationId": "postSysConfigCors",
+      "summary": "HashiCorp Configure the CORS settings.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/config/cors",
+      "operationId": "deleteSysConfigCors",
+      "summary": "HashiCorp Remove any CORS settings.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/config/reload/{subsystem}",
+      "operationId": "postSysConfigReloadSubsystem",
+      "summary": "HashiCorp Reload the given subsystem",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/config/state/sanitized",
+      "operationId": "getSysConfigStateSanitized",
+      "summary": "HashiCorp Return a sanitized version of the Vault server configuration.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/config/ui/headers/",
+      "operationId": "getSysConfigUiHeaders",
+      "summary": "HashiCorp Return a list of configured UI headers.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/config/ui/headers/{header}",
+      "operationId": "getSysConfigUiHeadersHeader",
+      "summary": "HashiCorp Return the given UI header's configuration",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/config/ui/headers/{header}",
+      "operationId": "postSysConfigUiHeadersHeader",
+      "summary": "HashiCorp Configure the values to be returned for the UI header.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/config/ui/headers/{header}",
+      "operationId": "deleteSysConfigUiHeadersHeader",
+      "summary": "HashiCorp Remove a UI header.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/generate-root",
+      "operationId": "getSysGenerateRoot",
+      "summary": "HashiCorp Read the configuration and progress of the current root generation attempt.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/generate-root",
+      "operationId": "postSysGenerateRoot",
+      "summary": "HashiCorp Initializes a new root generation attempt.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/generate-root",
+      "operationId": "deleteSysGenerateRoot",
+      "summary": "HashiCorp Cancels any in-progress root generation attempt.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/generate-root/attempt",
+      "operationId": "getSysGenerateRootAttempt",
+      "summary": "HashiCorp Read the configuration and progress of the current root generation attempt.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/generate-root/attempt",
+      "operationId": "postSysGenerateRootAttempt",
+      "summary": "HashiCorp Initializes a new root generation attempt.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/generate-root/attempt",
+      "operationId": "deleteSysGenerateRootAttempt",
+      "summary": "HashiCorp Cancels any in-progress root generation attempt.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/generate-root/update",
+      "operationId": "postSysGenerateRootUpdate",
+      "summary": "HashiCorp Enter a single master key share to progress the root generation attempt.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/health",
+      "operationId": "getSysHealth",
+      "summary": "HashiCorp Returns the health status of Vault.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/host-info",
+      "operationId": "getSysHostInfo",
+      "summary": "HashiCorp Information about the host instance that this Vault server is running on.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/init",
+      "operationId": "getSysInit",
+      "summary": "HashiCorp Returns the initialization status of Vault.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/init",
+      "operationId": "postSysInit",
+      "summary": "HashiCorp Initialize a new Vault.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/internal/counters/activity",
+      "operationId": "getSysInternalCountersActivity",
+      "summary": "HashiCorp Report the client count metrics, for this namespace and all child namespaces.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/internal/counters/activity/monthly",
+      "operationId": "getSysInternalCountersActivityMonthly",
+      "summary": "HashiCorp Report the number of clients for this month, for this namespace and all child namespaces.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/internal/counters/config",
+      "operationId": "getSysInternalCountersConfig",
+      "summary": "HashiCorp Read the client count tracking configuration.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/internal/counters/config",
+      "operationId": "postSysInternalCountersConfig",
+      "summary": "HashiCorp Enable or disable collection of client count, set retention period, or set default reporting period.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/internal/counters/entities",
+      "operationId": "getSysInternalCountersEntities",
+      "summary": "HashiCorp Backwards compatibility is not guaranteed for this API",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/internal/counters/requests",
+      "operationId": "getSysInternalCountersRequests",
+      "summary": "HashiCorp Backwards compatibility is not guaranteed for this API",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/internal/counters/tokens",
+      "operationId": "getSysInternalCountersTokens",
+      "summary": "HashiCorp Backwards compatibility is not guaranteed for this API",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/internal/specs/openapi",
+      "operationId": "getSysInternalSpecsOpenapi",
+      "summary": "HashiCorp Generate an OpenAPI 3 document of all mounted paths.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/internal/ui/feature-flags",
+      "operationId": "getSysInternalUiFeatureFlags",
+      "summary": "HashiCorp Lists enabled feature flags.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/internal/ui/mounts",
+      "operationId": "getSysInternalUiMounts",
+      "summary": "HashiCorp Lists all enabled and visible auth and secrets mounts.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/internal/ui/mounts/{path}",
+      "operationId": "getSysInternalUiMountsPath",
+      "summary": "HashiCorp Return information about the given mount.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/internal/ui/namespaces",
+      "operationId": "getSysInternalUiNamespaces",
+      "summary": "HashiCorp Backwards compatibility is not guaranteed for this API",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/internal/ui/resultant-acl",
+      "operationId": "getSysInternalUiResultantAcl",
+      "summary": "HashiCorp Backwards compatibility is not guaranteed for this API",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/key-status",
+      "operationId": "getSysKeyStatus",
+      "summary": "HashiCorp Provides information about the backend encryption key.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/leader",
+      "operationId": "getSysLeader",
+      "summary": "HashiCorp Returns the high availability status and current leader instance of Vault.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/leases",
+      "operationId": "getSysLeases",
+      "summary": "HashiCorp List leases associated with this Vault cluster",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/leases/count",
+      "operationId": "getSysLeasesCount",
+      "summary": "HashiCorp Count of leases associated with this Vault cluster",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/leases/lookup",
+      "operationId": "postSysLeasesLookup",
+      "summary": "HashiCorp Retrieve lease metadata.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/leases/lookup/",
+      "operationId": "getSysLeasesLookup",
+      "summary": "HashiCorp Returns a list of lease ids.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/leases/lookup/{prefix}",
+      "operationId": "getSysLeasesLookupPrefix",
+      "summary": "HashiCorp Returns a list of lease ids.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/leases/renew",
+      "operationId": "postSysLeasesRenew",
+      "summary": "HashiCorp Renews a lease, requesting to extend the lease.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/leases/renew/{url_lease_id}",
+      "operationId": "postSysLeasesRenewUrl_lease_id",
+      "summary": "HashiCorp Renews a lease, requesting to extend the lease.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/leases/revoke",
+      "operationId": "postSysLeasesRevoke",
+      "summary": "HashiCorp Revokes a lease immediately.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/leases/revoke-force/{prefix}",
+      "operationId": "postSysLeasesRevokeForcePrefix",
+      "summary": "HashiCorp Revokes all secrets or tokens generated under a given prefix immediately",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/leases/revoke-prefix/{prefix}",
+      "operationId": "postSysLeasesRevokePrefixPrefix",
+      "summary": "HashiCorp Revokes all secrets (via a lease ID prefix) or tokens (via the tokens' path property) generated under a given prefix immediately.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/leases/revoke/{url_lease_id}",
+      "operationId": "postSysLeasesRevokeUrl_lease_id",
+      "summary": "HashiCorp Revokes a lease immediately.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/leases/tidy",
+      "operationId": "postSysLeasesTidy",
+      "summary": "HashiCorp This endpoint performs cleanup tasks that can be run if certain error\nconditions have occurred.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/metrics",
+      "operationId": "getSysMetrics",
+      "summary": "HashiCorp Export the metrics aggregated for telemetry purpose.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/monitor",
+      "operationId": "getSysMonitor",
+      "summary": null,
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/mounts",
+      "operationId": "getSysMounts",
+      "summary": "HashiCorp List the currently mounted backends.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/mounts/{path}",
+      "operationId": "postSysMountsPath",
+      "summary": "HashiCorp Enable a new secrets engine at the given path.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/mounts/{path}",
+      "operationId": "deleteSysMountsPath",
+      "summary": "HashiCorp Disable the mount point specified at the given path.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/mounts/{path}/tune",
+      "operationId": "getSysMountsPathTune",
+      "summary": "HashiCorp Tune backend configuration parameters for this mount.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/mounts/{path}/tune",
+      "operationId": "postSysMountsPathTune",
+      "summary": "HashiCorp Tune backend configuration parameters for this mount.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/plugins/catalog",
+      "operationId": "getSysPluginsCatalog",
+      "summary": "HashiCorp Lists all the plugins known to Vault",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/plugins/catalog/{name}",
+      "operationId": "getSysPluginsCatalogName",
+      "summary": "HashiCorp Return the configuration data for the plugin with the given name.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/plugins/catalog/{name}",
+      "operationId": "postSysPluginsCatalogName",
+      "summary": "HashiCorp Register a new plugin, or updates an existing one with the supplied name.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/plugins/catalog/{name}",
+      "operationId": "deleteSysPluginsCatalogName",
+      "summary": "HashiCorp Remove the plugin with the given name.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/plugins/catalog/{type}",
+      "operationId": "getSysPluginsCatalogType",
+      "summary": "HashiCorp List the plugins in the catalog.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/plugins/catalog/{type}/{name}",
+      "operationId": "getSysPluginsCatalogTypeName",
+      "summary": "HashiCorp Return the configuration data for the plugin with the given name.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/plugins/catalog/{type}/{name}",
+      "operationId": "postSysPluginsCatalogTypeName",
+      "summary": "HashiCorp Register a new plugin, or updates an existing one with the supplied name.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/plugins/catalog/{type}/{name}",
+      "operationId": "deleteSysPluginsCatalogTypeName",
+      "summary": "HashiCorp Remove the plugin with the given name.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/plugins/reload/backend",
+      "operationId": "postSysPluginsReloadBackend",
+      "summary": "HashiCorp Reload mounted plugin backends.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/policies/acl",
+      "operationId": "getSysPoliciesAcl",
+      "summary": "HashiCorp List the configured access control policies.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/policies/acl/{name}",
+      "operationId": "getSysPoliciesAclName",
+      "summary": "HashiCorp Retrieve information about the named ACL policy.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/policies/acl/{name}",
+      "operationId": "postSysPoliciesAclName",
+      "summary": "HashiCorp Add a new or update an existing ACL policy.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/policies/acl/{name}",
+      "operationId": "deleteSysPoliciesAclName",
+      "summary": "HashiCorp Delete the ACL policy with the given name.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/policies/password/{name}",
+      "operationId": "getSysPoliciesPasswordName",
+      "summary": "HashiCorp Retrieve an existing password policy.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/policies/password/{name}",
+      "operationId": "postSysPoliciesPasswordName",
+      "summary": "HashiCorp Add a new or update an existing password policy.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/policies/password/{name}",
+      "operationId": "deleteSysPoliciesPasswordName",
+      "summary": "HashiCorp Delete a password policy.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/policies/password/{name}/generate",
+      "operationId": "getSysPoliciesPasswordNameGenerate",
+      "summary": "HashiCorp Generate a password from an existing password policy.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/policy",
+      "operationId": "getSysPolicy",
+      "summary": "HashiCorp List the configured access control policies.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/policy/{name}",
+      "operationId": "getSysPolicyName",
+      "summary": "HashiCorp Retrieve the policy body for the named policy.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/policy/{name}",
+      "operationId": "postSysPolicyName",
+      "summary": "HashiCorp Add a new or update an existing policy.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/policy/{name}",
+      "operationId": "deleteSysPolicyName",
+      "summary": "HashiCorp Delete the policy with the given name.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/pprof/",
+      "operationId": "getSysPprof",
+      "summary": "HashiCorp Returns an HTML page listing the available profiles.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/pprof/allocs",
+      "operationId": "getSysPprofAllocs",
+      "summary": "HashiCorp Returns a sampling of all past memory allocations.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/pprof/block",
+      "operationId": "getSysPprofBlock",
+      "summary": "HashiCorp Returns stack traces that led to blocking on synchronization primitives",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/pprof/cmdline",
+      "operationId": "getSysPprofCmdline",
+      "summary": "HashiCorp Returns the running program's command line.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/pprof/goroutine",
+      "operationId": "getSysPprofGoroutine",
+      "summary": "HashiCorp Returns stack traces of all current goroutines.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/pprof/heap",
+      "operationId": "getSysPprofHeap",
+      "summary": "HashiCorp Returns a sampling of memory allocations of live object.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/pprof/mutex",
+      "operationId": "getSysPprofMutex",
+      "summary": "HashiCorp Returns stack traces of holders of contended mutexes",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/pprof/profile",
+      "operationId": "getSysPprofProfile",
+      "summary": "HashiCorp Returns a pprof-formatted cpu profile payload.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/pprof/symbol",
+      "operationId": "getSysPprofSymbol",
+      "summary": "HashiCorp Returns the program counters listed in the request.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/pprof/threadcreate",
+      "operationId": "getSysPprofThreadcreate",
+      "summary": "HashiCorp Returns stack traces that led to the creation of new OS threads",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/pprof/trace",
+      "operationId": "getSysPprofTrace",
+      "summary": "HashiCorp Returns the execution trace in binary form.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/quotas/config",
+      "operationId": "getSysQuotasConfig",
+      "summary": null,
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/quotas/config",
+      "operationId": "postSysQuotasConfig",
+      "summary": null,
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/quotas/rate-limit",
+      "operationId": "getSysQuotasRateLimit",
+      "summary": null,
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/quotas/rate-limit/{name}",
+      "operationId": "getSysQuotasRateLimitName",
+      "summary": null,
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/quotas/rate-limit/{name}",
+      "operationId": "postSysQuotasRateLimitName",
+      "summary": null,
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/quotas/rate-limit/{name}",
+      "operationId": "deleteSysQuotasRateLimitName",
+      "summary": null,
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/raw",
+      "operationId": "getSysRaw",
+      "summary": "HashiCorp Read the value of the key at the given path.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/raw",
+      "operationId": "postSysRaw",
+      "summary": "HashiCorp Update the value of the key at the given path.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/raw",
+      "operationId": "deleteSysRaw",
+      "summary": "HashiCorp Delete the key with given path.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/raw/{path}",
+      "operationId": "getSysRawPath",
+      "summary": "HashiCorp Read the value of the key at the given path.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/raw/{path}",
+      "operationId": "postSysRawPath",
+      "summary": "HashiCorp Update the value of the key at the given path.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/raw/{path}",
+      "operationId": "deleteSysRawPath",
+      "summary": "HashiCorp Delete the key with given path.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/rekey/backup",
+      "operationId": "getSysRekeyBackup",
+      "summary": "HashiCorp Return the backup copy of PGP-encrypted unseal keys.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/rekey/backup",
+      "operationId": "deleteSysRekeyBackup",
+      "summary": "HashiCorp Delete the backup copy of PGP-encrypted unseal keys.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/rekey/init",
+      "operationId": "getSysRekeyInit",
+      "summary": "HashiCorp Reads the configuration and progress of the current rekey attempt.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/rekey/init",
+      "operationId": "postSysRekeyInit",
+      "summary": "HashiCorp Initializes a new rekey attempt.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/rekey/init",
+      "operationId": "deleteSysRekeyInit",
+      "summary": "HashiCorp Cancels any in-progress rekey.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/rekey/recovery-key-backup",
+      "operationId": "getSysRekeyRecoveryKeyBackup",
+      "summary": "HashiCorp Allows fetching or deleting the backup of the rotated unseal keys.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/rekey/recovery-key-backup",
+      "operationId": "deleteSysRekeyRecoveryKeyBackup",
+      "summary": "HashiCorp Allows fetching or deleting the backup of the rotated unseal keys.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/rekey/update",
+      "operationId": "postSysRekeyUpdate",
+      "summary": "HashiCorp Enter a single master key share to progress the rekey of the Vault.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/rekey/verify",
+      "operationId": "getSysRekeyVerify",
+      "summary": "HashiCorp Read the configuration and progress of the current rekey verification attempt.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/rekey/verify",
+      "operationId": "postSysRekeyVerify",
+      "summary": "HashiCorp Enter a single new key share to progress the rekey verification operation.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sys/rekey/verify",
+      "operationId": "deleteSysRekeyVerify",
+      "summary": "HashiCorp Cancel any in-progress rekey verification operation.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/remount",
+      "operationId": "postSysRemount",
+      "summary": "HashiCorp Move the mount point of an already-mounted backend.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/renew",
+      "operationId": "postSysRenew",
+      "summary": "HashiCorp Renews a lease, requesting to extend the lease.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/renew/{url_lease_id}",
+      "operationId": "postSysRenewUrl_lease_id",
+      "summary": "HashiCorp Renews a lease, requesting to extend the lease.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/replication/status",
+      "operationId": "getSysReplicationStatus",
+      "summary": null,
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/revoke",
+      "operationId": "postSysRevoke",
+      "summary": "HashiCorp Revokes a lease immediately.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/revoke-force/{prefix}",
+      "operationId": "postSysRevokeForcePrefix",
+      "summary": "HashiCorp Revokes all secrets or tokens generated under a given prefix immediately",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/revoke-prefix/{prefix}",
+      "operationId": "postSysRevokePrefixPrefix",
+      "summary": "HashiCorp Revokes all secrets (via a lease ID prefix) or tokens (via the tokens' path property) generated under a given prefix immediately.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/revoke/{url_lease_id}",
+      "operationId": "postSysRevokeUrl_lease_id",
+      "summary": "HashiCorp Revokes a lease immediately.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/rotate",
+      "operationId": "postSysRotate",
+      "summary": "HashiCorp Rotates the backend encryption key used to persist data.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/rotate/config",
+      "operationId": "getSysRotateConfig",
+      "summary": null,
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/rotate/config",
+      "operationId": "postSysRotateConfig",
+      "summary": null,
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/seal",
+      "operationId": "postSysSeal",
+      "summary": "HashiCorp Seal the Vault.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/seal-status",
+      "operationId": "getSysSealStatus",
+      "summary": "HashiCorp Check the seal status of a Vault.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/step-down",
+      "operationId": "postSysStepDown",
+      "summary": "HashiCorp Cause the node to give up active status.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/tools/hash",
+      "operationId": "postSysToolsHash",
+      "summary": "HashiCorp Generate a hash sum for input data",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/tools/hash/{urlalgorithm}",
+      "operationId": "postSysToolsHashUrlalgorithm",
+      "summary": "HashiCorp Generate a hash sum for input data",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/tools/random",
+      "operationId": "postSysToolsRandom",
+      "summary": "HashiCorp Generate random bytes",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/tools/random/{urlbytes}",
+      "operationId": "postSysToolsRandomUrlbytes",
+      "summary": "HashiCorp Generate random bytes",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/unseal",
+      "operationId": "postSysUnseal",
+      "summary": "HashiCorp Unseal the Vault.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sys/wrapping/lookup",
+      "operationId": "getSysWrappingLookup",
+      "summary": "HashiCorp Look up wrapping properties for the requester's token.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/wrapping/lookup",
+      "operationId": "postSysWrappingLookup",
+      "summary": "HashiCorp Look up wrapping properties for the given token.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/wrapping/rewrap",
+      "operationId": "postSysWrappingRewrap",
+      "summary": "HashiCorp Rotates a response-wrapped token.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/wrapping/unwrap",
+      "operationId": "postSysWrappingUnwrap",
+      "summary": "HashiCorp Unwraps a response-wrapped token.",
+      "tags": [
+        "System"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sys/wrapping/wrap",
+      "operationId": "postSysWrappingWrap",
+      "summary": "HashiCorp Response-wraps an arbitrary JSON object.",
+      "tags": [
+        "System"
+      ]
+    }
+  ]
+}
