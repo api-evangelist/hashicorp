@@ -1,0 +1,4480 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "HashiCorp Vault API",
+    "version": "1.9.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "HashiCorp List token accessors, which can then be\nbe used to iterate and discover their properties\nor revoke them. Because this can be used to\ncause a denial of service, this endpoint\nrequires 'sudo' capability in addition to\n'list'.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/auth/token/accessors/",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp List token accessors, which can then be\nbe used to iterate and discover their properties\nor revoke them. Because this can be used to\ncause a denial of service, this endpoint\nrequires 'sudo' capability in addition to\n'list'."
+        },
+        {
+          "info": {
+            "name": "HashiCorp The token create path is used to create new tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/create"
+          },
+          "docs": "HashiCorp The token create path is used to create new tokens."
+        },
+        {
+          "info": {
+            "name": "HashiCorp The token create path is used to create new orphan tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/create-orphan"
+          },
+          "docs": "HashiCorp The token create path is used to create new orphan tokens."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This token create path is used to create new tokens adhering to the given role.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/create/:role_name",
+            "params": [
+              {
+                "name": "role_name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the role"
+              }
+            ]
+          },
+          "docs": "HashiCorp This token create path is used to create new tokens adhering to the given role."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will lookup a token and its properties.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/auth/token/lookup"
+          },
+          "docs": "HashiCorp This endpoint will lookup a token and its properties."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will lookup a token and its properties.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/lookup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will lookup a token and its properties."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will lookup a token associated with the given accessor and its properties. Response will not contain the token ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/lookup-accessor",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will lookup a token associated with the given accessor and its properties. Response will not contain the token ID."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will lookup a token and its properties.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/auth/token/lookup-self"
+          },
+          "docs": "HashiCorp This endpoint will lookup a token and its properties."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will lookup a token and its properties.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/lookup-self",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will lookup a token and its properties."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will renew the given token and prevent expiration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/renew",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will renew the given token and prevent expiration."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will renew a token associated with the given accessor and its properties. Response will not contain the token ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/renew-accessor",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will renew a token associated with the given accessor and its properties. Response will not contain the token ID."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will renew the token used to call it and prevent expiration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/renew-self",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will renew the token used to call it and prevent expiration."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will delete the given token and all of its child tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/revoke",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will delete the given token and all of its child tokens."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will delete the token associated with the accessor and all of its child tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/revoke-accessor",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will delete the token associated with the accessor and all of its child tokens."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will delete the token and orphan its child tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/revoke-orphan",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will delete the token and orphan its child tokens."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will delete the token used to call it and all of its child tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/revoke-self"
+          },
+          "docs": "HashiCorp This endpoint will delete the token used to call it and all of its child tokens."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint lists configured roles.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/auth/token/roles",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp This endpoint lists configured roles."
+        },
+        {
+          "info": {
+            "name": "getAuthTokenRolesRole_name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/auth/token/roles/:role_name",
+            "params": [
+              {
+                "name": "role_name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the role"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "postAuthTokenRolesRole_name",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/roles/:role_name",
+            "params": [
+              {
+                "name": "role_name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the role"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteAuthTokenRolesRole_name",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/auth/token/roles/:role_name",
+            "params": [
+              {
+                "name": "role_name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the role"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint performs cleanup tasks that can be run if certain error\nconditions have occurred.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/tidy"
+          },
+          "docs": "HashiCorp This endpoint performs cleanup tasks that can be run if certain error\nconditions have occurred."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Secrets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "HashiCorp Retrieve the secret at the specified location.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cubbyhole/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "Specifies the path of the secret."
+              },
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp Retrieve the secret at the specified location."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Store a secret at the specified location.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/cubbyhole/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "Specifies the path of the secret."
+              }
+            ]
+          },
+          "docs": "HashiCorp Store a secret at the specified location."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Deletes the secret at the specified location.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/cubbyhole/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "Specifies the path of the secret."
+              }
+            ]
+          },
+          "docs": "HashiCorp Deletes the secret at the specified location."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Read the backend level settings.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/secret/config"
+          },
+          "docs": "HashiCorp Read the backend level settings."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Configure backend level settings that are applied to every key in the key-value store.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/secret/config",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Configure backend level settings that are applied to every key in the key-value store."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Write, Patch, Read, and Delete data in the Key-Value Store.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/secret/data/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "Location of the secret."
+              }
+            ]
+          },
+          "docs": "HashiCorp Write, Patch, Read, and Delete data in the Key-Value Store."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Write, Patch, Read, and Delete data in the Key-Value Store.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/secret/data/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "Location of the secret."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Write, Patch, Read, and Delete data in the Key-Value Store."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Write, Patch, Read, and Delete data in the Key-Value Store.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/secret/data/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "Location of the secret."
+              }
+            ]
+          },
+          "docs": "HashiCorp Write, Patch, Read, and Delete data in the Key-Value Store."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Marks one or more versions as deleted in the KV store.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/secret/delete/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "Location of the secret."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Marks one or more versions as deleted in the KV store."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Permanently removes one or more versions in the KV store",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/secret/destroy/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "Location of the secret."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Permanently removes one or more versions in the KV store"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Configures settings for the KV store",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/secret/metadata/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "Location of the secret."
+              },
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp Configures settings for the KV store"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Configures settings for the KV store",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/secret/metadata/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "Location of the secret."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Configures settings for the KV store"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Configures settings for the KV store",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/secret/metadata/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "Location of the secret."
+              }
+            ]
+          },
+          "docs": "HashiCorp Configures settings for the KV store"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Undeletes one or more versions from the KV store.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/secret/undelete/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "Location of the secret."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Undeletes one or more versions from the KV store."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Identity",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "HashiCorp Create a new alias.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/alias",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Create a new alias."
+        },
+        {
+          "info": {
+            "name": "HashiCorp List all the alias IDs.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/alias/id",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp List all the alias IDs."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update, read or delete an alias ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/alias/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the alias"
+              }
+            ]
+          },
+          "docs": "HashiCorp Update, read or delete an alias ID."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update, read or delete an alias ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/alias/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the alias"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Update, read or delete an alias ID."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update, read or delete an alias ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/identity/alias/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the alias"
+              }
+            ]
+          },
+          "docs": "HashiCorp Update, read or delete an alias ID."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Create a new entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/entity",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Create a new entity"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Create a new alias.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/entity-alias",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Create a new alias."
+        },
+        {
+          "info": {
+            "name": "HashiCorp List all the alias IDs.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/entity-alias/id",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp List all the alias IDs."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update, read or delete an alias ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/entity-alias/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the alias"
+              }
+            ]
+          },
+          "docs": "HashiCorp Update, read or delete an alias ID."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update, read or delete an alias ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/entity-alias/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the alias"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Update, read or delete an alias ID."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update, read or delete an alias ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/identity/entity-alias/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the alias"
+              }
+            ]
+          },
+          "docs": "HashiCorp Update, read or delete an alias ID."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Delete all of the entities provided",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/entity/batch-delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Delete all of the entities provided"
+        },
+        {
+          "info": {
+            "name": "HashiCorp List all the entity IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/entity/id",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp List all the entity IDs"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update, read or delete an entity using entity ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/entity/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the entity. If set, updates the corresponding existing entity."
+              }
+            ]
+          },
+          "docs": "HashiCorp Update, read or delete an entity using entity ID"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update, read or delete an entity using entity ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/entity/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the entity. If set, updates the corresponding existing entity."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Update, read or delete an entity using entity ID"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update, read or delete an entity using entity ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/identity/entity/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the entity. If set, updates the corresponding existing entity."
+              }
+            ]
+          },
+          "docs": "HashiCorp Update, read or delete an entity using entity ID"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Merge two or more entities together",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/entity/merge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Merge two or more entities together"
+        },
+        {
+          "info": {
+            "name": "HashiCorp List all the entity names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/entity/name",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp List all the entity names"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update, read or delete an entity using entity name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/entity/name/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the entity"
+              }
+            ]
+          },
+          "docs": "HashiCorp Update, read or delete an entity using entity name"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update, read or delete an entity using entity name",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/entity/name/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the entity"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Update, read or delete an entity using entity name"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update, read or delete an entity using entity name",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/identity/entity/name/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the entity"
+              }
+            ]
+          },
+          "docs": "HashiCorp Update, read or delete an entity using entity name"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Create a new group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/group",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Create a new group."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Creates a new group alias, or updates an existing one.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/group-alias",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Creates a new group alias, or updates an existing one."
+        },
+        {
+          "info": {
+            "name": "HashiCorp List all the group alias IDs.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/group-alias/id",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp List all the group alias IDs."
+        },
+        {
+          "info": {
+            "name": "getIdentityGroupAliasIdId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/group-alias/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the group alias."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "postIdentityGroupAliasIdId",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/group-alias/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the group alias."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteIdentityGroupAliasIdId",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/identity/group-alias/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the group alias."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "HashiCorp List all the group IDs.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/group/id",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp List all the group IDs."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update or delete an existing group using its ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/group/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the group. If set, updates the corresponding existing group."
+              }
+            ]
+          },
+          "docs": "HashiCorp Update or delete an existing group using its ID."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update or delete an existing group using its ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/group/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the group. If set, updates the corresponding existing group."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Update or delete an existing group using its ID."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update or delete an existing group using its ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/identity/group/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the group. If set, updates the corresponding existing group."
+              }
+            ]
+          },
+          "docs": "HashiCorp Update or delete an existing group using its ID."
+        },
+        {
+          "info": {
+            "name": "getIdentityGroupName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/group/name",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getIdentityGroupNameName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/group/name/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the group."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "postIdentityGroupNameName",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/group/name/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the group."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteIdentityGroupNameName",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/identity/group/name/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the group."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "HashiCorp Query entities based on various properties.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/lookup/entity",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Query entities based on various properties."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Query groups based on various properties.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/lookup/group",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Query groups based on various properties."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Retrieve public keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/.well-known/keys"
+          },
+          "docs": "HashiCorp Retrieve public keys"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Query OIDC configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/.well-known/openid-configuration"
+          },
+          "docs": "HashiCorp Query OIDC configurations"
+        },
+        {
+          "info": {
+            "name": "getIdentityOidcAssignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/assignment",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getIdentityOidcAssignmentName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/assignment/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the assignment"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "postIdentityOidcAssignmentName",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/oidc/assignment/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the assignment"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteIdentityOidcAssignmentName",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/identity/oidc/assignment/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the assignment"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getIdentityOidcClient",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/client",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getIdentityOidcClientName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/client/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the client."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "postIdentityOidcClientName",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/oidc/client/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the client."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteIdentityOidcClientName",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/identity/oidc/client/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the client."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "HashiCorp OIDC configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/config"
+          },
+          "docs": "HashiCorp OIDC configuration"
+        },
+        {
+          "info": {
+            "name": "HashiCorp OIDC configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/oidc/config",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp OIDC configuration"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Verify the authenticity of an OIDC token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/oidc/introspect",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Verify the authenticity of an OIDC token"
+        },
+        {
+          "info": {
+            "name": "HashiCorp List OIDC keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/key",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp List OIDC keys"
+        },
+        {
+          "info": {
+            "name": "HashiCorp CRUD operations for OIDC keys.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/key/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the key"
+              }
+            ]
+          },
+          "docs": "HashiCorp CRUD operations for OIDC keys."
+        },
+        {
+          "info": {
+            "name": "HashiCorp CRUD operations for OIDC keys.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/oidc/key/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the key"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp CRUD operations for OIDC keys."
+        },
+        {
+          "info": {
+            "name": "HashiCorp CRUD operations for OIDC keys.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/identity/oidc/key/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the key"
+              }
+            ]
+          },
+          "docs": "HashiCorp CRUD operations for OIDC keys."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Rotate a named OIDC key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/oidc/key/:name/rotate",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the key"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Rotate a named OIDC key."
+        },
+        {
+          "info": {
+            "name": "getIdentityOidcProvider",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/provider",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getIdentityOidcProviderName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/provider/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the provider"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "postIdentityOidcProviderName",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/oidc/provider/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the provider"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteIdentityOidcProviderName",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/identity/oidc/provider/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the provider"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getIdentityOidcProviderNameWellKnownKeys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/provider/:name/.well-known/keys",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the provider"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getIdentityOidcProviderNameWellKnownOpenidConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/provider/:name/.well-known/openid-configuration",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the provider"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getIdentityOidcProviderNameAuthorize",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/provider/:name/authorize",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the provider"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "postIdentityOidcProviderNameAuthorize",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/oidc/provider/:name/authorize",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the provider"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "postIdentityOidcProviderNameToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/oidc/provider/:name/token",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the provider"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getIdentityOidcProviderNameUserinfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/provider/:name/userinfo",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the provider"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "postIdentityOidcProviderNameUserinfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/oidc/provider/:name/userinfo",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the provider"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "HashiCorp List configured OIDC roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/role",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp List configured OIDC roles"
+        },
+        {
+          "info": {
+            "name": "HashiCorp CRUD operations on OIDC Roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/role/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the role"
+              }
+            ]
+          },
+          "docs": "HashiCorp CRUD operations on OIDC Roles"
+        },
+        {
+          "info": {
+            "name": "HashiCorp CRUD operations on OIDC Roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/oidc/role/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the role"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp CRUD operations on OIDC Roles"
+        },
+        {
+          "info": {
+            "name": "HashiCorp CRUD operations on OIDC Roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/identity/oidc/role/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the role"
+              }
+            ]
+          },
+          "docs": "HashiCorp CRUD operations on OIDC Roles"
+        },
+        {
+          "info": {
+            "name": "getIdentityOidcScope",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/scope",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getIdentityOidcScopeName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/scope/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the scope"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "postIdentityOidcScopeName",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/oidc/scope/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the scope"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteIdentityOidcScopeName",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/identity/oidc/scope/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the scope"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "HashiCorp Generate an OIDC token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/oidc/token/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the role"
+              }
+            ]
+          },
+          "docs": "HashiCorp Generate an OIDC token"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Create a new alias.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/persona",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Create a new alias."
+        },
+        {
+          "info": {
+            "name": "HashiCorp List all the alias IDs.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/persona/id",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp List all the alias IDs."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update, read or delete an alias ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/identity/persona/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the persona"
+              }
+            ]
+          },
+          "docs": "HashiCorp Update, read or delete an alias ID."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update, read or delete an alias ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/identity/persona/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the persona"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Update, read or delete an alias ID."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update, read or delete an alias ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/identity/persona/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the persona"
+              }
+            ]
+          },
+          "docs": "HashiCorp Update, read or delete an alias ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "System",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "HashiCorp List the enabled audit devices.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/audit"
+          },
+          "docs": "HashiCorp List the enabled audit devices."
+        },
+        {
+          "info": {
+            "name": "HashiCorp The hash of the given string via the given audit backend",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/audit-hash/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The name of the backend. Cannot be delimited. Example: \"mysql\""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp The hash of the given string via the given audit backend"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Enable a new audit device at the supplied path.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/audit/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The name of the backend. Cannot be delimited. Example: \"mysql\""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Enable a new audit device at the supplied path."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Disable the audit device at the given path.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/audit/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The name of the backend. Cannot be delimited. Example: \"mysql\""
+              }
+            ]
+          },
+          "docs": "HashiCorp Disable the audit device at the given path."
+        },
+        {
+          "info": {
+            "name": "HashiCorp List the currently enabled credential backends.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/auth"
+          },
+          "docs": "HashiCorp List the currently enabled credential backends."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Enables a new auth method.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/auth/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The path to mount to. Cannot be delimited. Example: \"user\""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "After enabling, the auth method can be accessed and configured via the auth path specified as part of the URL. This auth path will be nested under the auth prefix.\n\nFor example, enable the \"foo\" auth method will make it accessible at /auth/foo."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Disable the auth method at the given auth path",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/auth/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The path to mount to. Cannot be delimited. Example: \"user\""
+              }
+            ]
+          },
+          "docs": "HashiCorp Disable the auth method at the given auth path"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Reads the given auth path's configuration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/auth/:path/tune",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "Tune the configuration parameters for an auth path."
+              }
+            ]
+          },
+          "docs": "This endpoint requires sudo capability on the final path, but the same functionality can be achieved without sudo via `sys/mounts/auth/[auth-path]/tune`."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Tune configuration parameters for a given auth path.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/auth/:path/tune",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "Tune the configuration parameters for an auth path."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint requires sudo capability on the final path, but the same functionality can be achieved without sudo via `sys/mounts/auth/[auth-path]/tune`."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Fetches the capabilities of the given token on the given path.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/capabilities",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Fetches the capabilities of the given token on the given path."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Fetches the capabilities of the token associated with the given token, on the given path.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/capabilities-accessor",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Fetches the capabilities of the token associated with the given token, on the given path."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Fetches the capabilities of the given token on the given path.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/capabilities-self",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Fetches the capabilities of the given token on the given path."
+        },
+        {
+          "info": {
+            "name": "HashiCorp List the request headers that are configured to be audited.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/config/auditing/request-headers"
+          },
+          "docs": "HashiCorp List the request headers that are configured to be audited."
+        },
+        {
+          "info": {
+            "name": "HashiCorp List the information for the given request header.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/config/auditing/request-headers/:header",
+            "params": [
+              {
+                "name": "header",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HashiCorp List the information for the given request header."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Enable auditing of a header.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/config/auditing/request-headers/:header",
+            "params": [
+              {
+                "name": "header",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Enable auditing of a header."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Disable auditing of the given request header.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/config/auditing/request-headers/:header",
+            "params": [
+              {
+                "name": "header",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HashiCorp Disable auditing of the given request header."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Return the current CORS settings.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/config/cors"
+          },
+          "docs": "HashiCorp Return the current CORS settings."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Configure the CORS settings.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/config/cors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Configure the CORS settings."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Remove any CORS settings.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/config/cors"
+          },
+          "docs": "HashiCorp Remove any CORS settings."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Reload the given subsystem",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/config/reload/:subsystem",
+            "params": [
+              {
+                "name": "subsystem",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HashiCorp Reload the given subsystem"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Return a sanitized version of the Vault server configuration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/config/state/sanitized"
+          },
+          "docs": "The sanitized output strips configuration values in the storage, HA storage, and seals stanzas, which may contain sensitive values such as API tokens. It also removes any token or secret fields in other stanzas, such as the circonus_api_token from telemetry."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Return a list of configured UI headers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/config/ui/headers/",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp Return a list of configured UI headers."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Return the given UI header's configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/config/ui/headers/:header",
+            "params": [
+              {
+                "name": "header",
+                "value": "",
+                "type": "path",
+                "description": "The name of the header."
+              }
+            ]
+          },
+          "docs": "HashiCorp Return the given UI header's configuration"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Configure the values to be returned for the UI header.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/config/ui/headers/:header",
+            "params": [
+              {
+                "name": "header",
+                "value": "",
+                "type": "path",
+                "description": "The name of the header."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Configure the values to be returned for the UI header."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Remove a UI header.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/config/ui/headers/:header",
+            "params": [
+              {
+                "name": "header",
+                "value": "",
+                "type": "path",
+                "description": "The name of the header."
+              }
+            ]
+          },
+          "docs": "HashiCorp Remove a UI header."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Read the configuration and progress of the current root generation attempt.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/generate-root"
+          },
+          "docs": "HashiCorp Read the configuration and progress of the current root generation attempt."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Initializes a new root generation attempt.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/generate-root",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Only a single root generation attempt can take place at a time. One (and only one) of otp or pgp_key are required."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Cancels any in-progress root generation attempt.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/generate-root"
+          },
+          "docs": "HashiCorp Cancels any in-progress root generation attempt."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Read the configuration and progress of the current root generation attempt.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/generate-root/attempt"
+          },
+          "docs": "HashiCorp Read the configuration and progress of the current root generation attempt."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Initializes a new root generation attempt.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/generate-root/attempt",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Only a single root generation attempt can take place at a time. One (and only one) of otp or pgp_key are required."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Cancels any in-progress root generation attempt.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/generate-root/attempt"
+          },
+          "docs": "HashiCorp Cancels any in-progress root generation attempt."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Enter a single master key share to progress the root generation attempt.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/generate-root/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "If the threshold number of master key shares is reached, Vault will complete the root generation and issue the new token. Otherwise, this API must be called multiple times until that threshold is met. The attempt nonce must be provided with each call."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns the health status of Vault.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/health"
+          },
+          "docs": "HashiCorp Returns the health status of Vault."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Information about the host instance that this Vault server is running on.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/host-info"
+          },
+          "docs": "Information about the host instance that this Vault server is running on.\n\t\tThe information that gets collected includes host hardware information, and CPU,\n\t\tdisk, and memory utilization"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns the initialization status of Vault.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/init"
+          },
+          "docs": "HashiCorp Returns the initialization status of Vault."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Initialize a new Vault.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/init",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The Vault must not have been previously initialized. The recovery options, as well as the stored shares option, are only available when using Vault HSM."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Report the client count metrics, for this namespace and all child namespaces.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/internal/counters/activity"
+          },
+          "docs": "HashiCorp Report the client count metrics, for this namespace and all child namespaces."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Report the number of clients for this month, for this namespace and all child namespaces.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/internal/counters/activity/monthly"
+          },
+          "docs": "HashiCorp Report the number of clients for this month, for this namespace and all child namespaces."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Read the client count tracking configuration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/internal/counters/config"
+          },
+          "docs": "HashiCorp Read the client count tracking configuration."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Enable or disable collection of client count, set retention period, or set default reporting period.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/internal/counters/config",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Enable or disable collection of client count, set retention period, or set default reporting period."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Backwards compatibility is not guaranteed for this API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/internal/counters/entities"
+          },
+          "docs": "HashiCorp Backwards compatibility is not guaranteed for this API"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Backwards compatibility is not guaranteed for this API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/internal/counters/requests"
+          },
+          "docs": "HashiCorp Backwards compatibility is not guaranteed for this API"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Backwards compatibility is not guaranteed for this API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/internal/counters/tokens"
+          },
+          "docs": "HashiCorp Backwards compatibility is not guaranteed for this API"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Generate an OpenAPI 3 document of all mounted paths.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/internal/specs/openapi"
+          },
+          "docs": "HashiCorp Generate an OpenAPI 3 document of all mounted paths."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Lists enabled feature flags.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/internal/ui/feature-flags"
+          },
+          "docs": "HashiCorp Lists enabled feature flags."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Lists all enabled and visible auth and secrets mounts.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/internal/ui/mounts"
+          },
+          "docs": "HashiCorp Lists all enabled and visible auth and secrets mounts."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Return information about the given mount.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/internal/ui/mounts/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The path of the mount."
+              }
+            ]
+          },
+          "docs": "HashiCorp Return information about the given mount."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Backwards compatibility is not guaranteed for this API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/internal/ui/namespaces"
+          },
+          "docs": "HashiCorp Backwards compatibility is not guaranteed for this API"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Backwards compatibility is not guaranteed for this API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/internal/ui/resultant-acl"
+          },
+          "docs": "HashiCorp Backwards compatibility is not guaranteed for this API"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Provides information about the backend encryption key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/key-status"
+          },
+          "docs": "HashiCorp Provides information about the backend encryption key."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns the high availability status and current leader instance of Vault.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/leader"
+          },
+          "docs": "HashiCorp Returns the high availability status and current leader instance of Vault."
+        },
+        {
+          "info": {
+            "name": "HashiCorp List leases associated with this Vault cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/leases"
+          },
+          "docs": "HashiCorp List leases associated with this Vault cluster"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Count of leases associated with this Vault cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/leases/count"
+          },
+          "docs": "HashiCorp Count of leases associated with this Vault cluster"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Retrieve lease metadata.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/leases/lookup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Retrieve lease metadata."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns a list of lease ids.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/leases/lookup/",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp Returns a list of lease ids."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns a list of lease ids.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/leases/lookup/:prefix",
+            "params": [
+              {
+                "name": "prefix",
+                "value": "",
+                "type": "path",
+                "description": "The path to list leases under. Example: \"aws/creds/deploy\""
+              },
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp Returns a list of lease ids."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Renews a lease, requesting to extend the lease.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/leases/renew",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Renews a lease, requesting to extend the lease."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Renews a lease, requesting to extend the lease.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/leases/renew/:url_lease_id",
+            "params": [
+              {
+                "name": "url_lease_id",
+                "value": "",
+                "type": "path",
+                "description": "The lease identifier to renew. This is included with a lease."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Renews a lease, requesting to extend the lease."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Revokes a lease immediately.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/leases/revoke",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Revokes a lease immediately."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Revokes all secrets or tokens generated under a given prefix immediately",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/leases/revoke-force/:prefix",
+            "params": [
+              {
+                "name": "prefix",
+                "value": "",
+                "type": "path",
+                "description": "The path to revoke keys under. Example: \"prod/aws/ops\""
+              }
+            ]
+          },
+          "docs": "Unlike `/sys/leases/revoke-prefix`, this path ignores backend errors encountered during revocation. This is potentially very dangerous and should only be used in specific emergency situations where errors in the backend or the connected backend service prevent normal revocation.\n\nBy ignoring these errors, Vault abdicates responsibility for ensuring that the issued credentials or secrets are properly revoked and/or cleaned up. Access to this endpoint should be tightly controlled."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Revokes all secrets (via a lease ID prefix) or tokens (via the tokens' path property) generated under a given prefix immediately.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/leases/revoke-prefix/:prefix",
+            "params": [
+              {
+                "name": "prefix",
+                "value": "",
+                "type": "path",
+                "description": "The path to revoke keys under. Example: \"prod/aws/ops\""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Revokes all secrets (via a lease ID prefix) or tokens (via the tokens' path property) generated under a given prefix immediately."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Revokes a lease immediately.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/leases/revoke/:url_lease_id",
+            "params": [
+              {
+                "name": "url_lease_id",
+                "value": "",
+                "type": "path",
+                "description": "The lease identifier to renew. This is included with a lease."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Revokes a lease immediately."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint performs cleanup tasks that can be run if certain error\nconditions have occurred.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/leases/tidy"
+          },
+          "docs": "HashiCorp This endpoint performs cleanup tasks that can be run if certain error\nconditions have occurred."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Export the metrics aggregated for telemetry purpose.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/metrics",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Format to export metrics into. Currently accepts only \"prometheus\"."
+              }
+            ]
+          },
+          "docs": "HashiCorp Export the metrics aggregated for telemetry purpose."
+        },
+        {
+          "info": {
+            "name": "getSysMonitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/monitor",
+            "params": [
+              {
+                "name": "log_level",
+                "value": "",
+                "type": "query",
+                "description": "Log level to view system logs at. Currently supported values are \"trace\", \"debug\", \"info\", \"warn\", \"error\"."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "HashiCorp List the currently mounted backends.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/mounts"
+          },
+          "docs": "HashiCorp List the currently mounted backends."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Enable a new secrets engine at the given path.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/mounts/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The path to mount to. Example: \"aws/east\""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Enable a new secrets engine at the given path."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Disable the mount point specified at the given path.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/mounts/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The path to mount to. Example: \"aws/east\""
+              }
+            ]
+          },
+          "docs": "HashiCorp Disable the mount point specified at the given path."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Tune backend configuration parameters for this mount.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/mounts/:path/tune",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The path to mount to. Example: \"aws/east\""
+              }
+            ]
+          },
+          "docs": "HashiCorp Tune backend configuration parameters for this mount."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Tune backend configuration parameters for this mount.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/mounts/:path/tune",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The path to mount to. Example: \"aws/east\""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Tune backend configuration parameters for this mount."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Lists all the plugins known to Vault",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/plugins/catalog"
+          },
+          "docs": "HashiCorp Lists all the plugins known to Vault"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Return the configuration data for the plugin with the given name.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/plugins/catalog/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the plugin"
+              }
+            ]
+          },
+          "docs": "HashiCorp Return the configuration data for the plugin with the given name."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Register a new plugin, or updates an existing one with the supplied name.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/plugins/catalog/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the plugin"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Register a new plugin, or updates an existing one with the supplied name."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Remove the plugin with the given name.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/plugins/catalog/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the plugin"
+              }
+            ]
+          },
+          "docs": "HashiCorp Remove the plugin with the given name."
+        },
+        {
+          "info": {
+            "name": "HashiCorp List the plugins in the catalog.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/plugins/catalog/:type",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "The type of the plugin, may be auth, secret, or database"
+              },
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp List the plugins in the catalog."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Return the configuration data for the plugin with the given name.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/plugins/catalog/:type/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the plugin"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "The type of the plugin, may be auth, secret, or database"
+              }
+            ]
+          },
+          "docs": "HashiCorp Return the configuration data for the plugin with the given name."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Register a new plugin, or updates an existing one with the supplied name.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/plugins/catalog/:type/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the plugin"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "The type of the plugin, may be auth, secret, or database"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Register a new plugin, or updates an existing one with the supplied name."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Remove the plugin with the given name.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/plugins/catalog/:type/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the plugin"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "The type of the plugin, may be auth, secret, or database"
+              }
+            ]
+          },
+          "docs": "HashiCorp Remove the plugin with the given name."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Reload mounted plugin backends.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/plugins/reload/backend",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Either the plugin name (`plugin`) or the desired plugin backend mounts (`mounts`) must be provided, but not both. In the case that the plugin name is provided, all mounted paths that use that plugin backend will be reloaded.  If (`scope`) is provided and is (`global`), the plugin(s) are reloaded globally."
+        },
+        {
+          "info": {
+            "name": "HashiCorp List the configured access control policies.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/policies/acl",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp List the configured access control policies."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Retrieve information about the named ACL policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/policies/acl/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the policy. Example: \"ops\""
+              }
+            ]
+          },
+          "docs": "HashiCorp Retrieve information about the named ACL policy."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Add a new or update an existing ACL policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/policies/acl/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the policy. Example: \"ops\""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Add a new or update an existing ACL policy."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Delete the ACL policy with the given name.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/policies/acl/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the policy. Example: \"ops\""
+              }
+            ]
+          },
+          "docs": "HashiCorp Delete the ACL policy with the given name."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Retrieve an existing password policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/policies/password/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the password policy."
+              }
+            ]
+          },
+          "docs": "HashiCorp Retrieve an existing password policy."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Add a new or update an existing password policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/policies/password/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the password policy."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Add a new or update an existing password policy."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Delete a password policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/policies/password/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the password policy."
+              }
+            ]
+          },
+          "docs": "HashiCorp Delete a password policy."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Generate a password from an existing password policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/policies/password/:name/generate",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the password policy."
+              }
+            ]
+          },
+          "docs": "HashiCorp Generate a password from an existing password policy."
+        },
+        {
+          "info": {
+            "name": "HashiCorp List the configured access control policies.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/policy",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp List the configured access control policies."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Retrieve the policy body for the named policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/policy/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the policy. Example: \"ops\""
+              }
+            ]
+          },
+          "docs": "HashiCorp Retrieve the policy body for the named policy."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Add a new or update an existing policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/policy/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the policy. Example: \"ops\""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Add a new or update an existing policy."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Delete the policy with the given name.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/policy/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the policy. Example: \"ops\""
+              }
+            ]
+          },
+          "docs": "HashiCorp Delete the policy with the given name."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns an HTML page listing the available profiles.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/pprof/"
+          },
+          "docs": "Returns an HTML page listing the available \nprofiles. This should be mainly accessed via browsers or applications that can \nrender pages."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns a sampling of all past memory allocations.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/pprof/allocs"
+          },
+          "docs": "Returns a sampling of all past memory allocations."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns stack traces that led to blocking on synchronization primitives",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/pprof/block"
+          },
+          "docs": "Returns stack traces that led to blocking on synchronization primitives"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns the running program's command line.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/pprof/cmdline"
+          },
+          "docs": "Returns the running program's command line, with arguments separated by NUL bytes."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns stack traces of all current goroutines.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/pprof/goroutine"
+          },
+          "docs": "Returns stack traces of all current goroutines."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns a sampling of memory allocations of live object.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/pprof/heap"
+          },
+          "docs": "Returns a sampling of memory allocations of live object."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns stack traces of holders of contended mutexes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/pprof/mutex"
+          },
+          "docs": "Returns stack traces of holders of contended mutexes"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns a pprof-formatted cpu profile payload.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/pprof/profile"
+          },
+          "docs": "Returns a pprof-formatted cpu profile payload. Profiling lasts for duration specified in seconds GET parameter, or for 30 seconds if not specified."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns the program counters listed in the request.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/pprof/symbol"
+          },
+          "docs": "Returns the program counters listed in the request."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns stack traces that led to the creation of new OS threads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/pprof/threadcreate"
+          },
+          "docs": "Returns stack traces that led to the creation of new OS threads"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Returns the execution trace in binary form.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/pprof/trace"
+          },
+          "docs": "Returns  the execution trace in binary form. Tracing lasts for duration specified in seconds GET parameter, or for 1 second if not specified."
+        },
+        {
+          "info": {
+            "name": "getSysQuotasConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/quotas/config"
+          }
+        },
+        {
+          "info": {
+            "name": "postSysQuotasConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/quotas/config",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getSysQuotasRateLimit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/quotas/rate-limit",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getSysQuotasRateLimitName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/quotas/rate-limit/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the quota rule."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "postSysQuotasRateLimitName",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/quotas/rate-limit/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the quota rule."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteSysQuotasRateLimitName",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/quotas/rate-limit/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the quota rule."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "HashiCorp Read the value of the key at the given path.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/raw",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp Read the value of the key at the given path."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update the value of the key at the given path.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/raw",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Update the value of the key at the given path."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Delete the key with given path.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/raw"
+          },
+          "docs": "HashiCorp Delete the key with given path."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Read the value of the key at the given path.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/raw/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp Read the value of the key at the given path."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Update the value of the key at the given path.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/raw/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Update the value of the key at the given path."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Delete the key with given path.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/raw/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HashiCorp Delete the key with given path."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Return the backup copy of PGP-encrypted unseal keys.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/rekey/backup"
+          },
+          "docs": "HashiCorp Return the backup copy of PGP-encrypted unseal keys."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Delete the backup copy of PGP-encrypted unseal keys.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/rekey/backup"
+          },
+          "docs": "HashiCorp Delete the backup copy of PGP-encrypted unseal keys."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Reads the configuration and progress of the current rekey attempt.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/rekey/init"
+          },
+          "docs": "HashiCorp Reads the configuration and progress of the current rekey attempt."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Initializes a new rekey attempt.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/rekey/init",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Only a single rekey attempt can take place at a time, and changing the parameters of a rekey requires canceling and starting a new rekey, which will also provide a new nonce."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Cancels any in-progress rekey.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/rekey/init"
+          },
+          "docs": "This clears the rekey settings as well as any progress made. This must be called to change the parameters of the rekey. Note: verification is still a part of a rekey. If rekeying is canceled during the verification flow, the current unseal keys remain valid."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Allows fetching or deleting the backup of the rotated unseal keys.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/rekey/recovery-key-backup"
+          },
+          "docs": "HashiCorp Allows fetching or deleting the backup of the rotated unseal keys."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Allows fetching or deleting the backup of the rotated unseal keys.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/rekey/recovery-key-backup"
+          },
+          "docs": "HashiCorp Allows fetching or deleting the backup of the rotated unseal keys."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Enter a single master key share to progress the rekey of the Vault.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/rekey/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Enter a single master key share to progress the rekey of the Vault."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Read the configuration and progress of the current rekey verification attempt.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/rekey/verify"
+          },
+          "docs": "HashiCorp Read the configuration and progress of the current rekey verification attempt."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Enter a single new key share to progress the rekey verification operation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/rekey/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Enter a single new key share to progress the rekey verification operation."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Cancel any in-progress rekey verification operation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/sys/rekey/verify"
+          },
+          "docs": "This clears any progress made and resets the nonce. Unlike a `DELETE` against `sys/rekey/init`, this only resets the current verification operation, not the entire rekey atttempt."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Move the mount point of an already-mounted backend.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/remount",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Move the mount point of an already-mounted backend."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Renews a lease, requesting to extend the lease.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/renew",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Renews a lease, requesting to extend the lease."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Renews a lease, requesting to extend the lease.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/renew/:url_lease_id",
+            "params": [
+              {
+                "name": "url_lease_id",
+                "value": "",
+                "type": "path",
+                "description": "The lease identifier to renew. This is included with a lease."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Renews a lease, requesting to extend the lease."
+        },
+        {
+          "info": {
+            "name": "getSysReplicationStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/replication/status"
+          }
+        },
+        {
+          "info": {
+            "name": "HashiCorp Revokes a lease immediately.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/revoke",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Revokes a lease immediately."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Revokes all secrets or tokens generated under a given prefix immediately",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/revoke-force/:prefix",
+            "params": [
+              {
+                "name": "prefix",
+                "value": "",
+                "type": "path",
+                "description": "The path to revoke keys under. Example: \"prod/aws/ops\""
+              }
+            ]
+          },
+          "docs": "Unlike `/sys/leases/revoke-prefix`, this path ignores backend errors encountered during revocation. This is potentially very dangerous and should only be used in specific emergency situations where errors in the backend or the connected backend service prevent normal revocation.\n\nBy ignoring these errors, Vault abdicates responsibility for ensuring that the issued credentials or secrets are properly revoked and/or cleaned up. Access to this endpoint should be tightly controlled."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Revokes all secrets (via a lease ID prefix) or tokens (via the tokens' path property) generated under a given prefix immediately.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/revoke-prefix/:prefix",
+            "params": [
+              {
+                "name": "prefix",
+                "value": "",
+                "type": "path",
+                "description": "The path to revoke keys under. Example: \"prod/aws/ops\""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Revokes all secrets (via a lease ID prefix) or tokens (via the tokens' path property) generated under a given prefix immediately."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Revokes a lease immediately.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/revoke/:url_lease_id",
+            "params": [
+              {
+                "name": "url_lease_id",
+                "value": "",
+                "type": "path",
+                "description": "The lease identifier to renew. This is included with a lease."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Revokes a lease immediately."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Rotates the backend encryption key used to persist data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/rotate"
+          },
+          "docs": "HashiCorp Rotates the backend encryption key used to persist data."
+        },
+        {
+          "info": {
+            "name": "getSysRotateConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/rotate/config"
+          }
+        },
+        {
+          "info": {
+            "name": "postSysRotateConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/rotate/config",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "HashiCorp Seal the Vault.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/seal"
+          },
+          "docs": "HashiCorp Seal the Vault."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Check the seal status of a Vault.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/seal-status"
+          },
+          "docs": "HashiCorp Check the seal status of a Vault."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Cause the node to give up active status.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/step-down"
+          },
+          "docs": "This endpoint forces the node to give up active status. If the node does not have active status, this endpoint does nothing. Note that the node will sleep for ten seconds before attempting to grab the active lock again, but if no standby nodes grab the active lock in the interim, the same node may become the active node again."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Generate a hash sum for input data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/tools/hash",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Generate a hash sum for input data"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Generate a hash sum for input data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/tools/hash/:urlalgorithm",
+            "params": [
+              {
+                "name": "urlalgorithm",
+                "value": "",
+                "type": "path",
+                "description": "Algorithm to use (POST URL parameter)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Generate a hash sum for input data"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Generate random bytes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/tools/random",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Generate random bytes"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Generate random bytes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/tools/random/:urlbytes",
+            "params": [
+              {
+                "name": "urlbytes",
+                "value": "",
+                "type": "path",
+                "description": "The number of bytes to generate (POST URL parameter)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Generate random bytes"
+        },
+        {
+          "info": {
+            "name": "HashiCorp Unseal the Vault.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/unseal",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Unseal the Vault."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Look up wrapping properties for the requester's token.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sys/wrapping/lookup"
+          },
+          "docs": "HashiCorp Look up wrapping properties for the requester's token."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Look up wrapping properties for the given token.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/wrapping/lookup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Look up wrapping properties for the given token."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Rotates a response-wrapped token.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/wrapping/rewrap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Rotates a response-wrapped token."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Unwraps a response-wrapped token.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/wrapping/unwrap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp Unwraps a response-wrapped token."
+        },
+        {
+          "info": {
+            "name": "HashiCorp Response-wraps an arbitrary JSON object.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/sys/wrapping/wrap"
+          },
+          "docs": "HashiCorp Response-wraps an arbitrary JSON object."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
