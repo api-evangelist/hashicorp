@@ -93,6 +93,8 @@ apis:
       Vagrant is the command line utility for managing the lifecycle of virtual machines for isolated, consistent
       development environments.
 common:
+  - type: AgenticAccess
+    url: agentic-access/hashicorp-agentic-access.yml
   - type: DomainSecurity
     url: security/hashicorp-domain-security.yml
   - type: LinkedIn
