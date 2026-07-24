@@ -1,0 +1,443 @@
+openapi: 3.0.2
+info:
+  title: HashiCorp Vault Auth API
+  description: HTTP API that gives you full access to Vault. All API routes are prefixed with `/v1/`.
+  version: 1.9.3
+  license:
+    name: Mozilla Public License 2.0
+    url: https://www.mozilla.org/en-US/MPL/2.0
+tags:
+- name: Auth
+paths:
+  /auth/token/accessors/:
+    description: List token accessors, which can then be be used to iterate and discover their properties or revoke them. Because this can be used to cause a denial of service, this endpoint requires 'sudo' capability in addition to 'list'.
+    x-vault-sudo: true
+    get:
+      summary: 'HashiCorp List token accessors, which can then be
+
+        be used to iterate and discover their properties
+
+        or revoke them. Because this can be used to
+
+        cause a denial of service, this endpoint
+
+        requires ''sudo'' capability in addition to
+
+        ''list''.'
+      operationId: getAuthTokenAccessors
+      tags:
+      - Auth
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /auth/token/create:
+    description: The token create path is used to create new tokens.
+    post:
+      summary: HashiCorp The token create path is used to create new tokens.
+      operationId: postAuthTokenCreate
+      tags:
+      - Auth
+      responses:
+        '200':
+          description: OK
+  /auth/token/create-orphan:
+    description: The token create path is used to create new orphan tokens.
+    post:
+      summary: HashiCorp The token create path is used to create new orphan tokens.
+      operationId: postAuthTokenCreateOrphan
+      tags:
+      - Auth
+      responses:
+        '200':
+          description: OK
+  /auth/token/create/{role_name}:
+    description: This token create path is used to create new tokens adhering to the given role.
+    parameters:
+    - name: role_name
+      description: Name of the role
+      in: path
+      schema:
+        type: string
+      required: true
+    post:
+      summary: HashiCorp This token create path is used to create new tokens adhering to the given role.
+      operationId: postAuthTokenCreateRole_name
+      tags:
+      - Auth
+      responses:
+        '200':
+          description: OK
+  /auth/token/lookup:
+    description: This endpoint will lookup a token and its properties.
+    get:
+      summary: HashiCorp This endpoint will lookup a token and its properties.
+      operationId: getAuthTokenLookup
+      tags:
+      - Auth
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: HashiCorp This endpoint will lookup a token and its properties.
+      operationId: postAuthTokenLookup
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: Token to lookup (POST request body)
+      responses:
+        '200':
+          description: OK
+  /auth/token/lookup-accessor:
+    description: This endpoint will lookup a token associated with the given accessor and its properties. Response will not contain the token ID.
+    post:
+      summary: HashiCorp This endpoint will lookup a token associated with the given accessor and its properties. Response will not contain the token ID.
+      operationId: postAuthTokenLookupAccessor
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessor:
+                  type: string
+                  description: Accessor of the token to look up (request body)
+      responses:
+        '200':
+          description: OK
+  /auth/token/lookup-self:
+    description: This endpoint will lookup a token and its properties.
+    get:
+      summary: HashiCorp This endpoint will lookup a token and its properties.
+      operationId: getAuthTokenLookupSelf
+      tags:
+      - Auth
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: HashiCorp This endpoint will lookup a token and its properties.
+      operationId: postAuthTokenLookupSelf
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: Token to look up (unused, does not need to be set)
+      responses:
+        '200':
+          description: OK
+  /auth/token/renew:
+    description: This endpoint will renew the given token and prevent expiration.
+    post:
+      summary: HashiCorp This endpoint will renew the given token and prevent expiration.
+      operationId: postAuthTokenRenew
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                increment:
+                  type: integer
+                  description: The desired increment in seconds to the token expiration
+                  format: seconds
+                  default: 0
+                token:
+                  type: string
+                  description: Token to renew (request body)
+      responses:
+        '200':
+          description: OK
+  /auth/token/renew-accessor:
+    description: This endpoint will renew a token associated with the given accessor and its properties. Response will not contain the token ID.
+    post:
+      summary: HashiCorp This endpoint will renew a token associated with the given accessor and its properties. Response will not contain the token ID.
+      operationId: postAuthTokenRenewAccessor
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessor:
+                  type: string
+                  description: Accessor of the token to renew (request body)
+                increment:
+                  type: integer
+                  description: The desired increment in seconds to the token expiration
+                  format: seconds
+                  default: 0
+      responses:
+        '200':
+          description: OK
+  /auth/token/renew-self:
+    description: This endpoint will renew the token used to call it and prevent expiration.
+    post:
+      summary: HashiCorp This endpoint will renew the token used to call it and prevent expiration.
+      operationId: postAuthTokenRenewSelf
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                increment:
+                  type: integer
+                  description: The desired increment in seconds to the token expiration
+                  format: seconds
+                  default: 0
+                token:
+                  type: string
+                  description: Token to renew (unused, does not need to be set)
+      responses:
+        '200':
+          description: OK
+  /auth/token/revoke:
+    description: This endpoint will delete the given token and all of its child tokens.
+    post:
+      summary: HashiCorp This endpoint will delete the given token and all of its child tokens.
+      operationId: postAuthTokenRevoke
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: Token to revoke (request body)
+      responses:
+        '200':
+          description: OK
+  /auth/token/revoke-accessor:
+    description: This endpoint will delete the token associated with the accessor and all of its child tokens.
+    post:
+      summary: HashiCorp This endpoint will delete the token associated with the accessor and all of its child tokens.
+      operationId: postAuthTokenRevokeAccessor
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessor:
+                  type: string
+                  description: Accessor of the token (request body)
+      responses:
+        '200':
+          description: OK
+  /auth/token/revoke-orphan:
+    description: This endpoint will delete the token and orphan its child tokens.
+    post:
+      summary: HashiCorp This endpoint will delete the token and orphan its child tokens.
+      operationId: postAuthTokenRevokeOrphan
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: Token to revoke (request body)
+      responses:
+        '200':
+          description: OK
+  /auth/token/revoke-self:
+    description: This endpoint will delete the token used to call it and all of its child tokens.
+    post:
+      summary: HashiCorp This endpoint will delete the token used to call it and all of its child tokens.
+      operationId: postAuthTokenRevokeSelf
+      tags:
+      - Auth
+      responses:
+        '200':
+          description: OK
+  /auth/token/roles:
+    description: This endpoint lists configured roles.
+    get:
+      summary: HashiCorp This endpoint lists configured roles.
+      operationId: getAuthTokenRoles
+      tags:
+      - Auth
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /auth/token/roles/{role_name}:
+    parameters:
+    - name: role_name
+      description: Name of the role
+      in: path
+      schema:
+        type: string
+      required: true
+    x-vault-createSupported: true
+    get:
+      operationId: getAuthTokenRolesRole_name
+      tags:
+      - Auth
+      responses:
+        '200':
+          description: OK
+    post:
+      operationId: postAuthTokenRolesRole_name
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                allowed_entity_aliases:
+                  type: array
+                  description: String or JSON list of allowed entity aliases. If set, specifies the entity aliases which are allowed to be used during token generation. This field supports globbing.
+                  items:
+                    type: string
+                allowed_policies:
+                  type: array
+                  description: If set, tokens can be created with any subset of the policies in this list, rather than the normal semantics of tokens being a subset of the calling token's policies. The parameter is a comma-delimited string of policy names.
+                  items:
+                    type: string
+                allowed_policies_glob:
+                  type: array
+                  description: If set, tokens can be created with any subset of glob matched policies in this list, rather than the normal semantics of tokens being a subset of the calling token's policies. The parameter is a comma-delimited string of policy name globs.
+                  items:
+                    type: string
+                bound_cidrs:
+                  type: array
+                  description: Use 'token_bound_cidrs' instead.
+                  items:
+                    type: string
+                  deprecated: true
+                disallowed_policies:
+                  type: array
+                  description: If set, successful token creation via this role will require that no policies in the given list are requested. The parameter is a comma-delimited string of policy names.
+                  items:
+                    type: string
+                disallowed_policies_glob:
+                  type: array
+                  description: If set, successful token creation via this role will require that no requested policies glob match any of policies in this list. The parameter is a comma-delimited string of policy name globs.
+                  items:
+                    type: string
+                explicit_max_ttl:
+                  type: integer
+                  description: Use 'token_explicit_max_ttl' instead.
+                  format: seconds
+                  deprecated: true
+                orphan:
+                  type: boolean
+                  description: If true, tokens created via this role will be orphan tokens (have no parent)
+                path_suffix:
+                  type: string
+                  description: If set, tokens created via this role will contain the given suffix as a part of their path. This can be used to assist use of the 'revoke-prefix' endpoint later on. The given suffix must match the regular expression.\w[\w-.]+\w
+                period:
+                  type: integer
+                  description: Use 'token_period' instead.
+                  format: seconds
+                  deprecated: true
+                renewable:
+                  type: boolean
+                  description: Tokens created via this role will be renewable or not according to this value. Defaults to "true".
+                  default: true
+                token_bound_cidrs:
+                  type: array
+                  description: Comma separated string or JSON list of CIDR blocks. If set, specifies the blocks of IP addresses which are allowed to use the generated token.
+                  items:
+                    type: string
+                  x-vault-displayAttrs:
+                    name: Generated Token's Bound CIDRs
+                    group: Tokens
+                token_explicit_max_ttl:
+                  type: integer
+                  description: If set, tokens created via this role carry an explicit maximum TTL. During renewal, the current maximum TTL values of the role and the mount are not checked for changes, and any updates to these values will have no effect on the token being renewed.
+                  format: seconds
+                  x-vault-displayAttrs:
+                    name: Generated Token's Explicit Maximum TTL
+                    group: Tokens
+                token_no_default_policy:
+                  type: boolean
+                  description: If true, the 'default' policy will not automatically be added to generated tokens
+                  x-vault-displayAttrs:
+                    name: Do Not Attach 'default' Policy To Generated Tokens
+                    group: Tokens
+                token_num_uses:
+                  type: integer
+                  description: The maximum number of times a token may be used, a value of zero means unlimited
+                  x-vault-displayAttrs:
+                    name: Maximum Uses of Generated Tokens
+                    group: Tokens
+                token_period:
+                  type: integer
+                  description: If set, tokens created via this role will have no max lifetime; instead, their renewal period will be fixed to this value. This takes an integer number of seconds, or a string duration (e.g. "24h").
+                  format: seconds
+                  x-vault-displayAttrs:
+                    name: Generated Token's Period
+                    group: Tokens
+                token_type:
+                  type: string
+                  description: The type of token to generate, service or batch
+                  default: default-service
+                  x-vault-displayAttrs:
+                    name: Generated Token's Type
+                    group: Tokens
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: deleteAuthTokenRolesRole_name
+      tags:
+      - Auth
+      responses:
+        '204':
+          description: empty body
+  /auth/token/tidy:
+    description: This endpoint performs cleanup tasks that can be run if certain error conditions have occurred.
+    post:
+      summary: 'HashiCorp This endpoint performs cleanup tasks that can be run if certain error
+
+        conditions have occurred.'
+      operationId: postAuthTokenTidy
+      tags:
+      - Auth
+      responses:
+        '200':
+          description: OK

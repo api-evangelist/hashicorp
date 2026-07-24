@@ -1,0 +1,1555 @@
+openapi: 3.0.2
+info:
+  title: HashiCorp Vault Auth Identity API
+  description: HTTP API that gives you full access to Vault. All API routes are prefixed with `/v1/`.
+  version: 1.9.3
+  license:
+    name: Mozilla Public License 2.0
+    url: https://www.mozilla.org/en-US/MPL/2.0
+tags:
+- name: Identity
+paths:
+  /identity/alias:
+    description: Create a new alias.
+    post:
+      summary: HashiCorp Create a new alias.
+      operationId: postIdentityAlias
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                canonical_id:
+                  type: string
+                  description: Entity ID to which this alias belongs to
+                entity_id:
+                  type: string
+                  description: Entity ID to which this alias belongs to. This field is deprecated in favor of 'canonical_id'.
+                id:
+                  type: string
+                  description: ID of the alias
+                mount_accessor:
+                  type: string
+                  description: Mount accessor to which this alias belongs to
+                name:
+                  type: string
+                  description: Name of the alias
+      responses:
+        '200':
+          description: OK
+  /identity/alias/id:
+    description: List all the alias IDs.
+    get:
+      summary: HashiCorp List all the alias IDs.
+      operationId: getIdentityAliasId
+      tags:
+      - Identity
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /identity/alias/id/{id}:
+    description: Update, read or delete an alias ID.
+    parameters:
+    - name: id
+      description: ID of the alias
+      in: path
+      schema:
+        type: string
+      required: true
+    get:
+      summary: HashiCorp Update, read or delete an alias ID.
+      operationId: getIdentityAliasIdId
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: HashiCorp Update, read or delete an alias ID.
+      operationId: postIdentityAliasIdId
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                canonical_id:
+                  type: string
+                  description: Entity ID to which this alias should be tied to
+                entity_id:
+                  type: string
+                  description: Entity ID to which this alias should be tied to. This field is deprecated in favor of 'canonical_id'.
+                mount_accessor:
+                  type: string
+                  description: Mount accessor to which this alias belongs to
+                name:
+                  type: string
+                  description: Name of the alias
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: HashiCorp Update, read or delete an alias ID.
+      operationId: deleteIdentityAliasIdId
+      tags:
+      - Identity
+      responses:
+        '204':
+          description: empty body
+  /identity/entity:
+    description: Create a new entity
+    post:
+      summary: HashiCorp Create a new entity
+      operationId: postIdentityEntity
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                disabled:
+                  type: boolean
+                  description: If set true, tokens tied to this identity will not be able to be used (but will not be revoked).
+                id:
+                  type: string
+                  description: ID of the entity. If set, updates the corresponding existing entity.
+                metadata:
+                  type: object
+                  description: 'Metadata to be associated with the entity. In CLI, this parameter can be repeated multiple times, and it all gets merged together. For example: vault <command> <path> metadata=key1=value1 metadata=key2=value2'
+                  format: kvpairs
+                name:
+                  type: string
+                  description: Name of the entity
+                policies:
+                  type: array
+                  description: Policies to be tied to the entity.
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: OK
+  /identity/entity-alias:
+    description: Create a new alias.
+    post:
+      summary: HashiCorp Create a new alias.
+      operationId: postIdentityEntityAlias
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                canonical_id:
+                  type: string
+                  description: Entity ID to which this alias belongs
+                custom_metadata:
+                  type: object
+                  description: User provided key-value pairs
+                  format: kvpairs
+                entity_id:
+                  type: string
+                  description: Entity ID to which this alias belongs. This field is deprecated, use canonical_id.
+                id:
+                  type: string
+                  description: ID of the entity alias. If set, updates the corresponding entity alias.
+                mount_accessor:
+                  type: string
+                  description: Mount accessor to which this alias belongs to; unused for a modify
+                name:
+                  type: string
+                  description: Name of the alias; unused for a modify
+      responses:
+        '200':
+          description: OK
+  /identity/entity-alias/id:
+    description: List all the alias IDs.
+    get:
+      summary: HashiCorp List all the alias IDs.
+      operationId: getIdentityEntityAliasId
+      tags:
+      - Identity
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /identity/entity-alias/id/{id}:
+    description: Update, read or delete an alias ID.
+    parameters:
+    - name: id
+      description: ID of the alias
+      in: path
+      schema:
+        type: string
+      required: true
+    get:
+      summary: HashiCorp Update, read or delete an alias ID.
+      operationId: getIdentityEntityAliasIdId
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: HashiCorp Update, read or delete an alias ID.
+      operationId: postIdentityEntityAliasIdId
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                canonical_id:
+                  type: string
+                  description: Entity ID to which this alias should be tied to
+                custom_metadata:
+                  type: object
+                  description: User provided key-value pairs
+                  format: kvpairs
+                entity_id:
+                  type: string
+                  description: Entity ID to which this alias belongs to. This field is deprecated, use canonical_id.
+                mount_accessor:
+                  type: string
+                  description: (Unused)
+                name:
+                  type: string
+                  description: (Unused)
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: HashiCorp Update, read or delete an alias ID.
+      operationId: deleteIdentityEntityAliasIdId
+      tags:
+      - Identity
+      responses:
+        '204':
+          description: empty body
+  /identity/entity/batch-delete:
+    description: Delete all of the entities provided
+    post:
+      summary: HashiCorp Delete all of the entities provided
+      operationId: postIdentityEntityBatchDelete
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                entity_ids:
+                  type: array
+                  description: Entity IDs to delete
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: OK
+  /identity/entity/id:
+    description: List all the entity IDs
+    get:
+      summary: HashiCorp List all the entity IDs
+      operationId: getIdentityEntityId
+      tags:
+      - Identity
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /identity/entity/id/{id}:
+    description: Update, read or delete an entity using entity ID
+    parameters:
+    - name: id
+      description: ID of the entity. If set, updates the corresponding existing entity.
+      in: path
+      schema:
+        type: string
+      required: true
+    get:
+      summary: HashiCorp Update, read or delete an entity using entity ID
+      operationId: getIdentityEntityIdId
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: HashiCorp Update, read or delete an entity using entity ID
+      operationId: postIdentityEntityIdId
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                disabled:
+                  type: boolean
+                  description: If set true, tokens tied to this identity will not be able to be used (but will not be revoked).
+                metadata:
+                  type: object
+                  description: 'Metadata to be associated with the entity. In CLI, this parameter can be repeated multiple times, and it all gets merged together. For example: vault <command> <path> metadata=key1=value1 metadata=key2=value2'
+                  format: kvpairs
+                name:
+                  type: string
+                  description: Name of the entity
+                policies:
+                  type: array
+                  description: Policies to be tied to the entity.
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: HashiCorp Update, read or delete an entity using entity ID
+      operationId: deleteIdentityEntityIdId
+      tags:
+      - Identity
+      responses:
+        '204':
+          description: empty body
+  /identity/entity/merge:
+    description: Merge two or more entities together
+    post:
+      summary: HashiCorp Merge two or more entities together
+      operationId: postIdentityEntityMerge
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                force:
+                  type: boolean
+                  description: Setting this will follow the 'mine' strategy for merging MFA secrets. If there are secrets of the same type both in entities that are merged from and in entity into which all others are getting merged, secrets in the destination will be unaltered. If not set, this API will throw an error containing all the conflicts.
+                from_entity_ids:
+                  type: array
+                  description: Entity IDs which needs to get merged
+                  items:
+                    type: string
+                to_entity_id:
+                  type: string
+                  description: Entity ID into which all the other entities need to get merged
+      responses:
+        '200':
+          description: OK
+  /identity/entity/name:
+    description: List all the entity names
+    get:
+      summary: HashiCorp List all the entity names
+      operationId: getIdentityEntityName
+      tags:
+      - Identity
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /identity/entity/name/{name}:
+    description: Update, read or delete an entity using entity name
+    parameters:
+    - name: name
+      description: Name of the entity
+      in: path
+      schema:
+        type: string
+      required: true
+    get:
+      summary: HashiCorp Update, read or delete an entity using entity name
+      operationId: getIdentityEntityNameName
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: HashiCorp Update, read or delete an entity using entity name
+      operationId: postIdentityEntityNameName
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                disabled:
+                  type: boolean
+                  description: If set true, tokens tied to this identity will not be able to be used (but will not be revoked).
+                id:
+                  type: string
+                  description: ID of the entity. If set, updates the corresponding existing entity.
+                metadata:
+                  type: object
+                  description: 'Metadata to be associated with the entity. In CLI, this parameter can be repeated multiple times, and it all gets merged together. For example: vault <command> <path> metadata=key1=value1 metadata=key2=value2'
+                  format: kvpairs
+                policies:
+                  type: array
+                  description: Policies to be tied to the entity.
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: HashiCorp Update, read or delete an entity using entity name
+      operationId: deleteIdentityEntityNameName
+      tags:
+      - Identity
+      responses:
+        '204':
+          description: empty body
+  /identity/group:
+    description: Create a new group.
+    post:
+      summary: HashiCorp Create a new group.
+      operationId: postIdentityGroup
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: ID of the group. If set, updates the corresponding existing group.
+                member_entity_ids:
+                  type: array
+                  description: Entity IDs to be assigned as group members.
+                  items:
+                    type: string
+                member_group_ids:
+                  type: array
+                  description: Group IDs to be assigned as group members.
+                  items:
+                    type: string
+                metadata:
+                  type: object
+                  description: 'Metadata to be associated with the group. In CLI, this parameter can be repeated multiple times, and it all gets merged together. For example: vault <command> <path> metadata=key1=value1 metadata=key2=value2'
+                  format: kvpairs
+                name:
+                  type: string
+                  description: Name of the group.
+                policies:
+                  type: array
+                  description: Policies to be tied to the group.
+                  items:
+                    type: string
+                type:
+                  type: string
+                  description: Type of the group, 'internal' or 'external'. Defaults to 'internal'
+      responses:
+        '200':
+          description: OK
+  /identity/group-alias:
+    description: Creates a new group alias, or updates an existing one.
+    post:
+      summary: HashiCorp Creates a new group alias, or updates an existing one.
+      operationId: postIdentityGroupAlias
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                canonical_id:
+                  type: string
+                  description: ID of the group to which this is an alias.
+                id:
+                  type: string
+                  description: ID of the group alias.
+                mount_accessor:
+                  type: string
+                  description: Mount accessor to which this alias belongs to.
+                name:
+                  type: string
+                  description: Alias of the group.
+      responses:
+        '200':
+          description: OK
+  /identity/group-alias/id:
+    description: List all the group alias IDs.
+    get:
+      summary: HashiCorp List all the group alias IDs.
+      operationId: getIdentityGroupAliasId
+      tags:
+      - Identity
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /identity/group-alias/id/{id}:
+    parameters:
+    - name: id
+      description: ID of the group alias.
+      in: path
+      schema:
+        type: string
+      required: true
+    get:
+      operationId: getIdentityGroupAliasIdId
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      operationId: postIdentityGroupAliasIdId
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                canonical_id:
+                  type: string
+                  description: ID of the group to which this is an alias.
+                mount_accessor:
+                  type: string
+                  description: Mount accessor to which this alias belongs to.
+                name:
+                  type: string
+                  description: Alias of the group.
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: deleteIdentityGroupAliasIdId
+      tags:
+      - Identity
+      responses:
+        '204':
+          description: empty body
+  /identity/group/id:
+    description: List all the group IDs.
+    get:
+      summary: HashiCorp List all the group IDs.
+      operationId: getIdentityGroupId
+      tags:
+      - Identity
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /identity/group/id/{id}:
+    description: Update or delete an existing group using its ID.
+    parameters:
+    - name: id
+      description: ID of the group. If set, updates the corresponding existing group.
+      in: path
+      schema:
+        type: string
+      required: true
+    get:
+      summary: HashiCorp Update or delete an existing group using its ID.
+      operationId: getIdentityGroupIdId
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: HashiCorp Update or delete an existing group using its ID.
+      operationId: postIdentityGroupIdId
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                member_entity_ids:
+                  type: array
+                  description: Entity IDs to be assigned as group members.
+                  items:
+                    type: string
+                member_group_ids:
+                  type: array
+                  description: Group IDs to be assigned as group members.
+                  items:
+                    type: string
+                metadata:
+                  type: object
+                  description: 'Metadata to be associated with the group. In CLI, this parameter can be repeated multiple times, and it all gets merged together. For example: vault <command> <path> metadata=key1=value1 metadata=key2=value2'
+                  format: kvpairs
+                name:
+                  type: string
+                  description: Name of the group.
+                policies:
+                  type: array
+                  description: Policies to be tied to the group.
+                  items:
+                    type: string
+                type:
+                  type: string
+                  description: Type of the group, 'internal' or 'external'. Defaults to 'internal'
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: HashiCorp Update or delete an existing group using its ID.
+      operationId: deleteIdentityGroupIdId
+      tags:
+      - Identity
+      responses:
+        '204':
+          description: empty body
+  /identity/group/name:
+    get:
+      operationId: getIdentityGroupName
+      tags:
+      - Identity
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /identity/group/name/{name}:
+    parameters:
+    - name: name
+      description: Name of the group.
+      in: path
+      schema:
+        type: string
+      required: true
+    get:
+      operationId: getIdentityGroupNameName
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      operationId: postIdentityGroupNameName
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: ID of the group. If set, updates the corresponding existing group.
+                member_entity_ids:
+                  type: array
+                  description: Entity IDs to be assigned as group members.
+                  items:
+                    type: string
+                member_group_ids:
+                  type: array
+                  description: Group IDs to be assigned as group members.
+                  items:
+                    type: string
+                metadata:
+                  type: object
+                  description: 'Metadata to be associated with the group. In CLI, this parameter can be repeated multiple times, and it all gets merged together. For example: vault <command> <path> metadata=key1=value1 metadata=key2=value2'
+                  format: kvpairs
+                policies:
+                  type: array
+                  description: Policies to be tied to the group.
+                  items:
+                    type: string
+                type:
+                  type: string
+                  description: Type of the group, 'internal' or 'external'. Defaults to 'internal'
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: deleteIdentityGroupNameName
+      tags:
+      - Identity
+      responses:
+        '204':
+          description: empty body
+  /identity/lookup/entity:
+    description: Query entities based on various properties.
+    post:
+      summary: HashiCorp Query entities based on various properties.
+      operationId: postIdentityLookupEntity
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                alias_id:
+                  type: string
+                  description: ID of the alias.
+                alias_mount_accessor:
+                  type: string
+                  description: Accessor of the mount to which the alias belongs to. This should be supplied in conjunction with 'alias_name'.
+                alias_name:
+                  type: string
+                  description: Name of the alias. This should be supplied in conjunction with 'alias_mount_accessor'.
+                id:
+                  type: string
+                  description: ID of the entity.
+                name:
+                  type: string
+                  description: Name of the entity.
+      responses:
+        '200':
+          description: OK
+  /identity/lookup/group:
+    description: Query groups based on various properties.
+    post:
+      summary: HashiCorp Query groups based on various properties.
+      operationId: postIdentityLookupGroup
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                alias_id:
+                  type: string
+                  description: ID of the alias.
+                alias_mount_accessor:
+                  type: string
+                  description: Accessor of the mount to which the alias belongs to. This should be supplied in conjunction with 'alias_name'.
+                alias_name:
+                  type: string
+                  description: Name of the alias. This should be supplied in conjunction with 'alias_mount_accessor'.
+                id:
+                  type: string
+                  description: ID of the group.
+                name:
+                  type: string
+                  description: Name of the group.
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/.well-known/keys:
+    description: Retrieve public keys
+    x-vault-unauthenticated: true
+    get:
+      summary: HashiCorp Retrieve public keys
+      operationId: getIdentityOidcWellKnownKeys
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/.well-known/openid-configuration:
+    description: Query OIDC configurations
+    x-vault-unauthenticated: true
+    get:
+      summary: HashiCorp Query OIDC configurations
+      operationId: getIdentityOidcWellKnownOpenidConfiguration
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/assignment:
+    description: List OIDC assignments
+    get:
+      operationId: getIdentityOidcAssignment
+      tags:
+      - Identity
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/assignment/{name}:
+    description: CRUD operations for OIDC assignments.
+    parameters:
+    - name: name
+      description: Name of the assignment
+      in: path
+      schema:
+        type: string
+      required: true
+    x-vault-createSupported: true
+    get:
+      operationId: getIdentityOidcAssignmentName
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      operationId: postIdentityOidcAssignmentName
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                entity_ids:
+                  type: array
+                  description: Comma separated string or array of identity entity IDs
+                  items:
+                    type: string
+                group_ids:
+                  type: array
+                  description: Comma separated string or array of identity group IDs
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: deleteIdentityOidcAssignmentName
+      tags:
+      - Identity
+      responses:
+        '204':
+          description: empty body
+  /identity/oidc/client:
+    description: List OIDC clients
+    get:
+      operationId: getIdentityOidcClient
+      tags:
+      - Identity
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/client/{name}:
+    description: CRUD operations for OIDC clients.
+    parameters:
+    - name: name
+      description: Name of the client.
+      in: path
+      schema:
+        type: string
+      required: true
+    x-vault-createSupported: true
+    get:
+      operationId: getIdentityOidcClientName
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      operationId: postIdentityOidcClientName
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                access_token_ttl:
+                  type: integer
+                  description: The time-to-live for access tokens obtained by the client.
+                  format: seconds
+                  default: 24h
+                assignments:
+                  type: array
+                  description: Comma separated string or array of assignment resources.
+                  items:
+                    type: string
+                id_token_ttl:
+                  type: integer
+                  description: The time-to-live for ID tokens obtained by the client.
+                  format: seconds
+                  default: 24h
+                key:
+                  type: string
+                  description: A reference to a named key resource. Cannot be modified after creation.
+                redirect_uris:
+                  type: array
+                  description: Comma separated string or array of redirect URIs used by the client. One of these values must exactly match the redirect_uri parameter value used in each authentication request.
+                  items:
+                    type: string
+              required:
+              - key
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: deleteIdentityOidcClientName
+      tags:
+      - Identity
+      responses:
+        '204':
+          description: empty body
+  /identity/oidc/config:
+    description: OIDC configuration
+    get:
+      summary: HashiCorp OIDC configuration
+      operationId: getIdentityOidcConfig
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: HashiCorp OIDC configuration
+      operationId: postIdentityOidcConfig
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                issuer:
+                  type: string
+                  description: Issuer URL to be used in the iss claim of the token. If not set, Vault's app_addr will be used.
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/introspect:
+    description: Verify the authenticity of an OIDC token
+    post:
+      summary: HashiCorp Verify the authenticity of an OIDC token
+      operationId: postIdentityOidcIntrospect
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: string
+                  description: Optional client_id to verify
+                token:
+                  type: string
+                  description: Token to verify
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/key:
+    description: List OIDC keys
+    get:
+      summary: HashiCorp List OIDC keys
+      operationId: getIdentityOidcKey
+      tags:
+      - Identity
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/key/{name}:
+    description: CRUD operations for OIDC keys.
+    parameters:
+    - name: name
+      description: Name of the key
+      in: path
+      schema:
+        type: string
+      required: true
+    x-vault-createSupported: true
+    get:
+      summary: HashiCorp CRUD operations for OIDC keys.
+      operationId: getIdentityOidcKeyName
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: HashiCorp CRUD operations for OIDC keys.
+      operationId: postIdentityOidcKeyName
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                algorithm:
+                  type: string
+                  description: Signing algorithm to use. This will default to RS256.
+                  default: RS256
+                allowed_client_ids:
+                  type: array
+                  description: Comma separated string or array of role client ids allowed to use this key for signing. If empty no roles are allowed. If "*" all roles are allowed.
+                  items:
+                    type: string
+                rotation_period:
+                  type: integer
+                  description: How often to generate a new keypair.
+                  format: seconds
+                  default: 24h
+                verification_ttl:
+                  type: integer
+                  description: Controls how long the public portion of a key will be available for verification after being rotated.
+                  format: seconds
+                  default: 24h
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: HashiCorp CRUD operations for OIDC keys.
+      operationId: deleteIdentityOidcKeyName
+      tags:
+      - Identity
+      responses:
+        '204':
+          description: empty body
+  /identity/oidc/key/{name}/rotate:
+    description: Rotate a named OIDC key.
+    parameters:
+    - name: name
+      description: Name of the key
+      in: path
+      schema:
+        type: string
+      required: true
+    post:
+      summary: HashiCorp Rotate a named OIDC key.
+      operationId: postIdentityOidcKeyNameRotate
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                verification_ttl:
+                  type: integer
+                  description: Controls how long the public portion of a key will be available for verification after being rotated. Setting verification_ttl here will override the verification_ttl set on the key.
+                  format: seconds
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/provider:
+    description: List OIDC providers
+    get:
+      operationId: getIdentityOidcProvider
+      tags:
+      - Identity
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/provider/{name}:
+    description: CRUD operations for OIDC providers.
+    parameters:
+    - name: name
+      description: Name of the provider
+      in: path
+      schema:
+        type: string
+      required: true
+    x-vault-createSupported: true
+    get:
+      operationId: getIdentityOidcProviderName
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      operationId: postIdentityOidcProviderName
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                allowed_client_ids:
+                  type: array
+                  description: The client IDs that are permitted to use the provider
+                  items:
+                    type: string
+                issuer:
+                  type: string
+                  description: Specifies what will be used for the iss claim of ID tokens.
+                scopes_supported:
+                  type: array
+                  description: The scopes supported for requesting on the provider
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: deleteIdentityOidcProviderName
+      tags:
+      - Identity
+      responses:
+        '204':
+          description: empty body
+  /identity/oidc/provider/{name}/.well-known/keys:
+    description: Retrieve public keys
+    parameters:
+    - name: name
+      description: Name of the provider
+      in: path
+      schema:
+        type: string
+      required: true
+    get:
+      operationId: getIdentityOidcProviderNameWellKnownKeys
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/provider/{name}/.well-known/openid-configuration:
+    description: Query OIDC configurations
+    parameters:
+    - name: name
+      description: Name of the provider
+      in: path
+      schema:
+        type: string
+      required: true
+    get:
+      operationId: getIdentityOidcProviderNameWellKnownOpenidConfiguration
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/provider/{name}/authorize:
+    description: Provides the OIDC Authorization Endpoint.
+    parameters:
+    - name: name
+      description: Name of the provider
+      in: path
+      schema:
+        type: string
+      required: true
+    get:
+      operationId: getIdentityOidcProviderNameAuthorize
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      operationId: postIdentityOidcProviderNameAuthorize
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: string
+                  description: The ID of the requesting client.
+                max_age:
+                  type: integer
+                  description: The allowable elapsed time in seconds since the last time the end-user was actively authenticated.
+                nonce:
+                  type: string
+                  description: The value that will be returned in the ID token nonce claim after a token exchange.
+                redirect_uri:
+                  type: string
+                  description: The redirection URI to which the response will be sent.
+                response_type:
+                  type: string
+                  description: 'The OIDC authentication flow to be used. The following response types are supported: ''code'''
+                scope:
+                  type: string
+                  description: A space-delimited, case-sensitive list of scopes to be requested. The 'openid' scope is required.
+                state:
+                  type: string
+                  description: The value used to maintain state between the authentication request and client.
+              required:
+              - state
+              - client_id
+              - scope
+              - redirect_uri
+              - response_type
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/provider/{name}/token:
+    description: Provides the OIDC Token Endpoint.
+    parameters:
+    - name: name
+      description: Name of the provider
+      in: path
+      schema:
+        type: string
+      required: true
+    post:
+      operationId: postIdentityOidcProviderNameToken
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: The authorization code received from the provider's authorization endpoint.
+                grant_type:
+                  type: string
+                  description: 'The authorization grant type. The following grant types are supported: ''authorization_code''.'
+                redirect_uri:
+                  type: string
+                  description: The callback location where the authentication response was sent.
+              required:
+              - code
+              - grant_type
+              - redirect_uri
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/provider/{name}/userinfo:
+    description: Provides the OIDC UserInfo Endpoint.
+    parameters:
+    - name: name
+      description: Name of the provider
+      in: path
+      schema:
+        type: string
+      required: true
+    get:
+      operationId: getIdentityOidcProviderNameUserinfo
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      operationId: postIdentityOidcProviderNameUserinfo
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/role:
+    description: List configured OIDC roles
+    get:
+      summary: HashiCorp List configured OIDC roles
+      operationId: getIdentityOidcRole
+      tags:
+      - Identity
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/role/{name}:
+    description: CRUD operations on OIDC Roles
+    parameters:
+    - name: name
+      description: Name of the role
+      in: path
+      schema:
+        type: string
+      required: true
+    x-vault-createSupported: true
+    get:
+      summary: HashiCorp CRUD operations on OIDC Roles
+      operationId: getIdentityOidcRoleName
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: HashiCorp CRUD operations on OIDC Roles
+      operationId: postIdentityOidcRoleName
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: string
+                  description: Optional client_id
+                key:
+                  type: string
+                  description: The OIDC key to use for generating tokens. The specified key must already exist.
+                template:
+                  type: string
+                  description: The template string to use for generating tokens. This may be in string-ified JSON or base64 format.
+                ttl:
+                  type: integer
+                  description: TTL of the tokens generated against the role.
+                  format: seconds
+                  default: 24h
+              required:
+              - key
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: HashiCorp CRUD operations on OIDC Roles
+      operationId: deleteIdentityOidcRoleName
+      tags:
+      - Identity
+      responses:
+        '204':
+          description: empty body
+  /identity/oidc/scope:
+    description: List OIDC scopes
+    get:
+      operationId: getIdentityOidcScope
+      tags:
+      - Identity
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /identity/oidc/scope/{name}:
+    description: CRUD operations for OIDC scopes.
+    parameters:
+    - name: name
+      description: Name of the scope
+      in: path
+      schema:
+        type: string
+      required: true
+    x-vault-createSupported: true
+    get:
+      operationId: getIdentityOidcScopeName
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      operationId: postIdentityOidcScopeName
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: The description of the scope
+                template:
+                  type: string
+                  description: The template string to use for the scope. This may be in string-ified JSON or base64 format.
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: deleteIdentityOidcScopeName
+      tags:
+      - Identity
+      responses:
+        '204':
+          description: empty body
+  /identity/oidc/token/{name}:
+    description: Generate an OIDC token
+    parameters:
+    - name: name
+      description: Name of the role
+      in: path
+      schema:
+        type: string
+      required: true
+    get:
+      summary: HashiCorp Generate an OIDC token
+      operationId: getIdentityOidcTokenName
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+  /identity/persona:
+    description: Create a new alias.
+    post:
+      summary: HashiCorp Create a new alias.
+      operationId: postIdentityPersona
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                entity_id:
+                  type: string
+                  description: Entity ID to which this persona belongs to
+                id:
+                  type: string
+                  description: ID of the persona
+                metadata:
+                  type: object
+                  description: 'Metadata to be associated with the persona. In CLI, this parameter can be repeated multiple times, and it all gets merged together. For example: vault <command> <path> metadata=key1=value1 metadata=key2=value2'
+                  format: kvpairs
+                mount_accessor:
+                  type: string
+                  description: Mount accessor to which this persona belongs to
+                name:
+                  type: string
+                  description: Name of the persona
+      responses:
+        '200':
+          description: OK
+  /identity/persona/id:
+    description: List all the alias IDs.
+    get:
+      summary: HashiCorp List all the alias IDs.
+      operationId: getIdentityPersonaId
+      tags:
+      - Identity
+      parameters:
+      - name: list
+        description: Return a list if `true`
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /identity/persona/id/{id}:
+    description: Update, read or delete an alias ID.
+    parameters:
+    - name: id
+      description: ID of the persona
+      in: path
+      schema:
+        type: string
+      required: true
+    get:
+      summary: HashiCorp Update, read or delete an alias ID.
+      operationId: getIdentityPersonaIdId
+      tags:
+      - Identity
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: HashiCorp Update, read or delete an alias ID.
+      operationId: postIdentityPersonaIdId
+      tags:
+      - Identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                entity_id:
+                  type: string
+                  description: Entity ID to which this persona should be tied to
+                metadata:
+                  type: object
+                  description: 'Metadata to be associated with the persona. In CLI, this parameter can be repeated multiple times, and it all gets merged together. For example: vault <command> <path> metadata=key1=value1 metadata=key2=value2'
+                  format: kvpairs
+                mount_accessor:
+                  type: string
+                  description: Mount accessor to which this persona belongs to
+                name:
+                  type: string
+                  description: Name of the persona
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: HashiCorp Update, read or delete an alias ID.
+      operationId: deleteIdentityPersonaIdId
+      tags:
+      - Identity
+      responses:
+        '204':
+          description: empty body
