@@ -1,0 +1,20 @@
+{
+  "provider": "hashicorp",
+  "sources": [
+    "hashicorp-auth-api-openapi.yml",
+    "hashicorp-identity-api-openapi.yml",
+    "hashicorp-secrets-api-openapi.yml",
+    "hashicorp-system-api-openapi.yml"
+  ],
+  "outputs": [
+    "hashicorp-auth-api-openapi.yml",
+    "hashicorp-identity-api-openapi.yml",
+    "hashicorp-secrets-api-openapi.yml",
+    "hashicorp-system-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
