@@ -1,0 +1,334 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "HashiCorp Vault Auth API",
+    "version": "1.9.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "HashiCorp List token accessors, which can then be\nbe used to iterate and discover their properties\nor revoke them. Because this can be used to\ncause a denial of service, this endpoint\nrequires 'sudo' capability in addition to\n'list'.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/auth/token/accessors/",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp List token accessors, which can then be\nbe used to iterate and discover their properties\nor revoke them. Because this can be used to\ncause a denial of service, this endpoint\nrequires 'sudo' capability in addition to\n'list'."
+        },
+        {
+          "info": {
+            "name": "HashiCorp The token create path is used to create new tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/create"
+          },
+          "docs": "HashiCorp The token create path is used to create new tokens."
+        },
+        {
+          "info": {
+            "name": "HashiCorp The token create path is used to create new orphan tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/create-orphan"
+          },
+          "docs": "HashiCorp The token create path is used to create new orphan tokens."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This token create path is used to create new tokens adhering to the given role.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/create/:role_name",
+            "params": [
+              {
+                "name": "role_name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the role"
+              }
+            ]
+          },
+          "docs": "HashiCorp This token create path is used to create new tokens adhering to the given role."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will lookup a token and its properties.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/auth/token/lookup"
+          },
+          "docs": "HashiCorp This endpoint will lookup a token and its properties."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will lookup a token and its properties.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/lookup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will lookup a token and its properties."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will lookup a token associated with the given accessor and its properties. Response will not contain the token ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/lookup-accessor",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will lookup a token associated with the given accessor and its properties. Response will not contain the token ID."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will lookup a token and its properties.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/auth/token/lookup-self"
+          },
+          "docs": "HashiCorp This endpoint will lookup a token and its properties."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will lookup a token and its properties.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/lookup-self",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will lookup a token and its properties."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will renew the given token and prevent expiration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/renew",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will renew the given token and prevent expiration."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will renew a token associated with the given accessor and its properties. Response will not contain the token ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/renew-accessor",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will renew a token associated with the given accessor and its properties. Response will not contain the token ID."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will renew the token used to call it and prevent expiration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/renew-self",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will renew the token used to call it and prevent expiration."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will delete the given token and all of its child tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/revoke",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will delete the given token and all of its child tokens."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will delete the token associated with the accessor and all of its child tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/revoke-accessor",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will delete the token associated with the accessor and all of its child tokens."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will delete the token and orphan its child tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/revoke-orphan",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "HashiCorp This endpoint will delete the token and orphan its child tokens."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint will delete the token used to call it and all of its child tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/revoke-self"
+          },
+          "docs": "HashiCorp This endpoint will delete the token used to call it and all of its child tokens."
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint lists configured roles.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/auth/token/roles",
+            "params": [
+              {
+                "name": "list",
+                "value": "",
+                "type": "query",
+                "description": "Return a list if `true`"
+              }
+            ]
+          },
+          "docs": "HashiCorp This endpoint lists configured roles."
+        },
+        {
+          "info": {
+            "name": "getAuthTokenRolesRole_name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/auth/token/roles/:role_name",
+            "params": [
+              {
+                "name": "role_name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the role"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "postAuthTokenRolesRole_name",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/roles/:role_name",
+            "params": [
+              {
+                "name": "role_name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the role"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteAuthTokenRolesRole_name",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/auth/token/roles/:role_name",
+            "params": [
+              {
+                "name": "role_name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the role"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "HashiCorp This endpoint performs cleanup tasks that can be run if certain error\nconditions have occurred.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/token/tidy"
+          },
+          "docs": "HashiCorp This endpoint performs cleanup tasks that can be run if certain error\nconditions have occurred."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
