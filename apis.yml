@@ -93,6 +93,8 @@ apis:
   description: The Auth API from HashiCorp — 17 operation(s) for auth.
   humanURL: https://developer.hashicorp.com/vault
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
