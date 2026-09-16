@@ -1,8 +1,8 @@
 aid: hashicorp
 name: HashiCorp
-description: HashiCorp is the infrastructure cloud company, helping organizations automate multi-cloud and hybrid
-  environments with Infrastructure Lifecycle Management and Security Lifecycle Management. Their suite of products
-  includes Vault, Terraform, Nomad, Consul, Vagrant, Boundary, and Packer.
+description: HashiCorp is the infrastructure cloud company, helping organizations automate multi-cloud
+  and hybrid environments with Infrastructure Lifecycle Management and Security Lifecycle Management.
+  Their suite of products includes Vault, Terraform, Nomad, Consul, Vagrant, Boundary, and Packer.
 url: https://raw.githubusercontent.com/api-evangelist/hashicorp/refs/heads/main/apis.yml
 type: Index
 deliveryModel:
@@ -36,7 +36,7 @@ tags:
 - Infrastructure
 - Platform
 created: '2024-02-01'
-modified: '2026-08-21'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: hashicorp:hashicorp-terraform
@@ -93,8 +93,8 @@ apis:
   properties:
   - type: Documentation
     url: https://developer.hashicorp.com/vagrant/docs
-  description: Vagrant is the command line utility for managing the lifecycle of virtual machines for isolated,
-    consistent development environments.
+  description: Vagrant is the command line utility for managing the lifecycle of virtual machines for
+    isolated, consistent development environments.
 - aid: hashicorp:hashicorp-auth-api
   name: HashiCorp Auth API
   description: The Auth API from HashiCorp — 17 operation(s) for auth.
@@ -150,6 +150,8 @@ apis:
   - type: GettingStarted
     url: https://developer.hashicorp.com/vault/tutorials
 common:
+- type: Website
+  url: https://hashicorp.com
 - type: ParentCompany
   url: https://apis.io/providers/ibm/
   name: Ibm
