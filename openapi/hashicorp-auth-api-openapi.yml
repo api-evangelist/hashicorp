@@ -1,4 +1,4 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
   title: HashiCorp Vault Auth API
   description: HTTP API that gives you full access to Vault. All API routes are prefixed with `/v1/`.
@@ -13,17 +13,7 @@ paths:
     description: List token accessors, which can then be be used to iterate and discover their properties or revoke them. Because this can be used to cause a denial of service, this endpoint requires 'sudo' capability in addition to 'list'.
     x-vault-sudo: true
     get:
-      summary: 'HashiCorp List token accessors, which can then be
-
-        be used to iterate and discover their properties
-
-        or revoke them. Because this can be used to
-
-        cause a denial of service, this endpoint
-
-        requires ''sudo'' capability in addition to
-
-        ''list''.'
+      summary: HashiCorp List token accessors, which can then be be used to iterate and…
       operationId: getAuthTokenAccessors
       tags:
       - Auth
@@ -39,7 +29,7 @@ paths:
   /auth/token/create:
     description: The token create path is used to create new tokens.
     post:
-      summary: HashiCorp The token create path is used to create new tokens.
+      summary: HashiCorp The token create path is used to create new tokens
       operationId: postAuthTokenCreate
       tags:
       - Auth
@@ -49,7 +39,7 @@ paths:
   /auth/token/create-orphan:
     description: The token create path is used to create new orphan tokens.
     post:
-      summary: HashiCorp The token create path is used to create new orphan tokens.
+      summary: HashiCorp The token create path is used to create new orphan tokens
       operationId: postAuthTokenCreateOrphan
       tags:
       - Auth
@@ -66,7 +56,7 @@ paths:
         type: string
       required: true
     post:
-      summary: HashiCorp This token create path is used to create new tokens adhering to the given role.
+      summary: HashiCorp This token create path is used to create new tokens adhering to the…
       operationId: postAuthTokenCreateRole_name
       tags:
       - Auth
@@ -76,7 +66,7 @@ paths:
   /auth/token/lookup:
     description: This endpoint will lookup a token and its properties.
     get:
-      summary: HashiCorp This endpoint will lookup a token and its properties.
+      summary: HashiCorp This endpoint will lookup a token and its properties
       operationId: getAuthTokenLookup
       tags:
       - Auth
@@ -84,7 +74,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp This endpoint will lookup a token and its properties.
+      summary: HashiCorp This endpoint will lookup a token and its properties
       operationId: postAuthTokenLookup
       tags:
       - Auth
@@ -103,7 +93,7 @@ paths:
   /auth/token/lookup-accessor:
     description: This endpoint will lookup a token associated with the given accessor and its properties. Response will not contain the token ID.
     post:
-      summary: HashiCorp This endpoint will lookup a token associated with the given accessor and its properties. Response will not contain the token ID.
+      summary: HashiCorp This endpoint will lookup a token associated with the given accessor…
       operationId: postAuthTokenLookupAccessor
       tags:
       - Auth
@@ -122,7 +112,7 @@ paths:
   /auth/token/lookup-self:
     description: This endpoint will lookup a token and its properties.
     get:
-      summary: HashiCorp This endpoint will lookup a token and its properties.
+      summary: HashiCorp This endpoint will lookup a token and its properties
       operationId: getAuthTokenLookupSelf
       tags:
       - Auth
@@ -130,7 +120,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp This endpoint will lookup a token and its properties.
+      summary: HashiCorp This endpoint will lookup a token and its properties
       operationId: postAuthTokenLookupSelf
       tags:
       - Auth
@@ -149,7 +139,7 @@ paths:
   /auth/token/renew:
     description: This endpoint will renew the given token and prevent expiration.
     post:
-      summary: HashiCorp This endpoint will renew the given token and prevent expiration.
+      summary: HashiCorp This endpoint will renew the given token and prevent expiration
       operationId: postAuthTokenRenew
       tags:
       - Auth
@@ -173,7 +163,7 @@ paths:
   /auth/token/renew-accessor:
     description: This endpoint will renew a token associated with the given accessor and its properties. Response will not contain the token ID.
     post:
-      summary: HashiCorp This endpoint will renew a token associated with the given accessor and its properties. Response will not contain the token ID.
+      summary: HashiCorp This endpoint will renew a token associated with the given accessor…
       operationId: postAuthTokenRenewAccessor
       tags:
       - Auth
@@ -197,7 +187,7 @@ paths:
   /auth/token/renew-self:
     description: This endpoint will renew the token used to call it and prevent expiration.
     post:
-      summary: HashiCorp This endpoint will renew the token used to call it and prevent expiration.
+      summary: HashiCorp This endpoint will renew the token used to call it and prevent…
       operationId: postAuthTokenRenewSelf
       tags:
       - Auth
@@ -221,7 +211,7 @@ paths:
   /auth/token/revoke:
     description: This endpoint will delete the given token and all of its child tokens.
     post:
-      summary: HashiCorp This endpoint will delete the given token and all of its child tokens.
+      summary: HashiCorp This endpoint will delete the given token and all of its child tokens
       operationId: postAuthTokenRevoke
       tags:
       - Auth
@@ -240,7 +230,7 @@ paths:
   /auth/token/revoke-accessor:
     description: This endpoint will delete the token associated with the accessor and all of its child tokens.
     post:
-      summary: HashiCorp This endpoint will delete the token associated with the accessor and all of its child tokens.
+      summary: HashiCorp This endpoint will delete the token associated with the accessor and…
       operationId: postAuthTokenRevokeAccessor
       tags:
       - Auth
@@ -259,7 +249,7 @@ paths:
   /auth/token/revoke-orphan:
     description: This endpoint will delete the token and orphan its child tokens.
     post:
-      summary: HashiCorp This endpoint will delete the token and orphan its child tokens.
+      summary: HashiCorp This endpoint will delete the token and orphan its child tokens
       operationId: postAuthTokenRevokeOrphan
       tags:
       - Auth
@@ -278,7 +268,7 @@ paths:
   /auth/token/revoke-self:
     description: This endpoint will delete the token used to call it and all of its child tokens.
     post:
-      summary: HashiCorp This endpoint will delete the token used to call it and all of its child tokens.
+      summary: HashiCorp This endpoint will delete the token used to call it and all of its…
       operationId: postAuthTokenRevokeSelf
       tags:
       - Auth
@@ -288,7 +278,7 @@ paths:
   /auth/token/roles:
     description: This endpoint lists configured roles.
     get:
-      summary: HashiCorp This endpoint lists configured roles.
+      summary: HashiCorp This endpoint lists configured roles
       operationId: getAuthTokenRoles
       tags:
       - Auth
@@ -317,6 +307,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get auth token roles role name
+      x-summary-source: derived
     post:
       operationId: postAuthTokenRolesRole_name
       tags:
@@ -422,6 +414,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Post auth token roles role name
+      x-summary-source: derived
     delete:
       operationId: deleteAuthTokenRolesRole_name
       tags:
@@ -429,12 +423,12 @@ paths:
       responses:
         '204':
           description: empty body
+      summary: Delete auth token roles role name
+      x-summary-source: derived
   /auth/token/tidy:
     description: This endpoint performs cleanup tasks that can be run if certain error conditions have occurred.
     post:
-      summary: 'HashiCorp This endpoint performs cleanup tasks that can be run if certain error
-
-        conditions have occurred.'
+      summary: HashiCorp This endpoint performs cleanup tasks that can be run if certain error…
       operationId: postAuthTokenTidy
       tags:
       - Auth

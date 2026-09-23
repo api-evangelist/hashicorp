@@ -1,10 +1,7 @@
 {
   "provider": "hashicorp",
   "sources": [
-    "hashicorp-auth-api-openapi.yml",
-    "hashicorp-identity-api-openapi.yml",
-    "hashicorp-secrets-api-openapi.yml",
-    "hashicorp-system-api-openapi.yml"
+    "_original/hashicorp-vault-openapi.yml"
   ],
   "outputs": [
     "hashicorp-auth-api-openapi.yml",
@@ -15,6 +12,15 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "hashicorp-vault-openapi.yml: upgraded openapi 3.0.2 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "hashicorp-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "hashicorp-identity-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "hashicorp-secrets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "hashicorp-system-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

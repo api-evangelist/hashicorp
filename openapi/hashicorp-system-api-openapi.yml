@@ -1,6 +1,6 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: HashiCorp Vault Auth System API
+  title: HashiCorp Vault System API
   description: HTTP API that gives you full access to Vault. All API routes are prefixed with `/v1/`.
   version: 1.9.3
   license:
@@ -13,7 +13,7 @@ paths:
     description: List the currently enabled audit backends.
     x-vault-sudo: true
     get:
-      summary: HashiCorp List the enabled audit devices.
+      summary: HashiCorp List the enabled audit devices
       operationId: getSysAudit
       tags:
       - System
@@ -56,7 +56,7 @@ paths:
       required: true
     x-vault-sudo: true
     post:
-      summary: HashiCorp Enable a new audit device at the supplied path.
+      summary: HashiCorp Enable a new audit device at the supplied path
       operationId: postSysAuditPath
       tags:
       - System
@@ -84,7 +84,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Disable the audit device at the given path.
+      summary: HashiCorp Disable the audit device at the given path
       operationId: deleteSysAuditPath
       tags:
       - System
@@ -94,7 +94,7 @@ paths:
   /sys/auth:
     description: List the currently enabled credential backends.
     get:
-      summary: HashiCorp List the currently enabled credential backends.
+      summary: HashiCorp List the currently enabled credential backends
       operationId: getSysAuth
       tags:
       - System
@@ -112,7 +112,7 @@ paths:
       required: true
     x-vault-sudo: true
     post:
-      summary: HashiCorp Enables a new auth method.
+      summary: HashiCorp Enables a new auth method
       description: 'After enabling, the auth method can be accessed and configured via the auth path specified as part of the URL. This auth path will be nested under the auth prefix.
 
 
@@ -177,7 +177,7 @@ paths:
       required: true
     x-vault-sudo: true
     get:
-      summary: HashiCorp Reads the given auth path's configuration.
+      summary: HashiCorp Reads the given auth path's configuration
       description: This endpoint requires sudo capability on the final path, but the same functionality can be achieved without sudo via `sys/mounts/auth/[auth-path]/tune`.
       operationId: getSysAuthPathTune
       tags:
@@ -186,7 +186,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Tune configuration parameters for a given auth path.
+      summary: HashiCorp Tune configuration parameters for a given auth path
       description: This endpoint requires sudo capability on the final path, but the same functionality can be achieved without sudo via `sys/mounts/auth/[auth-path]/tune`.
       operationId: postSysAuthPathTune
       tags:
@@ -242,7 +242,7 @@ paths:
   /sys/capabilities:
     description: Fetches the capabilities of the given token on the given path.
     post:
-      summary: HashiCorp Fetches the capabilities of the given token on the given path.
+      summary: HashiCorp Fetches the capabilities of the given token on the given path
       operationId: postSysCapabilities
       tags:
       - System
@@ -272,7 +272,7 @@ paths:
   /sys/capabilities-accessor:
     description: Fetches the capabilities of the token associated with the given token, on the given path.
     post:
-      summary: HashiCorp Fetches the capabilities of the token associated with the given token, on the given path.
+      summary: HashiCorp Fetches the capabilities of the token associated with the given…
       operationId: postSysCapabilitiesAccessor
       tags:
       - System
@@ -302,7 +302,7 @@ paths:
   /sys/capabilities-self:
     description: Fetches the capabilities of the given token on the given path.
     post:
-      summary: HashiCorp Fetches the capabilities of the given token on the given path.
+      summary: HashiCorp Fetches the capabilities of the given token on the given path
       operationId: postSysCapabilitiesSelf
       tags:
       - System
@@ -333,7 +333,7 @@ paths:
     description: Lists the headers configured to be audited.
     x-vault-sudo: true
     get:
-      summary: HashiCorp List the request headers that are configured to be audited.
+      summary: HashiCorp List the request headers that are configured to be audited
       operationId: getSysConfigAuditingRequestHeaders
       tags:
       - System
@@ -350,7 +350,7 @@ paths:
       required: true
     x-vault-sudo: true
     get:
-      summary: HashiCorp List the information for the given request header.
+      summary: HashiCorp List the information for the given request header
       operationId: getSysConfigAuditingRequestHeadersHeader
       tags:
       - System
@@ -358,7 +358,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Enable auditing of a header.
+      summary: HashiCorp Enable auditing of a header
       operationId: postSysConfigAuditingRequestHeadersHeader
       tags:
       - System
@@ -374,7 +374,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Disable auditing of the given request header.
+      summary: HashiCorp Disable auditing of the given request header
       operationId: deleteSysConfigAuditingRequestHeadersHeader
       tags:
       - System
@@ -385,7 +385,7 @@ paths:
     description: This path responds to the following HTTP methods. GET / Returns the configuration of the CORS setting. POST / Sets the comma-separated list of origins that can make cross-origin requests. DELETE / Clears the CORS configuration and disables acceptance of CORS requests.
     x-vault-sudo: true
     get:
-      summary: HashiCorp Return the current CORS settings.
+      summary: HashiCorp Return the current CORS settings
       operationId: getSysConfigCors
       tags:
       - System
@@ -393,7 +393,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Configure the CORS settings.
+      summary: HashiCorp Configure the CORS settings
       operationId: postSysConfigCors
       tags:
       - System
@@ -420,7 +420,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Remove any CORS settings.
+      summary: HashiCorp Remove any CORS settings
       operationId: deleteSysConfigCors
       tags:
       - System
@@ -444,7 +444,7 @@ paths:
           description: OK
   /sys/config/state/sanitized:
     get:
-      summary: HashiCorp Return a sanitized version of the Vault server configuration.
+      summary: HashiCorp Return a sanitized version of the Vault server configuration
       description: The sanitized output strips configuration values in the storage, HA storage, and seals stanzas, which may contain sensitive values such as API tokens. It also removes any token or secret fields in other stanzas, such as the circonus_api_token from telemetry.
       operationId: getSysConfigStateSanitized
       tags:
@@ -456,7 +456,7 @@ paths:
     description: This path responds to the following HTTP methods. GET /<header> Returns the header value. POST /<header> Sets the header value for the UI. DELETE /<header> Clears the header value for UI. LIST / List the headers configured for the UI.
     x-vault-sudo: true
     get:
-      summary: HashiCorp Return a list of configured UI headers.
+      summary: HashiCorp Return a list of configured UI headers
       operationId: getSysConfigUiHeaders
       tags:
       - System
@@ -488,7 +488,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Configure the values to be returned for the UI header.
+      summary: HashiCorp Configure the values to be returned for the UI header
       operationId: postSysConfigUiHeadersHeader
       tags:
       - System
@@ -510,7 +510,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Remove a UI header.
+      summary: HashiCorp Remove a UI header
       operationId: deleteSysConfigUiHeadersHeader
       tags:
       - System
@@ -520,7 +520,7 @@ paths:
   /sys/generate-root:
     description: Reads, generates, or deletes a root token regeneration process.
     get:
-      summary: HashiCorp Read the configuration and progress of the current root generation attempt.
+      summary: HashiCorp Read the configuration and progress of the current root generation…
       operationId: getSysGenerateRoot
       tags:
       - System
@@ -528,7 +528,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Initializes a new root generation attempt.
+      summary: HashiCorp Initializes a new root generation attempt
       description: Only a single root generation attempt can take place at a time. One (and only one) of otp or pgp_key are required.
       operationId: postSysGenerateRoot
       tags:
@@ -546,7 +546,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Cancels any in-progress root generation attempt.
+      summary: HashiCorp Cancels any in-progress root generation attempt
       operationId: deleteSysGenerateRoot
       tags:
       - System
@@ -557,7 +557,7 @@ paths:
     description: Reads, generates, or deletes a root token regeneration process.
     x-vault-unauthenticated: true
     get:
-      summary: HashiCorp Read the configuration and progress of the current root generation attempt.
+      summary: HashiCorp Read the configuration and progress of the current root generation…
       operationId: getSysGenerateRootAttempt
       tags:
       - System
@@ -565,7 +565,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Initializes a new root generation attempt.
+      summary: HashiCorp Initializes a new root generation attempt
       description: Only a single root generation attempt can take place at a time. One (and only one) of otp or pgp_key are required.
       operationId: postSysGenerateRootAttempt
       tags:
@@ -583,7 +583,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Cancels any in-progress root generation attempt.
+      summary: HashiCorp Cancels any in-progress root generation attempt
       operationId: deleteSysGenerateRootAttempt
       tags:
       - System
@@ -594,7 +594,7 @@ paths:
     description: Reads, generates, or deletes a root token regeneration process.
     x-vault-unauthenticated: true
     post:
-      summary: HashiCorp Enter a single master key share to progress the root generation attempt.
+      summary: HashiCorp Enter a single master key share to progress the root generation…
       description: If the threshold number of master key shares is reached, Vault will complete the root generation and issue the new token. Otherwise, this API must be called multiple times until that threshold is met. The attempt nonce must be provided with each call.
       operationId: postSysGenerateRootUpdate
       tags:
@@ -618,7 +618,7 @@ paths:
     description: Checks the health status of the Vault.
     x-vault-unauthenticated: true
     get:
-      summary: HashiCorp Returns the health status of Vault.
+      summary: HashiCorp Returns the health status of Vault
       operationId: getSysHealth
       tags:
       - System
@@ -636,8 +636,12 @@ paths:
   /sys/host-info:
     description: Information about the host instance that this Vault server is running on.
     get:
-      summary: HashiCorp Information about the host instance that this Vault server is running on.
-      description: "Information about the host instance that this Vault server is running on.\n\t\tThe information that gets collected includes host hardware information, and CPU,\n\t\tdisk, and memory utilization"
+      summary: HashiCorp Information about the host instance that this Vault server is running…
+      description: 'Information about the host instance that this Vault server is running on.
+
+        The information that gets collected includes host hardware information, and CPU,
+
+        disk, and memory utilization'
       operationId: getSysHostInfo
       tags:
       - System
@@ -648,7 +652,7 @@ paths:
     description: Initializes or returns the initialization status of the Vault.
     x-vault-unauthenticated: true
     get:
-      summary: HashiCorp Returns the initialization status of Vault.
+      summary: HashiCorp Returns the initialization status of Vault
       operationId: getSysInit
       tags:
       - System
@@ -656,7 +660,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Initialize a new Vault.
+      summary: HashiCorp Initialize a new Vault
       description: The Vault must not have been previously initialized. The recovery options, as well as the stored shares option, are only available when using Vault HSM.
       operationId: postSysInit
       tags:
@@ -701,7 +705,7 @@ paths:
   /sys/internal/counters/activity:
     description: Query the historical count of clients.
     get:
-      summary: HashiCorp Report the client count metrics, for this namespace and all child namespaces.
+      summary: HashiCorp Report the client count metrics, for this namespace and all child…
       operationId: getSysInternalCountersActivity
       tags:
       - System
@@ -711,7 +715,7 @@ paths:
   /sys/internal/counters/activity/monthly:
     description: Count of active clients so far this month.
     get:
-      summary: HashiCorp Report the number of clients for this month, for this namespace and all child namespaces.
+      summary: HashiCorp Report the number of clients for this month, for this namespace and…
       operationId: getSysInternalCountersActivityMonthly
       tags:
       - System
@@ -721,7 +725,7 @@ paths:
   /sys/internal/counters/config:
     description: Control the collection and reporting of client counts.
     get:
-      summary: HashiCorp Read the client count tracking configuration.
+      summary: HashiCorp Read the client count tracking configuration
       operationId: getSysInternalCountersConfig
       tags:
       - System
@@ -729,7 +733,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Enable or disable collection of client count, set retention period, or set default reporting period.
+      summary: HashiCorp Enable or disable collection of client count, set retention period…
       operationId: postSysInternalCountersConfig
       tags:
       - System
@@ -787,7 +791,7 @@ paths:
   /sys/internal/specs/openapi:
     x-vault-unauthenticated: true
     get:
-      summary: HashiCorp Generate an OpenAPI 3 document of all mounted paths.
+      summary: HashiCorp Generate an OpenAPI 3 document of all mounted paths
       operationId: getSysInternalSpecsOpenapi
       tags:
       - System
@@ -797,7 +801,7 @@ paths:
   /sys/internal/ui/feature-flags:
     description: Enabled feature flags. Internal API; its location, inputs, and outputs may change.
     get:
-      summary: HashiCorp Lists enabled feature flags.
+      summary: HashiCorp Lists enabled feature flags
       operationId: getSysInternalUiFeatureFlags
       tags:
       - System
@@ -808,7 +812,7 @@ paths:
     description: Information about mounts returned according to their tuned visibility. Internal API; its location, inputs, and outputs may change.
     x-vault-unauthenticated: true
     get:
-      summary: HashiCorp Lists all enabled and visible auth and secrets mounts.
+      summary: HashiCorp Lists all enabled and visible auth and secrets mounts
       operationId: getSysInternalUiMounts
       tags:
       - System
@@ -826,7 +830,7 @@ paths:
       required: true
     x-vault-unauthenticated: true
     get:
-      summary: HashiCorp Return information about the given mount.
+      summary: HashiCorp Return information about the given mount
       operationId: getSysInternalUiMountsPath
       tags:
       - System
@@ -857,7 +861,7 @@ paths:
   /sys/key-status:
     description: Provides information about the backend encryption key.
     get:
-      summary: HashiCorp Provides information about the backend encryption key.
+      summary: HashiCorp Provides information about the backend encryption key
       operationId: getSysKeyStatus
       tags:
       - System
@@ -868,7 +872,7 @@ paths:
     description: Check the high availability status and current leader of Vault
     x-vault-unauthenticated: true
     get:
-      summary: HashiCorp Returns the high availability status and current leader instance of Vault.
+      summary: HashiCorp Returns the high availability status and current leader instance of…
       operationId: getSysLeader
       tags:
       - System
@@ -899,7 +903,7 @@ paths:
   /sys/leases/lookup:
     description: View or list lease metadata.
     post:
-      summary: HashiCorp Retrieve lease metadata.
+      summary: HashiCorp Retrieve lease metadata
       operationId: postSysLeasesLookup
       tags:
       - System
@@ -919,7 +923,7 @@ paths:
     description: View or list lease metadata.
     x-vault-sudo: true
     get:
-      summary: HashiCorp Returns a list of lease ids.
+      summary: HashiCorp Returns a list of lease ids
       operationId: getSysLeasesLookup
       tags:
       - System
@@ -943,7 +947,7 @@ paths:
       required: true
     x-vault-sudo: true
     get:
-      summary: HashiCorp Returns a list of lease ids.
+      summary: HashiCorp Returns a list of lease ids
       operationId: getSysLeasesLookupPrefix
       tags:
       - System
@@ -959,7 +963,7 @@ paths:
   /sys/leases/renew:
     description: Renew a lease on a secret
     post:
-      summary: HashiCorp Renews a lease, requesting to extend the lease.
+      summary: HashiCorp Renews a lease, requesting to extend the lease
       operationId: postSysLeasesRenew
       tags:
       - System
@@ -992,7 +996,7 @@ paths:
         type: string
       required: true
     post:
-      summary: HashiCorp Renews a lease, requesting to extend the lease.
+      summary: HashiCorp Renews a lease, requesting to extend the lease
       operationId: postSysLeasesRenewUrl_lease_id
       tags:
       - System
@@ -1015,7 +1019,7 @@ paths:
   /sys/leases/revoke:
     description: Revoke a leased secret immediately
     post:
-      summary: HashiCorp Revokes a lease immediately.
+      summary: HashiCorp Revokes a lease immediately
       operationId: postSysLeasesRevoke
       tags:
       - System
@@ -1049,7 +1053,7 @@ paths:
       required: true
     x-vault-sudo: true
     post:
-      summary: HashiCorp Revokes all secrets or tokens generated under a given prefix immediately
+      summary: HashiCorp Revokes all secrets or tokens generated under a given prefix…
       description: 'Unlike `/sys/leases/revoke-prefix`, this path ignores backend errors encountered during revocation. This is potentially very dangerous and should only be used in specific emergency situations where errors in the backend or the connected backend service prevent normal revocation.
 
 
@@ -1071,7 +1075,7 @@ paths:
       required: true
     x-vault-sudo: true
     post:
-      summary: HashiCorp Revokes all secrets (via a lease ID prefix) or tokens (via the tokens' path property) generated under a given prefix immediately.
+      summary: HashiCorp Revokes all secrets (via a lease ID prefix) or tokens (via the…
       operationId: postSysLeasesRevokePrefixPrefix
       tags:
       - System
@@ -1098,7 +1102,7 @@ paths:
         type: string
       required: true
     post:
-      summary: HashiCorp Revokes a lease immediately.
+      summary: HashiCorp Revokes a lease immediately
       operationId: postSysLeasesRevokeUrl_lease_id
       tags:
       - System
@@ -1121,9 +1125,7 @@ paths:
   /sys/leases/tidy:
     description: This endpoint performs cleanup tasks that can be run if certain error conditions have occurred.
     post:
-      summary: 'HashiCorp This endpoint performs cleanup tasks that can be run if certain error
-
-        conditions have occurred.'
+      summary: HashiCorp This endpoint performs cleanup tasks that can be run if certain error…
       operationId: postSysLeasesTidy
       tags:
       - System
@@ -1139,7 +1141,7 @@ paths:
       schema:
         type: string
     get:
-      summary: HashiCorp Export the metrics aggregated for telemetry purpose.
+      summary: HashiCorp Export the metrics aggregated for telemetry purpose
       operationId: getSysMetrics
       tags:
       - System
@@ -1160,10 +1162,12 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get sys monitor
+      x-summary-source: derived
   /sys/mounts:
     description: List the currently mounted backends.
     get:
-      summary: HashiCorp List the currently mounted backends.
+      summary: HashiCorp List the currently mounted backends
       operationId: getSysMounts
       tags:
       - System
@@ -1180,7 +1184,7 @@ paths:
         type: string
       required: true
     post:
-      summary: HashiCorp Enable a new secrets engine at the given path.
+      summary: HashiCorp Enable a new secrets engine at the given path
       operationId: postSysMountsPath
       tags:
       - System
@@ -1223,7 +1227,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Disable the mount point specified at the given path.
+      summary: HashiCorp Disable the mount point specified at the given path
       operationId: deleteSysMountsPath
       tags:
       - System
@@ -1240,7 +1244,7 @@ paths:
         type: string
       required: true
     get:
-      summary: HashiCorp Tune backend configuration parameters for this mount.
+      summary: HashiCorp Tune backend configuration parameters for this mount
       operationId: getSysMountsPathTune
       tags:
       - System
@@ -1248,7 +1252,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Tune backend configuration parameters for this mount.
+      summary: HashiCorp Tune backend configuration parameters for this mount
       operationId: postSysMountsPathTune
       tags:
       - System
@@ -1321,7 +1325,7 @@ paths:
       required: true
     x-vault-sudo: true
     get:
-      summary: HashiCorp Return the configuration data for the plugin with the given name.
+      summary: HashiCorp Return the configuration data for the plugin with the given name
       operationId: getSysPluginsCatalogName
       tags:
       - System
@@ -1329,7 +1333,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Register a new plugin, or updates an existing one with the supplied name.
+      summary: HashiCorp Register a new plugin, or updates an existing one with the supplied…
       operationId: postSysPluginsCatalogName
       tags:
       - System
@@ -1365,7 +1369,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Remove the plugin with the given name.
+      summary: HashiCorp Remove the plugin with the given name
       operationId: deleteSysPluginsCatalogName
       tags:
       - System
@@ -1383,7 +1387,7 @@ paths:
       required: true
     x-vault-sudo: true
     get:
-      summary: HashiCorp List the plugins in the catalog.
+      summary: HashiCorp List the plugins in the catalog
       operationId: getSysPluginsCatalogType
       tags:
       - System
@@ -1413,7 +1417,7 @@ paths:
       required: true
     x-vault-sudo: true
     get:
-      summary: HashiCorp Return the configuration data for the plugin with the given name.
+      summary: HashiCorp Return the configuration data for the plugin with the given name
       operationId: getSysPluginsCatalogTypeName
       tags:
       - System
@@ -1421,7 +1425,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Register a new plugin, or updates an existing one with the supplied name.
+      summary: HashiCorp Register a new plugin, or updates an existing one with the supplied…
       operationId: postSysPluginsCatalogTypeName
       tags:
       - System
@@ -1454,7 +1458,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Remove the plugin with the given name.
+      summary: HashiCorp Remove the plugin with the given name
       operationId: deleteSysPluginsCatalogTypeName
       tags:
       - System
@@ -1464,8 +1468,8 @@ paths:
   /sys/plugins/reload/backend:
     description: Reload mounts that use a particular backend plugin.
     post:
-      summary: HashiCorp Reload mounted plugin backends.
-      description: Either the plugin name (`plugin`) or the desired plugin backend mounts (`mounts`) must be provided, but not both. In the case that the plugin name is provided, all mounted paths that use that plugin backend will be reloaded.  If (`scope`) is provided and is (`global`), the plugin(s) are reloaded globally.
+      summary: HashiCorp Reload mounted plugin backends
+      description: Either the plugin name (`plugin`) or the desired plugin backend mounts (`mounts`) must be provided, but not both. In the case that the plugin name is provided, all mounted paths that use that plugin backend will be reloaded. If (`scope`) is provided and is (`global`), the plugin(s) are reloaded globally.
       operationId: postSysPluginsReloadBackend
       tags:
       - System
@@ -1491,7 +1495,7 @@ paths:
   /sys/policies/acl:
     description: List the configured access control policies.
     get:
-      summary: HashiCorp List the configured access control policies.
+      summary: HashiCorp List the configured access control policies
       operationId: getSysPoliciesAcl
       tags:
       - System
@@ -1514,7 +1518,7 @@ paths:
         type: string
       required: true
     get:
-      summary: HashiCorp Retrieve information about the named ACL policy.
+      summary: HashiCorp Retrieve information about the named ACL policy
       operationId: getSysPoliciesAclName
       tags:
       - System
@@ -1522,7 +1526,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Add a new or update an existing ACL policy.
+      summary: HashiCorp Add a new or update an existing ACL policy
       operationId: postSysPoliciesAclName
       tags:
       - System
@@ -1539,7 +1543,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Delete the ACL policy with the given name.
+      summary: HashiCorp Delete the ACL policy with the given name
       operationId: deleteSysPoliciesAclName
       tags:
       - System
@@ -1556,7 +1560,7 @@ paths:
         type: string
       required: true
     get:
-      summary: HashiCorp Retrieve an existing password policy.
+      summary: HashiCorp Retrieve an existing password policy
       operationId: getSysPoliciesPasswordName
       tags:
       - System
@@ -1564,7 +1568,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Add a new or update an existing password policy.
+      summary: HashiCorp Add a new or update an existing password policy
       operationId: postSysPoliciesPasswordName
       tags:
       - System
@@ -1581,7 +1585,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Delete a password policy.
+      summary: HashiCorp Delete a password policy
       operationId: deleteSysPoliciesPasswordName
       tags:
       - System
@@ -1598,7 +1602,7 @@ paths:
         type: string
       required: true
     get:
-      summary: HashiCorp Generate a password from an existing password policy.
+      summary: HashiCorp Generate a password from an existing password policy
       operationId: getSysPoliciesPasswordNameGenerate
       tags:
       - System
@@ -1608,7 +1612,7 @@ paths:
   /sys/policy:
     description: List the configured access control policies.
     get:
-      summary: HashiCorp List the configured access control policies.
+      summary: HashiCorp List the configured access control policies
       operationId: getSysPolicy
       tags:
       - System
@@ -1631,7 +1635,7 @@ paths:
         type: string
       required: true
     get:
-      summary: HashiCorp Retrieve the policy body for the named policy.
+      summary: HashiCorp Retrieve the policy body for the named policy
       operationId: getSysPolicyName
       tags:
       - System
@@ -1639,7 +1643,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Add a new or update an existing policy.
+      summary: HashiCorp Add a new or update an existing policy
       operationId: postSysPolicyName
       tags:
       - System
@@ -1660,7 +1664,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Delete the policy with the given name.
+      summary: HashiCorp Delete the policy with the given name
       operationId: deleteSysPolicyName
       tags:
       - System
@@ -1669,8 +1673,12 @@ paths:
           description: empty body
   /sys/pprof/:
     get:
-      summary: HashiCorp Returns an HTML page listing the available profiles.
-      description: "Returns an HTML page listing the available \nprofiles. This should be mainly accessed via browsers or applications that can \nrender pages."
+      summary: HashiCorp Returns an HTML page listing the available profiles
+      description: 'Returns an HTML page listing the available
+
+        profiles. This should be mainly accessed via browsers or applications that can
+
+        render pages.'
       operationId: getSysPprof
       tags:
       - System
@@ -1679,7 +1687,7 @@ paths:
           description: OK
   /sys/pprof/allocs:
     get:
-      summary: HashiCorp Returns a sampling of all past memory allocations.
+      summary: HashiCorp Returns a sampling of all past memory allocations
       description: Returns a sampling of all past memory allocations.
       operationId: getSysPprofAllocs
       tags:
@@ -1689,7 +1697,7 @@ paths:
           description: OK
   /sys/pprof/block:
     get:
-      summary: HashiCorp Returns stack traces that led to blocking on synchronization primitives
+      summary: HashiCorp Returns stack traces that led to blocking on synchronization…
       description: Returns stack traces that led to blocking on synchronization primitives
       operationId: getSysPprofBlock
       tags:
@@ -1699,7 +1707,7 @@ paths:
           description: OK
   /sys/pprof/cmdline:
     get:
-      summary: HashiCorp Returns the running program's command line.
+      summary: HashiCorp Returns the running program's command line
       description: Returns the running program's command line, with arguments separated by NUL bytes.
       operationId: getSysPprofCmdline
       tags:
@@ -1709,7 +1717,7 @@ paths:
           description: OK
   /sys/pprof/goroutine:
     get:
-      summary: HashiCorp Returns stack traces of all current goroutines.
+      summary: HashiCorp Returns stack traces of all current goroutines
       description: Returns stack traces of all current goroutines.
       operationId: getSysPprofGoroutine
       tags:
@@ -1719,7 +1727,7 @@ paths:
           description: OK
   /sys/pprof/heap:
     get:
-      summary: HashiCorp Returns a sampling of memory allocations of live object.
+      summary: HashiCorp Returns a sampling of memory allocations of live object
       description: Returns a sampling of memory allocations of live object.
       operationId: getSysPprofHeap
       tags:
@@ -1739,7 +1747,7 @@ paths:
           description: OK
   /sys/pprof/profile:
     get:
-      summary: HashiCorp Returns a pprof-formatted cpu profile payload.
+      summary: HashiCorp Returns a pprof-formatted cpu profile payload
       description: Returns a pprof-formatted cpu profile payload. Profiling lasts for duration specified in seconds GET parameter, or for 30 seconds if not specified.
       operationId: getSysPprofProfile
       tags:
@@ -1749,7 +1757,7 @@ paths:
           description: OK
   /sys/pprof/symbol:
     get:
-      summary: HashiCorp Returns the program counters listed in the request.
+      summary: HashiCorp Returns the program counters listed in the request
       description: Returns the program counters listed in the request.
       operationId: getSysPprofSymbol
       tags:
@@ -1769,8 +1777,8 @@ paths:
           description: OK
   /sys/pprof/trace:
     get:
-      summary: HashiCorp Returns the execution trace in binary form.
-      description: Returns  the execution trace in binary form. Tracing lasts for duration specified in seconds GET parameter, or for 1 second if not specified.
+      summary: HashiCorp Returns the execution trace in binary form
+      description: Returns the execution trace in binary form. Tracing lasts for duration specified in seconds GET parameter, or for 1 second if not specified.
       operationId: getSysPprofTrace
       tags:
       - System
@@ -1786,6 +1794,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get sys quotas config
+      x-summary-source: derived
     post:
       operationId: postSysQuotasConfig
       tags:
@@ -1810,6 +1820,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Post sys quotas config
+      x-summary-source: derived
   /sys/quotas/rate-limit:
     description: Lists the names of all the rate limit quotas.
     get:
@@ -1825,6 +1837,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get sys quotas rate limit
+      x-summary-source: derived
   /sys/quotas/rate-limit/{name}:
     description: Get, create or update rate limit resource quota for an optional namespace or mount.
     parameters:
@@ -1841,6 +1855,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get sys quotas rate limit name
+      x-summary-source: derived
     post:
       operationId: postSysQuotasRateLimitName
       tags:
@@ -1872,6 +1888,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Post sys quotas rate limit name
+      x-summary-source: derived
     delete:
       operationId: deleteSysQuotasRateLimitName
       tags:
@@ -1879,11 +1897,13 @@ paths:
       responses:
         '204':
           description: empty body
+      summary: Delete sys quotas rate limit name
+      x-summary-source: derived
   /sys/raw:
     description: Write, Read, and Delete data directly in the Storage backend.
     x-vault-sudo: true
     get:
-      summary: HashiCorp Read the value of the key at the given path.
+      summary: HashiCorp Read the value of the key at the given path
       operationId: getSysRaw
       tags:
       - System
@@ -1897,7 +1917,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Update the value of the key at the given path.
+      summary: HashiCorp Update the value of the key at the given path
       operationId: postSysRaw
       tags:
       - System
@@ -1915,7 +1935,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Delete the key with given path.
+      summary: HashiCorp Delete the key with given path
       operationId: deleteSysRaw
       tags:
       - System
@@ -1932,7 +1952,7 @@ paths:
       required: true
     x-vault-sudo: true
     get:
-      summary: HashiCorp Read the value of the key at the given path.
+      summary: HashiCorp Read the value of the key at the given path
       operationId: getSysRawPath
       tags:
       - System
@@ -1946,7 +1966,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Update the value of the key at the given path.
+      summary: HashiCorp Update the value of the key at the given path
       operationId: postSysRawPath
       tags:
       - System
@@ -1962,7 +1982,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Delete the key with given path.
+      summary: HashiCorp Delete the key with given path
       operationId: deleteSysRawPath
       tags:
       - System
@@ -1972,7 +1992,7 @@ paths:
   /sys/rekey/backup:
     description: Allows fetching or deleting the backup of the rotated unseal keys.
     get:
-      summary: HashiCorp Return the backup copy of PGP-encrypted unseal keys.
+      summary: HashiCorp Return the backup copy of PGP-encrypted unseal keys
       operationId: getSysRekeyBackup
       tags:
       - System
@@ -1980,7 +2000,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Delete the backup copy of PGP-encrypted unseal keys.
+      summary: HashiCorp Delete the backup copy of PGP-encrypted unseal keys
       operationId: deleteSysRekeyBackup
       tags:
       - System
@@ -1990,7 +2010,7 @@ paths:
   /sys/rekey/init:
     x-vault-unauthenticated: true
     get:
-      summary: HashiCorp Reads the configuration and progress of the current rekey attempt.
+      summary: HashiCorp Reads the configuration and progress of the current rekey attempt
       operationId: getSysRekeyInit
       tags:
       - System
@@ -1998,7 +2018,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Initializes a new rekey attempt.
+      summary: HashiCorp Initializes a new rekey attempt
       description: Only a single rekey attempt can take place at a time, and changing the parameters of a rekey requires canceling and starting a new rekey, which will also provide a new nonce.
       operationId: postSysRekeyInit
       tags:
@@ -2030,7 +2050,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Cancels any in-progress rekey.
+      summary: HashiCorp Cancels any in-progress rekey
       description: 'This clears the rekey settings as well as any progress made. This must be called to change the parameters of the rekey. Note: verification is still a part of a rekey. If rekeying is canceled during the verification flow, the current unseal keys remain valid.'
       operationId: deleteSysRekeyInit
       tags:
@@ -2041,7 +2061,7 @@ paths:
   /sys/rekey/recovery-key-backup:
     description: Allows fetching or deleting the backup of the rotated unseal keys.
     get:
-      summary: HashiCorp Allows fetching or deleting the backup of the rotated unseal keys.
+      summary: HashiCorp Allows fetching or deleting the backup of the rotated unseal keys
       operationId: getSysRekeyRecoveryKeyBackup
       tags:
       - System
@@ -2049,7 +2069,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Allows fetching or deleting the backup of the rotated unseal keys.
+      summary: HashiCorp Allows fetching or deleting the backup of the rotated unseal keys
       operationId: deleteSysRekeyRecoveryKeyBackup
       tags:
       - System
@@ -2059,7 +2079,7 @@ paths:
   /sys/rekey/update:
     x-vault-unauthenticated: true
     post:
-      summary: HashiCorp Enter a single master key share to progress the rekey of the Vault.
+      summary: HashiCorp Enter a single master key share to progress the rekey of the Vault
       operationId: postSysRekeyUpdate
       tags:
       - System
@@ -2081,7 +2101,7 @@ paths:
   /sys/rekey/verify:
     x-vault-unauthenticated: true
     get:
-      summary: HashiCorp Read the configuration and progress of the current rekey verification attempt.
+      summary: HashiCorp Read the configuration and progress of the current rekey verification…
       operationId: getSysRekeyVerify
       tags:
       - System
@@ -2089,7 +2109,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Enter a single new key share to progress the rekey verification operation.
+      summary: HashiCorp Enter a single new key share to progress the rekey verification…
       operationId: postSysRekeyVerify
       tags:
       - System
@@ -2109,7 +2129,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Cancel any in-progress rekey verification operation.
+      summary: HashiCorp Cancel any in-progress rekey verification operation
       description: This clears any progress made and resets the nonce. Unlike a `DELETE` against `sys/rekey/init`, this only resets the current verification operation, not the entire rekey atttempt.
       operationId: deleteSysRekeyVerify
       tags:
@@ -2121,7 +2141,7 @@ paths:
     description: Move the mount point of an already-mounted backend.
     x-vault-sudo: true
     post:
-      summary: HashiCorp Move the mount point of an already-mounted backend.
+      summary: HashiCorp Move the mount point of an already-mounted backend
       operationId: postSysRemount
       tags:
       - System
@@ -2143,7 +2163,7 @@ paths:
   /sys/renew:
     description: Renew a lease on a secret
     post:
-      summary: HashiCorp Renews a lease, requesting to extend the lease.
+      summary: HashiCorp Renews a lease, requesting to extend the lease
       operationId: postSysRenew
       tags:
       - System
@@ -2176,7 +2196,7 @@ paths:
         type: string
       required: true
     post:
-      summary: HashiCorp Renews a lease, requesting to extend the lease.
+      summary: HashiCorp Renews a lease, requesting to extend the lease
       operationId: postSysRenewUrl_lease_id
       tags:
       - System
@@ -2205,10 +2225,12 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get sys replication status
+      x-summary-source: derived
   /sys/revoke:
     description: Revoke a leased secret immediately
     post:
-      summary: HashiCorp Revokes a lease immediately.
+      summary: HashiCorp Revokes a lease immediately
       operationId: postSysRevoke
       tags:
       - System
@@ -2242,7 +2264,7 @@ paths:
       required: true
     x-vault-sudo: true
     post:
-      summary: HashiCorp Revokes all secrets or tokens generated under a given prefix immediately
+      summary: HashiCorp Revokes all secrets or tokens generated under a given prefix…
       description: 'Unlike `/sys/leases/revoke-prefix`, this path ignores backend errors encountered during revocation. This is potentially very dangerous and should only be used in specific emergency situations where errors in the backend or the connected backend service prevent normal revocation.
 
 
@@ -2264,7 +2286,7 @@ paths:
       required: true
     x-vault-sudo: true
     post:
-      summary: HashiCorp Revokes all secrets (via a lease ID prefix) or tokens (via the tokens' path property) generated under a given prefix immediately.
+      summary: HashiCorp Revokes all secrets (via a lease ID prefix) or tokens (via the…
       operationId: postSysRevokePrefixPrefix
       tags:
       - System
@@ -2291,7 +2313,7 @@ paths:
         type: string
       required: true
     post:
-      summary: HashiCorp Revokes a lease immediately.
+      summary: HashiCorp Revokes a lease immediately
       operationId: postSysRevokeUrl_lease_id
       tags:
       - System
@@ -2315,7 +2337,7 @@ paths:
     description: Rotates the backend encryption key used to persist data.
     x-vault-sudo: true
     post:
-      summary: HashiCorp Rotates the backend encryption key used to persist data.
+      summary: HashiCorp Rotates the backend encryption key used to persist data
       operationId: postSysRotate
       tags:
       - System
@@ -2331,6 +2353,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get sys rotate config
+      x-summary-source: derived
     post:
       operationId: postSysRotateConfig
       tags:
@@ -2354,10 +2378,12 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Post sys rotate config
+      x-summary-source: derived
   /sys/seal:
     description: Seals the Vault.
     post:
-      summary: HashiCorp Seal the Vault.
+      summary: HashiCorp Seal the Vault
       operationId: postSysSeal
       tags:
       - System
@@ -2368,7 +2394,7 @@ paths:
     description: Returns the seal status of the Vault.
     x-vault-unauthenticated: true
     get:
-      summary: HashiCorp Check the seal status of a Vault.
+      summary: HashiCorp Check the seal status of a Vault
       operationId: getSysSealStatus
       tags:
       - System
@@ -2377,7 +2403,7 @@ paths:
           description: OK
   /sys/step-down:
     post:
-      summary: HashiCorp Cause the node to give up active status.
+      summary: HashiCorp Cause the node to give up active status
       description: This endpoint forces the node to give up active status. If the node does not have active status, this endpoint does nothing. Note that the node will sleep for ten seconds before attempting to grab the active lock again, but if no standby nodes grab the active lock in the interim, the same node may become the active node again.
       operationId: postSysStepDown
       tags:
@@ -2511,7 +2537,7 @@ paths:
     description: Unseals the Vault.
     x-vault-unauthenticated: true
     post:
-      summary: HashiCorp Unseal the Vault.
+      summary: HashiCorp Unseal the Vault
       operationId: postSysUnseal
       tags:
       - System
@@ -2534,7 +2560,7 @@ paths:
     description: Looks up the properties of a response-wrapped token.
     x-vault-unauthenticated: true
     get:
-      summary: HashiCorp Look up wrapping properties for the requester's token.
+      summary: HashiCorp Look up wrapping properties for the requester's token
       operationId: getSysWrappingLookup
       tags:
       - System
@@ -2542,7 +2568,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Look up wrapping properties for the given token.
+      summary: HashiCorp Look up wrapping properties for the given token
       operationId: postSysWrappingLookup
       tags:
       - System
@@ -2560,7 +2586,7 @@ paths:
   /sys/wrapping/rewrap:
     description: Rotates a response-wrapped token.
     post:
-      summary: HashiCorp Rotates a response-wrapped token.
+      summary: HashiCorp Rotates a response-wrapped token
       operationId: postSysWrappingRewrap
       tags:
       - System
@@ -2578,7 +2604,7 @@ paths:
   /sys/wrapping/unwrap:
     description: Unwraps a response-wrapped token.
     post:
-      summary: HashiCorp Unwraps a response-wrapped token.
+      summary: HashiCorp Unwraps a response-wrapped token
       operationId: postSysWrappingUnwrap
       tags:
       - System
@@ -2596,7 +2622,7 @@ paths:
   /sys/wrapping/wrap:
     description: Response-wraps an arbitrary JSON object.
     post:
-      summary: HashiCorp Response-wraps an arbitrary JSON object.
+      summary: HashiCorp Response-wraps an arbitrary JSON object
       operationId: postSysWrappingWrap
       tags:
       - System

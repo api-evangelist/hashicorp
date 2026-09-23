@@ -1,6 +1,6 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: HashiCorp Vault Auth Identity API
+  title: HashiCorp Vault Identity API
   description: HTTP API that gives you full access to Vault. All API routes are prefixed with `/v1/`.
   version: 1.9.3
   license:
@@ -12,7 +12,7 @@ paths:
   /identity/alias:
     description: Create a new alias.
     post:
-      summary: HashiCorp Create a new alias.
+      summary: HashiCorp Create a new alias
       operationId: postIdentityAlias
       tags:
       - Identity
@@ -43,7 +43,7 @@ paths:
   /identity/alias/id:
     description: List all the alias IDs.
     get:
-      summary: HashiCorp List all the alias IDs.
+      summary: HashiCorp List all the alias IDs
       operationId: getIdentityAliasId
       tags:
       - Identity
@@ -66,7 +66,7 @@ paths:
         type: string
       required: true
     get:
-      summary: HashiCorp Update, read or delete an alias ID.
+      summary: HashiCorp Update, read or delete an alias ID
       operationId: getIdentityAliasIdId
       tags:
       - Identity
@@ -74,7 +74,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Update, read or delete an alias ID.
+      summary: HashiCorp Update, read or delete an alias ID
       operationId: postIdentityAliasIdId
       tags:
       - Identity
@@ -100,7 +100,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Update, read or delete an alias ID.
+      summary: HashiCorp Update, read or delete an alias ID
       operationId: deleteIdentityAliasIdId
       tags:
       - Identity
@@ -144,7 +144,7 @@ paths:
   /identity/entity-alias:
     description: Create a new alias.
     post:
-      summary: HashiCorp Create a new alias.
+      summary: HashiCorp Create a new alias
       operationId: postIdentityEntityAlias
       tags:
       - Identity
@@ -179,7 +179,7 @@ paths:
   /identity/entity-alias/id:
     description: List all the alias IDs.
     get:
-      summary: HashiCorp List all the alias IDs.
+      summary: HashiCorp List all the alias IDs
       operationId: getIdentityEntityAliasId
       tags:
       - Identity
@@ -202,7 +202,7 @@ paths:
         type: string
       required: true
     get:
-      summary: HashiCorp Update, read or delete an alias ID.
+      summary: HashiCorp Update, read or delete an alias ID
       operationId: getIdentityEntityAliasIdId
       tags:
       - Identity
@@ -210,7 +210,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Update, read or delete an alias ID.
+      summary: HashiCorp Update, read or delete an alias ID
       operationId: postIdentityEntityAliasIdId
       tags:
       - Identity
@@ -240,7 +240,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Update, read or delete an alias ID.
+      summary: HashiCorp Update, read or delete an alias ID
       operationId: deleteIdentityEntityAliasIdId
       tags:
       - Identity
@@ -438,7 +438,7 @@ paths:
   /identity/group:
     description: Create a new group.
     post:
-      summary: HashiCorp Create a new group.
+      summary: HashiCorp Create a new group
       operationId: postIdentityGroup
       tags:
       - Identity
@@ -482,7 +482,7 @@ paths:
   /identity/group-alias:
     description: Creates a new group alias, or updates an existing one.
     post:
-      summary: HashiCorp Creates a new group alias, or updates an existing one.
+      summary: HashiCorp Creates a new group alias, or updates an existing one
       operationId: postIdentityGroupAlias
       tags:
       - Identity
@@ -510,7 +510,7 @@ paths:
   /identity/group-alias/id:
     description: List all the group alias IDs.
     get:
-      summary: HashiCorp List all the group alias IDs.
+      summary: HashiCorp List all the group alias IDs
       operationId: getIdentityGroupAliasId
       tags:
       - Identity
@@ -538,6 +538,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get identity group alias id id
+      x-summary-source: derived
     post:
       operationId: postIdentityGroupAliasIdId
       tags:
@@ -560,6 +562,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Post identity group alias id id
+      x-summary-source: derived
     delete:
       operationId: deleteIdentityGroupAliasIdId
       tags:
@@ -567,10 +571,12 @@ paths:
       responses:
         '204':
           description: empty body
+      summary: Delete identity group alias id id
+      x-summary-source: derived
   /identity/group/id:
     description: List all the group IDs.
     get:
-      summary: HashiCorp List all the group IDs.
+      summary: HashiCorp List all the group IDs
       operationId: getIdentityGroupId
       tags:
       - Identity
@@ -593,7 +599,7 @@ paths:
         type: string
       required: true
     get:
-      summary: HashiCorp Update or delete an existing group using its ID.
+      summary: HashiCorp Update or delete an existing group using its ID
       operationId: getIdentityGroupIdId
       tags:
       - Identity
@@ -601,7 +607,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Update or delete an existing group using its ID.
+      summary: HashiCorp Update or delete an existing group using its ID
       operationId: postIdentityGroupIdId
       tags:
       - Identity
@@ -640,7 +646,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Update or delete an existing group using its ID.
+      summary: HashiCorp Update or delete an existing group using its ID
       operationId: deleteIdentityGroupIdId
       tags:
       - Identity
@@ -661,6 +667,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get identity group name
+      x-summary-source: derived
   /identity/group/name/{name}:
     parameters:
     - name: name
@@ -676,6 +684,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get identity group name name
+      x-summary-source: derived
     post:
       operationId: postIdentityGroupNameName
       tags:
@@ -714,6 +724,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Post identity group name name
+      x-summary-source: derived
     delete:
       operationId: deleteIdentityGroupNameName
       tags:
@@ -721,10 +733,12 @@ paths:
       responses:
         '204':
           description: empty body
+      summary: Delete identity group name name
+      x-summary-source: derived
   /identity/lookup/entity:
     description: Query entities based on various properties.
     post:
-      summary: HashiCorp Query entities based on various properties.
+      summary: HashiCorp Query entities based on various properties
       operationId: postIdentityLookupEntity
       tags:
       - Identity
@@ -755,7 +769,7 @@ paths:
   /identity/lookup/group:
     description: Query groups based on various properties.
     post:
-      summary: HashiCorp Query groups based on various properties.
+      summary: HashiCorp Query groups based on various properties
       operationId: postIdentityLookupGroup
       tags:
       - Identity
@@ -820,6 +834,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get identity oidc assignment
+      x-summary-source: derived
   /identity/oidc/assignment/{name}:
     description: CRUD operations for OIDC assignments.
     parameters:
@@ -837,6 +853,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get identity oidc assignment name
+      x-summary-source: derived
     post:
       operationId: postIdentityOidcAssignmentName
       tags:
@@ -860,6 +878,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Post identity oidc assignment name
+      x-summary-source: derived
     delete:
       operationId: deleteIdentityOidcAssignmentName
       tags:
@@ -867,6 +887,8 @@ paths:
       responses:
         '204':
           description: empty body
+      summary: Delete identity oidc assignment name
+      x-summary-source: derived
   /identity/oidc/client:
     description: List OIDC clients
     get:
@@ -882,6 +904,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get identity oidc client
+      x-summary-source: derived
   /identity/oidc/client/{name}:
     description: CRUD operations for OIDC clients.
     parameters:
@@ -899,6 +923,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get identity oidc client name
+      x-summary-source: derived
     post:
       operationId: postIdentityOidcClientName
       tags:
@@ -937,6 +963,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Post identity oidc client name
+      x-summary-source: derived
     delete:
       operationId: deleteIdentityOidcClientName
       tags:
@@ -944,6 +972,8 @@ paths:
       responses:
         '204':
           description: empty body
+      summary: Delete identity oidc client name
+      x-summary-source: derived
   /identity/oidc/config:
     description: OIDC configuration
     get:
@@ -1020,7 +1050,7 @@ paths:
       required: true
     x-vault-createSupported: true
     get:
-      summary: HashiCorp CRUD operations for OIDC keys.
+      summary: HashiCorp CRUD operations for OIDC keys
       operationId: getIdentityOidcKeyName
       tags:
       - Identity
@@ -1028,7 +1058,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp CRUD operations for OIDC keys.
+      summary: HashiCorp CRUD operations for OIDC keys
       operationId: postIdentityOidcKeyName
       tags:
       - Identity
@@ -1061,7 +1091,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp CRUD operations for OIDC keys.
+      summary: HashiCorp CRUD operations for OIDC keys
       operationId: deleteIdentityOidcKeyName
       tags:
       - Identity
@@ -1078,7 +1108,7 @@ paths:
         type: string
       required: true
     post:
-      summary: HashiCorp Rotate a named OIDC key.
+      summary: HashiCorp Rotate a named OIDC key
       operationId: postIdentityOidcKeyNameRotate
       tags:
       - Identity
@@ -1110,6 +1140,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get identity oidc provider
+      x-summary-source: derived
   /identity/oidc/provider/{name}:
     description: CRUD operations for OIDC providers.
     parameters:
@@ -1127,6 +1159,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get identity oidc provider name
+      x-summary-source: derived
     post:
       operationId: postIdentityOidcProviderName
       tags:
@@ -1153,6 +1187,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Post identity oidc provider name
+      x-summary-source: derived
     delete:
       operationId: deleteIdentityOidcProviderName
       tags:
@@ -1160,6 +1196,8 @@ paths:
       responses:
         '204':
           description: empty body
+      summary: Delete identity oidc provider name
+      x-summary-source: derived
   /identity/oidc/provider/{name}/.well-known/keys:
     description: Retrieve public keys
     parameters:
@@ -1176,6 +1214,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get identity oidc provider name well known keys
+      x-summary-source: derived
   /identity/oidc/provider/{name}/.well-known/openid-configuration:
     description: Query OIDC configurations
     parameters:
@@ -1192,6 +1232,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get identity oidc provider name well known openid configuration
+      x-summary-source: derived
   /identity/oidc/provider/{name}/authorize:
     description: Provides the OIDC Authorization Endpoint.
     parameters:
@@ -1208,6 +1250,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get identity oidc provider name authorize
+      x-summary-source: derived
     post:
       operationId: postIdentityOidcProviderNameAuthorize
       tags:
@@ -1248,6 +1292,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Post identity oidc provider name authorize
+      x-summary-source: derived
   /identity/oidc/provider/{name}/token:
     description: Provides the OIDC Token Endpoint.
     parameters:
@@ -1283,6 +1329,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Post identity oidc provider name token
+      x-summary-source: derived
   /identity/oidc/provider/{name}/userinfo:
     description: Provides the OIDC UserInfo Endpoint.
     parameters:
@@ -1299,6 +1347,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get identity oidc provider name userinfo
+      x-summary-source: derived
     post:
       operationId: postIdentityOidcProviderNameUserinfo
       tags:
@@ -1306,6 +1356,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Post identity oidc provider name userinfo
+      x-summary-source: derived
   /identity/oidc/role:
     description: List configured OIDC roles
     get:
@@ -1393,6 +1445,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get identity oidc scope
+      x-summary-source: derived
   /identity/oidc/scope/{name}:
     description: CRUD operations for OIDC scopes.
     parameters:
@@ -1410,6 +1464,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Get identity oidc scope name
+      x-summary-source: derived
     post:
       operationId: postIdentityOidcScopeName
       tags:
@@ -1429,6 +1485,8 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Post identity oidc scope name
+      x-summary-source: derived
     delete:
       operationId: deleteIdentityOidcScopeName
       tags:
@@ -1436,6 +1494,8 @@ paths:
       responses:
         '204':
           description: empty body
+      summary: Delete identity oidc scope name
+      x-summary-source: derived
   /identity/oidc/token/{name}:
     description: Generate an OIDC token
     parameters:
@@ -1456,7 +1516,7 @@ paths:
   /identity/persona:
     description: Create a new alias.
     post:
-      summary: HashiCorp Create a new alias.
+      summary: HashiCorp Create a new alias
       operationId: postIdentityPersona
       tags:
       - Identity
@@ -1488,7 +1548,7 @@ paths:
   /identity/persona/id:
     description: List all the alias IDs.
     get:
-      summary: HashiCorp List all the alias IDs.
+      summary: HashiCorp List all the alias IDs
       operationId: getIdentityPersonaId
       tags:
       - Identity
@@ -1511,7 +1571,7 @@ paths:
         type: string
       required: true
     get:
-      summary: HashiCorp Update, read or delete an alias ID.
+      summary: HashiCorp Update, read or delete an alias ID
       operationId: getIdentityPersonaIdId
       tags:
       - Identity
@@ -1519,7 +1579,7 @@ paths:
         '200':
           description: OK
     post:
-      summary: HashiCorp Update, read or delete an alias ID.
+      summary: HashiCorp Update, read or delete an alias ID
       operationId: postIdentityPersonaIdId
       tags:
       - Identity
@@ -1546,7 +1606,7 @@ paths:
         '200':
           description: OK
     delete:
-      summary: HashiCorp Update, read or delete an alias ID.
+      summary: HashiCorp Update, read or delete an alias ID
       operationId: deleteIdentityPersonaIdId
       tags:
       - Identity
