@@ -150,6 +150,9 @@ apis:
   - type: GettingStarted
     url: https://developer.hashicorp.com/vault/tutorials
 common:
+- type: CapabilityMap
+  url: capabilities/hashicorp-capability-edges.yml
+  name: HashiCorp Business Capability Map
 - type: Website
   url: https://hashicorp.com
 - type: ParentCompany

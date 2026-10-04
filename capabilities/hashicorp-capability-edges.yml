@@ -1,0 +1,47 @@
+slug: hashicorp
+provider: HashiCorp
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Auth
+  spec_file: hashicorp-auth-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /auth/token/create 'The token create path is used to create new tokens'; 'This endpoint
+    will renew the given token and prevent expiration'; 'List token accessors'
+  reason: Vault's auth surface issues, looks up, renews and revokes authentication tokens — credential
+    issuance and access control, i.e. Identity & Access Management. Not a business-domain noun despite
+    'Auth'.
+- tag: Identity
+  spec_file: hashicorp-identity-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /identity/entity 'Create a new entity'; POST /identity/entity-alias 'Create a new alias';
+    'Delete all of the entities provided'
+  reason: Vault identity entities, aliases and groups map identities from auth backends to principals
+    — identity management for access control, not customer master data.
+- tag: Secrets
+  spec_file: hashicorp-secrets-api-openapi.yml
+  capability_id: BC-4210.60
+  capability_id_l1: BC-4210
+  capability_name: Configuration & Secrets Management
+  confidence: 0.7
+  evidence: '''Store a secret at the specified location''; ''Write, Patch, Read, and Delete data in the
+    Key-Value Store''; ''Configure backend level settings that are applied to every key'''
+  reason: Vault KV/cubbyhole secret storage is runtime secrets management consumed by services; the candidate
+    list's explicit secrets capability is Configuration & Secrets Management. Some ambiguity vs. a pure
+    cybersecurity framing, hence moderate confidence.
