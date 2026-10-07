@@ -181,10 +181,8 @@ apis:
 unitEconomics:
   - name: Cost per Managed Resource
     metric: billed_cost / terraform_managed_resources
-    target: TBD
   - name: Cost per Workspace
     metric: billed_cost / active_workspaces
-    target: TBD
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
