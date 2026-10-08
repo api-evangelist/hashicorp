@@ -206,3 +206,64 @@ plans:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  - subscription
+  units:
+  - object
+  - period
+  plans:
+  - name: Community / Open Source
+    access: freemium
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - month
+  - name: HCP Terraform — Essentials
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - object
+    periods:
+    - hour
+    - month
+  - name: HCP Terraform — Standard
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - object
+    periods:
+    - hour
+    - month
+  - name: HCP Terraform — Premium
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - object
+    periods:
+    - hour
+    - month
+  - name: Terraform Enterprise (self-managed)
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - month
+  - name: HCP Terraform Europe
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - month
