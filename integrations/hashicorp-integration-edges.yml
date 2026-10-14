@@ -1,0 +1,71 @@
+generated: '2026-10-14'
+method: searched
+checked:
+- https://github.com/marketplace?type=actions
+- https://github.com/marketplace?type=apps
+- https://marketplace.visualstudio.com/vscode
+marketplace_apps: []
+edges:
+- partner_name: GitHub Marketplace (apps)
+  partner: github
+  partner_match: aggregator
+  type: marketplace
+  marketplace: github-apps
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://github.com/marketplace/hcp-vault-secrets
+  listing_count: 1
+  apps:
+  - HCP Vault Secrets
+  publisher_name: HashiCorp
+  badges:
+  - Verified domain
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: GitHub Marketplace (actions)
+  partner: github-actions
+  partner_match: aggregator
+  type: marketplace
+  marketplace: github-actions
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://github.com/marketplace/actions/hashicorp-setup-terraform
+  listing_count: 10
+  apps:
+  - HashiCorp - Setup Terraform
+  - HashiCorp Vault
+  - Setup HashiCorp Packer
+  - HashiCorp's Link Checker
+  - Setup HashiCorp Nomad Pack
+  publisher_name: HashiCorp
+  badges:
+  - Verified creator
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: Visual Studio Code Marketplace
+  partner: vs-code-marketplace
+  partner_match: aggregator
+  type: marketplace
+  marketplace: vscode
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://marketplace.visualstudio.com/publishers/HashiCorp
+  listing_count: 4
+  apps:
+  - HashiCorp Terraform
+  - HashiCorp HCL
+  - HashiCorp Sentinel
+  - HashiCorp Terraform (Preview)
+  publisher_name: HashiCorp
+  badges:
+  - Verified publisher
+  - Verified domain
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+source:
+- https://github.com/marketplace?type=actions
+- https://github.com/marketplace?type=apps
+- https://marketplace.visualstudio.com/vscode
