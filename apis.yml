@@ -77,6 +77,9 @@ apis:
 - aid: hashicorp:hashicorp-boundary
   name: HashiCorp Boundary
   tags:
+  - Identity and Access Management
+  - Security
+  tags_raw:
   - Access Management
   - Security
   humanURL: https://developer.hashicorp.com/boundary
@@ -87,6 +90,9 @@ apis:
 - aid: hashicorp:hashicorp-vagrant
   name: HashiCorp Vagrant
   tags:
+  - Developer Environments
+  - Virtual Machines
+  tags_raw:
   - Development Environments
   - Virtual Machines
   humanURL: https://developer.hashicorp.com/vagrant
