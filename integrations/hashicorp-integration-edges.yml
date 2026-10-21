@@ -6,6 +6,7 @@ checked:
 - https://github.com/marketplace?type=actions
 - https://github.com/marketplace?type=apps
 - https://marketplace.visualstudio.com/vscode
+- docker-hub/integrations/docker-hub-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: GitHub Marketplace (apps)
@@ -97,6 +98,39 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-compliance-assurance.py
   first_seen: '2026-10-20'
+- partner_name: Docker Hub (docker-verified-publisher)
+  partner: docker-hub
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: docker-verified-publisher
+  evidence: https://hub.docker.com/u/hashicorp
+  mirror_of: docker-hub/integrations/docker-hub-integration-edges.yml
+  apps:
+  - hashicorp/terraform
+  - hashicorp/vault
+  - hashicorp/tfc-agent
+  - hashicorp/consul-template
+  - hashicorp/http-echo
+  - hashicorp/consul
+  - hashicorp/vault-k8s
+  - hashicorp/consul-enterprise
+  - hashicorp/packer
+  - hashicorp/vault-csi-provider
+  - hashicorp/waypoint
+  - hashicorp/boundary
+  - hashicorp/consul-k8s
+  - hashicorp/consul-dataplane
+  - hashicorp/consul-k8s-control-plane
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: Docker Verified Publisher
+  badges:
+  - Docker Verified Publisher
 source:
 - https://github.com/marketplace?type=actions
 - https://github.com/marketplace?type=apps
