@@ -21,6 +21,7 @@ checked:
 - https://catalog.redhat.com/api/containers/v1/repositories?page_size=100
 - https://catalog.redhat.com/api/containers/v1/vendors/label/
 - https://catalog.redhat.com/software/partners
+- artifact-hub/integrations/artifact-hub-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: GitHub Marketplace (apps)
@@ -183,56 +184,6 @@ edges:
     detected: '2026-10-22'
   detected_by: sweep-vulnerability-disclosure-cna.py
   first_seen: '2026-10-22'
-- partner_name: Docker Hub (docker-verified-publisher)
-  partner: docker-hub
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: docker-verified-publisher
-  evidence: https://hub.docker.com/u/hashicorp
-  mirror_of: docker-hub/integrations/docker-hub-integration-edges.yml
-  apps:
-  - hashicorp/terraform
-  - hashicorp/vault
-  - hashicorp/tfc-agent
-  - hashicorp/consul-template
-  - hashicorp/http-echo
-  - hashicorp/consul
-  - hashicorp/vault-k8s
-  - hashicorp/consul-enterprise
-  - hashicorp/packer
-  - hashicorp/vault-csi-provider
-  - hashicorp/waypoint
-  - hashicorp/boundary
-  - hashicorp/consul-k8s
-  - hashicorp/consul-dataplane
-  - hashicorp/consul-k8s-control-plane
-  listing_count: 1
-  detected: '2026-10-20'
-  detected_by: mirror-platform-listings.py
-  category: Docker Verified Publisher
-  badges:
-  - Docker Verified Publisher
-- partner_name: Backstage (own)
-  partner: backstage
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://github.com/backstage/backstage/tree/d72327203d5d0812bee2eace8688fa5ab22867be/microsite/data/plugins/hcp-consul.yaml
-  mirror_of: backstage/integrations/backstage-integration-edges.yml
-  apps:
-  - HCP Consul
-  listing_count: 1
-  detected: '2026-10-22'
-  detected_by: mirror-platform-listings.py
-  category: Infrastructure
 - partner_name: Red Hat Ecosystem Catalog (certified partners)
   partner: red-hat
   partner_match: register
@@ -286,6 +237,88 @@ edges:
     detected: '2026-10-22'
   detected_by: sweep-red-hat-certified-ecosystem.py
   first_seen: '2026-10-22'
+- partner_name: Docker Hub (docker-verified-publisher)
+  partner: docker-hub
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: docker-verified-publisher
+  evidence: https://hub.docker.com/u/hashicorp
+  mirror_of: docker-hub/integrations/docker-hub-integration-edges.yml
+  apps:
+  - hashicorp/terraform
+  - hashicorp/vault
+  - hashicorp/tfc-agent
+  - hashicorp/consul-template
+  - hashicorp/http-echo
+  - hashicorp/consul
+  - hashicorp/vault-k8s
+  - hashicorp/consul-enterprise
+  - hashicorp/packer
+  - hashicorp/vault-csi-provider
+  - hashicorp/waypoint
+  - hashicorp/boundary
+  - hashicorp/consul-k8s
+  - hashicorp/consul-dataplane
+  - hashicorp/consul-k8s-control-plane
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: Docker Verified Publisher
+  badges:
+  - Docker Verified Publisher
+- partner_name: Backstage (own)
+  partner: backstage
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/backstage/backstage/tree/d72327203d5d0812bee2eace8688fa5ab22867be/microsite/data/plugins/hcp-consul.yaml
+  mirror_of: backstage/integrations/backstage-integration-edges.yml
+  apps:
+  - HCP Consul
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Infrastructure
+- partner_name: Artifact Hub (artifact-hub)
+  partner: artifact-hub
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: artifact-hub
+  evidence: https://artifacthub.io/packages/search?repo=hashicorp
+  mirror_of: artifact-hub/integrations/artifact-hub-integration-edges.yml
+  apps:
+  - vault
+  - consul
+  - terraform
+  - vault-secrets-operator
+  - waypoint
+  - boundary-controller
+  - boundary-worker
+  - terraform-cloud-operator
+  - terraform-enterprise
+  - consul-ops-hub
+  - hcp-terraform-operator
+  - vault-radar-agent
+  - vault-secrets-gateway
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Artifact Hub listing (Helm chart)
+  badges:
+  - 'Verified publisher (Artifact Hub official: publisher owns the software)'
+  - 'Verified publisher (Artifact Hub verified publisher: repository ownership proven)'
 source:
 - https://github.com/marketplace?type=actions
 - https://github.com/marketplace?type=apps
