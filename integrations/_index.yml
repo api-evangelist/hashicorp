@@ -328,3 +328,36 @@
     detected: '2026-10-23'
   status: not-a-workflow
   arazzo: null
+- slug: hashicorp-buf-schema-registry-bsr-public-modules
+  label: Buf Schema Registry (BSR) public modules
+  partner: buf
+  partner_name: Buf Schema Registry (BSR) public modules
+  category: Protocol Buffers schema publishing (BSR)
+  type: register
+  channel: standard-directory
+  evidence: https://buf.build/hashicorp
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Buf Schema Registry (BSR) public modules
+    spec_file: null
+    standard: Protocol Buffers
+    role: schema-publisher
+    registrations:
+    - registered_name: hashicorp
+      register_status: public-modules
+      evidence_url: https://buf.build/hashicorp
+      matched_domain: hashicorp.com
+      matched_by: domain+name-among-holders
+      url_source: owner-url
+    modules:
+    - module: buf.build/hashicorp/go-kms-wrapping
+      state: active
+      lapsed: false
+      created: '2023-03-08'
+    signal_note: 'participation only: the owner publishes Protocol Buffers schema modules on the public BSR; a listing
+      is not conformance (no certified_products)'
+    detected_by: sweep-buf-schema-registry.py
+    detected: '2026-10-23'
+  status: not-a-workflow
+  arazzo: null
