@@ -1,4 +1,4 @@
-# HashiCorp (hashicorp)
+# HashiCorp
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,145 +66,142 @@
 
 HashiCorp is the infrastructure cloud company, helping organizations automate multi-cloud and hybrid environments with Infrastructure Lifecycle Management and Security Lifecycle Management. Their suite of products includes Vault, Terraform, Nomad, Consul, Vagrant, Boundary, and Packer.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/hashicorp/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/hashicorp/refs/heads/main/apis.yml)
+**Areas:** Cloud · DevOps · Infrastructure · Platform
 
-## Scope
+## HashiCorp on APIs.io
 
-- **Type:** Index
+Everything profiled for HashiCorp is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/hashicorp/](https://apis.io/providers/hashicorp/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (9)
 
-- Cloud
-- DevOps
-- Infrastructure
-- Platform
+- [HashiCorp Terraform](https://apis.io/apis/hashicorp/hashicorp-terraform/) — Terraform is an infrastructure as code tool that lets you build, change, and version infrastructure safely and efficiently.
+- [HashiCorp Nomad](https://apis.io/apis/hashicorp/hashicorp-nomad/) — A simple and flexible scheduler and orchestrator to deploy and manage containers and non-containerized applications across on-prem and clouds.
+- [HashiCorp Consul](https://apis.io/apis/hashicorp/hashicorp-consul/) — Consul is a service networking solution that enables teams to manage secure network connectivity between services and across multi-cloud environments.
+- [HashiCorp Boundary](https://apis.io/apis/hashicorp/hashicorp-boundary/) — Securely access any system from anywhere based on user identity.
+- [HashiCorp Vagrant](https://apis.io/apis/hashicorp/hashicorp-vagrant/) — Vagrant is the command line utility for managing the lifecycle of virtual machines for isolated, consistent development environments.
+- [HashiCorp Auth API](https://apis.io/apis/hashicorp/hashicorp-auth-api/) — The Auth API from HashiCorp — 17 operation(s) for auth.
+- [HashiCorp Identity API](https://apis.io/apis/hashicorp/hashicorp-identity-api/) — The Identity API from HashiCorp — 49 operation(s) for identity.
+- [HashiCorp Secrets API](https://apis.io/apis/hashicorp/hashicorp-secrets-api/) — The Secrets API from HashiCorp — 7 operation(s) for secrets.
+- [HashiCorp System API](https://apis.io/apis/hashicorp/hashicorp-system-api/) — The System API from HashiCorp — 107 operation(s) for system.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-02-01
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### HashiCorp Vault
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Secure, store, and tightly control access to tokens, passwords, certificates, encryption keys for protecting secrets, and other sensitive data using a UI, CLI, or HTTP API.
+- [Hashicorp Agentic Access](https://apis.io/agentic-access/hashicorp/hashicorp-agentic-access/)
 
-- **Human URL:** [https://developer.hashicorp.com/vault](https://developer.hashicorp.com/vault)
+#### JSON Structure (1)
 
-#### Tags
+Data models expressed in JSON Structure.
 
-- Secrets Management
-- Security
+- [Hashicorp Structure](https://apis.io/json-structure/hashicorp/hashicorp-structure/)
 
-#### Properties
+#### Vocabulary (1)
 
-- [Documentation](https://developer.hashicorp.com/vault/api-docs)
-- [Getting Started](https://developer.hashicorp.com/vault/tutorials)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/hashicorp/refs/heads/main/openapi/hashicorp-vault-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/hashicorp-vault.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/hashicorp-vault.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The provider's domain terms, defined.
 
-### HashiCorp Terraform
+- [HashiCorp Domain Vocabulary](https://apis.io/vocabularies/hashicorp/hashicorp-vocabulary/)
 
-Terraform is an infrastructure as code tool that lets you build, change, and version infrastructure safely and efficiently.
+#### Collections (5)
 
-- **Human URL:** [https://developer.hashicorp.com/terraform](https://developer.hashicorp.com/terraform)
+Postman and Open Collection request collections.
 
-#### Tags
+- [HashiCorp Vault Auth API](https://apis.io/collections/hashicorp/open-hashicorp-auth-api/)
+- [HashiCorp Vault Auth Identity API](https://apis.io/collections/hashicorp/open-hashicorp-identity-api/)
+- [HashiCorp Vault Auth Secrets API](https://apis.io/collections/hashicorp/open-hashicorp-secrets-api/)
+- [HashiCorp Vault Auth System API](https://apis.io/collections/hashicorp/open-hashicorp-system-api/)
+- [HashiCorp Vault API](https://apis.io/collections/hashicorp/open-hashicorp-vault/)
 
-- Infrastructure as Code
-- Provisioning
+#### Security (1)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://developer.hashicorp.com/terraform/docs)
-- [Getting Started](https://developer.hashicorp.com/terraform/tutorials)
-- [Postman Collection](collections/hashicorp-vault.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/hashicorp-vault.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Hashicorp Domain Security](https://apis.io/security/hashicorp/hashicorp-domain-security/)
 
-### HashiCorp Nomad
+#### Plans and pricing (1)
 
-A simple and flexible scheduler and orchestrator to deploy and manage containers and non-containerized applications across on-prem and clouds.
+Published plans, tiers and prices.
 
-- **Human URL:** [https://developer.hashicorp.com/nomad](https://developer.hashicorp.com/nomad)
+- [Hashicorp Plans Pricing](https://apis.io/plans/hashicorp/hashicorp-plans-pricing/)
 
-#### Tags
+#### Rate limits (1)
 
-- Orchestration
-- Scheduling
+Published request limits.
 
-#### Properties
+- [Hashicorp Rate Limits](https://apis.io/rate-limits/hashicorp/hashicorp-rate-limits/)
 
-- [Documentation](https://developer.hashicorp.com/nomad/api-docs)
-- [Postman Collection](collections/hashicorp-vault.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/hashicorp-vault.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### FinOps (1)
 
-### HashiCorp Consul
+What the API costs to run, by operation.
 
-Consul is a service networking solution that enables teams to manage secure network connectivity between services and across multi-cloud environments.
+- [Hashicorp Finops](https://apis.io/finops/hashicorp/hashicorp-finops/)
 
-- **Human URL:** [https://developer.hashicorp.com/consul](https://developer.hashicorp.com/consul)
+## Where to find this API
 
-#### Tags
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- Service Discovery
-- Service Mesh
-
-#### Properties
-
-- [Documentation](https://developer.hashicorp.com/consul/api-docs)
-- [Postman Collection](collections/hashicorp-vault.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/hashicorp-vault.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### HashiCorp Boundary
-
-Securely access any system from anywhere based on user identity.
-
-- **Human URL:** [https://developer.hashicorp.com/boundary](https://developer.hashicorp.com/boundary)
-
-#### Tags
-
-- Access Management
-- Security
-
-#### Properties
-
-- [Documentation](https://developer.hashicorp.com/boundary/api-docs)
-- [Postman Collection](collections/hashicorp-vault.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/hashicorp-vault.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### HashiCorp Vagrant
-
-Vagrant is the command line utility for managing the lifecycle of virtual machines for isolated, consistent development environments.
-
-- **Human URL:** [https://developer.hashicorp.com/vagrant](https://developer.hashicorp.com/vagrant)
-
-#### Tags
-
-- Development Environments
-- Virtual Machines
-
-#### Properties
-
-- [Documentation](https://developer.hashicorp.com/vagrant/docs)
-- [Postman Collection](collections/hashicorp-vault.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/hashicorp-vault.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/hashicorp)
-- [Portal](https://developer.hashicorp.com/)
-- [Getting Started](https://developer.hashicorp.com/tutorials)
+- [Website](https://hashicorp.com)
+- [Getting started](https://developer.hashicorp.com/tutorials)
 - [Support](https://support.hashicorp.com/hc/en-us)
-- [Community](https://discuss.hashicorp.com/)
-- [Status Page](https://status.hashicorp.com/)
 - [Blog](https://www.hashicorp.com/blog)
-- [Terms of Service](https://www.hashicorp.com/terms-of-service)
-- [Privacy Policy](https://www.hashicorp.com/privacy)
-- [GitHub Organization](https://github.com/hashicorp)
+- [Terms of service](https://www.hashicorp.com/terms-of-service)
+- [Privacy policy](https://www.hashicorp.com/privacy)
+- [GitHub](https://github.com/hashicorp)
+- [Status](https://status.hashicorp.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 26.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 32.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 36.9 |
+| Access clarity | 18.4 |
+
+**Agent readiness 19.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 9.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/hashicorp/](https://apis.io/providers/hashicorp/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for HashiCorp: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/hashicorp/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
